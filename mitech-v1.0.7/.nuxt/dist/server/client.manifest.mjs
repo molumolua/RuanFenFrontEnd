@@ -1,0 +1,1 @@
+export { default } from "file:///D:/Vue%20templete/themeforest-UGmCi2DZ-mitech-vue-nuxt-js-technology-blog-template/mitech-v1.0.7/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
