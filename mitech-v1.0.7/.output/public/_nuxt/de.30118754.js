@@ -1,0 +1,1 @@
+const s=""+globalThis.__publicAssetsURL("images/flags/en.png"),a=""+globalThis.__publicAssetsURL("images/flags/fr.png"),_=""+globalThis.__publicAssetsURL("images/flags/de.png");export{s as _,a,_ as b};

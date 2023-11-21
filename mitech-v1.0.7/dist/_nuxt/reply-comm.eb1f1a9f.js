@@ -1,0 +1,1 @@
+const s=""+globalThis.__publicAssetsURL("images/team/admin.jpeg"),a=""+globalThis.__publicAssetsURL("images/team/avatar-06-90x90.jpeg"),t=""+globalThis.__publicAssetsURL("images/team/comment-3.jpeg"),e=""+globalThis.__publicAssetsURL("images/team/reply-comm.jpg");export{s as _,a,t as b,e as c};
