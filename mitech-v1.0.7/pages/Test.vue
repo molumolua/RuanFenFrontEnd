@@ -20,4 +20,5 @@
             OffCanvasMobileMenu
         }
     };
+
 </script>
