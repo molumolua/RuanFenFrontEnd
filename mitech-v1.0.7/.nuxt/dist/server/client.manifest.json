@@ -6,10 +6,10 @@
     "module": true,
     "resourceType": "script"
   },
-  "D:/Vue templete/themeforest-UGmCi2DZ-mitech-vue-nuxt-js-technology-blog-template/mitech-v1.0.7/node_modules/nuxt/dist/app/entry.mjs": {
+  "D:/大三上/软件系统分析与设计/src/RuanFenFrontEnd/mitech-v1.0.7/node_modules/nuxt/dist/app/entry.mjs": {
     "resourceType": "script",
     "module": true,
     "isEntry": true,
-    "file": "D:/Vue templete/themeforest-UGmCi2DZ-mitech-vue-nuxt-js-technology-blog-template/mitech-v1.0.7/node_modules/nuxt/dist/app/entry.mjs"
+    "file": "D:/大三上/软件系统分析与设计/src/RuanFenFrontEnd/mitech-v1.0.7/node_modules/nuxt/dist/app/entry.mjs"
   }
 }
