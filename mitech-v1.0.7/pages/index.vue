@@ -29,7 +29,7 @@
     import BlogStyleOne from '@/components/sections/BlogStyleOne';
     import CtaContact from '@/components/CtaContact';
     import Footer from '@/components/Footer';
-    import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
+   
 
     export default {
         components: {

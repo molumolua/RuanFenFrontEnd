@@ -145,5 +145,10 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <nuxt-link to="/manager">
+                <span>管理员</span>
+            </nuxt-link>
+        </li>
     </ul>
 </template>
