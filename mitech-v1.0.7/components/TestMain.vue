@@ -12,7 +12,6 @@
 <script>
 import axios from "axios"
 export default {
-<<<<<<< HEAD
 
 }
 </script>
@@ -42,6 +41,5 @@ const fetchData = async () => {
     display: table-cell;
     font-size: 20px;
 }
->>>>>>> xcj
 
 </style>
