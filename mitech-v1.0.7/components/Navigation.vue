@@ -40,6 +40,11 @@
                         <span>Modern It Company</span>
                     </nuxt-link>
                 </li>
+                <li>
+                    <nuxt-link to="/person">
+                        <span>Personal Space</span>
+                    </nuxt-link>
+                </li>
             </ul>
         </li>
         <li class="has-children has-children--multilevel-submenu">
@@ -147,3 +152,5 @@
         </li>
     </ul>
 </template>
+<script setup lang="ts">
+</script>
