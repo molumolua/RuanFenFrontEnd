@@ -7,7 +7,7 @@
                         <!-- brand logo -->
                         <div class="header__logo top-logo">
                             <nuxt-link to="/">
-                                <img src="/images/logo/logo-dark.png" class="img-fluid" alt="Brand Logo">
+                                <img src="/images/logo/logo-dark.png" class="img-fluid" alt="error!!">
                             </nuxt-link>
                         </div>
 

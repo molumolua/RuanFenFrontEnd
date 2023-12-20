@@ -1,12 +1,12 @@
 <template>
     <div class="footer-area-wrapper bg-gray">
-        <div class="footer-area section-space--ptb_80">
+        <div class="footer-area section-space--ptb_80 footer-now">
             <div class="container">
                 <div class="row footer-widget-wrapper">
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <FooterAbout :footerAbout="data.footerAboutData" />
                     </div>
-                    <div class="col-lg-2 col-md-4 col-sm-6">
+                    <!-- <div class="col-lg-2 col-md-4 col-sm-6">
                         <FooterWidgetLink :title="data.footerWidgetTitleOne" :navLists="data.navListOne" />
                     </div>
                     <div class="col-lg-2 col-md-4 col-sm-6">
@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-lg-2 col-md-4 col-sm-6">
                         <FooterWidgetApps :footerApps="data.footerAppData" />
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -76,3 +76,10 @@
         }
     };
 </script>
+<style lang="scss" scoped>
+
+.footer-now{
+    padding-bottom: 0;
+}
+
+</style>

@@ -11,14 +11,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-5">
+                <div class="col-lg-8 col-md-8">
                     <div class="cybersecurity-hero-images-wrap wow move-up">
-                        <div class="cybersecurity-hero-images section-space--mt_80">
+                        <div class="cybersecurity-hero-images section-space">
                             <div class="inner-img-one">
                                 <img class="img-fluid worldRotate" src="/images/hero/mitech-slider-cybersecurity-global-image.png" alt="image">
-                            </div>
-                            <div class="inner-img-two">
-                                <img class="img-fluid ml-xl-5" src="/images/hero/slider-cybersecurity-slide-01-image-01.png" alt="image">
                             </div>
                         </div>
                     </div>

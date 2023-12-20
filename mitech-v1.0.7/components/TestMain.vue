@@ -22,7 +22,7 @@ export default {
 
         const data = ref(null)
         data.value=fetchData()
-        console.log(data)
+        console.log("data=",data)
     }
 
 }

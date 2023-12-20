@@ -2,7 +2,7 @@
     <div class="fun-fact-wrapper bg-theme-default section-space--pb_30 section-space--pt_60">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-6 wow move-up" v-for="item in data.funfactOne" :key="item.id">
+                <div class="col-md-3 col-sm-6 wow move-up" v-for="item in funfactOne" :key="item.id">
                     <div class="fun-fact--two text-center">
                         <div class="fun-fact__count counter">
                             <span>{{ item.count }}</span>
@@ -20,7 +20,28 @@
     export default {
         data () {
             return {
-                data
+                "funfactOne": [
+                    {
+                        "title": "Successfully work <br> with",
+                        "count": 650,
+                        "text": "Happy Clients"
+                    },
+                    {
+                        "title": "Successfully <br> completed",
+                        "count": 780,
+                        "text": "finished projects"
+                    },
+                    {
+                        "title": "Recruit more <br> than",
+                        "count": 245,
+                        "text": "skilled experts"
+                    },
+                    {
+                        "title": "Blog <br> update ",
+                        "count": 980,
+                        "text": "media posts"
+                    }
+                ],
             }
         }
     };

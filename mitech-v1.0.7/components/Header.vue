@@ -1,6 +1,6 @@
 <template>
     <div class="header-area header-area--default">
-        <HeaderTop />
+        <!-- <HeaderTop /> -->
 
         <div class="header-bottom-wrap" :class="{'is-sticky': isSticky}">
             <div class="container-fluid">
@@ -9,7 +9,7 @@
                         <div class="header default-menu-style position-relative">
                             <div class="header__logo">
                                 <nuxt-link to="/">
-                                    <img src="/images/logo/logo-dark.png" class="img-fluid" alt="Brand Logo">
+                                    <img src="/images/logo/logo-dark.png" class="img-fluid" alt="error!">
                                 </nuxt-link>
                             </div>
 
@@ -27,10 +27,8 @@
                                 </div>
                             </div>
 
-                            <!-- header right box -->
-                            <div class="header-right-box">
+                            <!-- <div class="header-right-box">
                                 <div class="header-right-inner" id="hidden-icon-wrapper">
-                                    <!-- language-menu -->
                                     <div class="language-menu">
                                         <ul>
                                             <li>
@@ -53,8 +51,6 @@
                                             </li>
                                         </ul>
                                     </div>
-
-                                    <!-- header-search-form -->
                                     <div class="header-search-form default-search">
                                         <form class="search-form-top">
                                             <input class="search-field" type="text" placeholder="Search…">
@@ -65,11 +61,10 @@
                                     </div>
                                 </div>
 
-                                <!-- mobile menu -->
                                 <div class="mobile-navigation-icon d-block d-xl-none" id="mobile-menu-trigger" @click="mobileToggleClass('addClass', 'active')">
                                     <i></i>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

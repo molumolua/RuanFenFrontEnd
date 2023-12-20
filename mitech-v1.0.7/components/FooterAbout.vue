@@ -2,20 +2,20 @@
     <div class="footer-widget">
         <div class="footer-widget__logo mb-30">
             <nuxt-link to="/">
-                <img :src="footerAbout.logo" class="img-fluid" alt="logo">
+                <img src="/images/logo/logo-dark.png" class="img-fluid icon" alt="error!">
             </nuxt-link>
         </div>
         <ul class="footer-widget__list">
-            <li>{{ footerAbout.address }}</li>
+            <li>北京市海淀区学院路37号,北京航空航天大学</li>
             <li>
-                <a href="mailto:contact@mitech.com" class="hover-style-link">{{ footerAbout.email }}</a>
+                <a href="scholight@163.com" class="hover-style-link">scholight@163.com</a>
+            </li>
+            <!-- <li>
+                <a href="tel:18168659101" class="hover-style-link text-black font-weight--bold">18168659101</a>
             </li>
             <li>
-                <a href="tel:123344556" class="hover-style-link text-black font-weight--bold">{{ footerAbout.telephone }}</a>
-            </li>
-            <li>
-                <a href="https://hasthemes.com/" target="_blank" class="hover-style-link text-color-primary">{{ footerAbout.web }}</a>
-            </li>
+                <a href="http://101.43.253.121" target="_blank" class="hover-style-link text-color-primary">http://101.43.253.121</a>
+            </li> -->
         </ul>
     </div>
 </template>
@@ -25,3 +25,13 @@
         props: ['footerAbout']
     };
 </script>
+
+<style lang="scss" scoped>
+
+.icon{
+    position: relative;
+    right:20px;
+    bottom:5px;
+}
+
+</style>
