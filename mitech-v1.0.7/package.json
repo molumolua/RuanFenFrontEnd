@@ -6,17 +6,20 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "start":"nuxt start"
+    "start": "nuxt start"
   },
   "devDependencies": {
+    "@element-plus/nuxt": "^1.0.7",
     "nuxt": "3.1.1",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
     "@types/bootstrap": "^5.2.6",
     "axios": "^1.6.2",
     "bootstrap": "^5.2.3",
+    "element-plus": "^2.4.4",
     "swiper": "^8.4.7"
   }
 }

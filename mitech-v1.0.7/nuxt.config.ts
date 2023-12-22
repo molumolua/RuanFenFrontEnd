@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    css: ["bootstrap/dist/css/bootstrap.min.css", "@/assets/scss/style.scss", "swiper/css"],
+    modules: [
+        '@element-plus/nuxt'
+    ],
+    css: ["bootstrap/dist/css/bootstrap.min.css", "@/assets/scss/style.scss", "swiper/css",'element-plus/dist/index.css'],
     vite: {
         css: {
             preprocessorOptions: {

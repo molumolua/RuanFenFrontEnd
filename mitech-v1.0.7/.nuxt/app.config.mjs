@@ -1,5 +1,5 @@
 
-import { defuFn } from 'D:/大三上/软件系统分析与设计/src/RuanFenFrontEnd/mitech-v1.0.7/node_modules/defu/dist/defu.mjs'
+import { defuFn } from 'E:/2023秋季/软件分析/前端/RuanFenFrontEnd/mitech-v1.0.7/node_modules/defu/dist/defu.mjs'
 
 const inlineConfig = {}
 

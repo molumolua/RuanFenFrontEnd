@@ -1,4 +1,6 @@
 <template>
+  <div class="container">
+    <div class="bg-cover" v-if="showCover"></div>
     <div class="box">
       <div class="top">
         <span>AI Assistant</span>
@@ -38,6 +40,7 @@
         </li>
       </ul>
       <div class="bottom">
+        <el-button></el-button>
         <input
           id="myInput"
           type="text"
@@ -47,9 +50,10 @@
           class="inp"
           ref="myinp"
         />
-        <button class="btn" @click="send()">发送(S)</button>
+        <button class="btnn" @click="send()" :disabled="isSendDisable">发送(S)</button>
       </div>
     </div>
+  </div>
 </template>
 <script>
 import axios from "axios"
@@ -60,49 +64,68 @@ export default {
         return {
             AIMessageList:useAIMessageList().value,  
             AIavatar:"/images/avator/AIavator.png",
-            Useravatar:"/images/avator/user-default.png"
+            Useravatar:"/images/avator/user-default.png",
+            input:"",
+            isSendDisable:true,
+            showCover:true
         }
     },
     methods:{
         send(){
             console.log("send!!")
+            this.isSendDisable=true
             var message={
                 "role":"user",
                 "content":document.getElementById("myInput").value
             }
-            document.getElementById("myInput").value=""
+            this.input=""
             this.$data.AIMessageList.push(message)
             var address="https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions?access_token="+useAccessToken().value
             const postData={
                 "messages":JSON.parse(JSON.stringify(this.$data.AIMessageList))
             }
             console.log(postData)
+            var message={
+                  "role":"assistant",
+                  "content":"Loading...Please Wait."
+            }
+            this.$data.AIMessageList.push(message)
             axios.post(address,postData,{
                 headers: {
                     'content-type': 'application/json'
                 }
             }).then((response) =>{
                 console.log(response)
-                var message={
-                    "role":"assistant",
-                    "content":response.data.result
-                }
-                this.$data.AIMessageList.push(message)
+                this.$data.AIMessageList[this.$data.AIMessageList.length-1].content=response.data.result
             }).catch(error =>{
                 console.log("get ERROR in AIchat ",error)
             })
+            this.isSendDisable=false
         }
     }
 
 }
 </script>
 <style lang="scss" scoped>
+.bg-cover{
+  width:100%;
+  height: 100%;
+  position:fixed;
+  top:0;
+  left:0;
+  background-color: rgba(0,0,0,0.8);
+  z-index:98;
+}
 img{
   height: 80px;
 }
 .box {
-  float: left;
-  width: 800px;
+  position: fixed;
+  left:25%;
+  top:10%;
+  width: 50%;
+  display: block;
+  z-index: 99;
   //height: 700px;
    .top {
     width: 100%;
@@ -120,8 +143,8 @@ img{
     }
     span{
       position: relative;
-      right: 50%;
-      transform: translate(50%,0);
+      right: -50%;
+      transform: translate(-50%, 0);
     }
   }
   .center {
@@ -157,6 +180,7 @@ img{
           // width: 60%;
           //clip-path: polygon(0 0, 88% 0, 88% 35%, 95% 50%, 88% 65%, 88% 100%, 0 100%);
           .title{
+            font-size: 15px;
             position: relative;
             right:10px;
             top:3px;
@@ -198,6 +222,7 @@ img{
           //align-self: flex-end;
           // width: 60%;
           .title{
+            font-size:15px;
             position: relative;
             left:10px;
             top:3px;
@@ -307,7 +332,7 @@ img{
     .inp:focus {
       outline: none;
     }
-    .btn {
+    .btnn {
       height: 50px;
       width: 20%;
       box-sizing: content-box;
