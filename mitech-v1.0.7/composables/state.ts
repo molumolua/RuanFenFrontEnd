@@ -3,6 +3,8 @@
 /**简单数据类型示例 */
 export var useColor = () => useState<string>('color', () => 'red')
 
+export var useInsid = () => useState<string>('Insid', () => "")
+export var useInsName = () => useState<string>('InsName', () => "Default Name")
 
 /**复杂数据类型示例 */
 interface test{

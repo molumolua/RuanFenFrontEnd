@@ -16,7 +16,7 @@
             </div>
             <div class="team-info ">
                 <h5 class="name">{{ teamMember.name }}</h5>
-                <div class="position">{{ teamMember.designation }}</div>
+                <!-- <div class="position">{{ teamMember.designation }}</div> -->
             </div>
         </div>
     </div>
