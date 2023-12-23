@@ -27,30 +27,8 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="header-right-box">
+                            <div class="header-right-box">
                                 <div class="header-right-inner" id="hidden-icon-wrapper">
-                                    <div class="language-menu">
-                                        <ul>
-                                            <li>
-                                                <a href="javascript:void(0)">
-                                                    <img class="ls-flag" src="/images/flags/en.png" alt="en" title="English">
-                                                    <span class="wpml-ls-native">English</span>
-                                                </a>
-                                                <ul class="ls-sub-menu">
-                                                    <li class="">
-                                                        <a href="javascript:void(0)">
-                                                            <img class="ls-flag" src="/images/flags/fr.png" alt="en" title="Français"><span class="wpml-ls-native">Français</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="">
-                                                        <a href="javascript:void(0)">
-                                                            <img class="wpml-ls-flag" src="/images/flags/de.png" alt="de" title="Deutsch"><span class="wpml-ls-native">Deutsch</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
                                     <div class="header-search-form default-search">
                                         <form class="search-form-top">
                                             <input class="search-field" type="text" placeholder="Search…">
@@ -60,11 +38,7 @@
                                         </form>
                                     </div>
                                 </div>
-
-                                <div class="mobile-navigation-icon d-block d-xl-none" id="mobile-menu-trigger" @click="mobileToggleClass('addClass', 'active')">
-                                    <i></i>
-                                </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
