@@ -9,6 +9,8 @@ export var useUserName= () => useState<string>("UserName",() => "")
 export var useInsid = () => useState<string>('Insid', () => "")
 export var useInsName = () => useState<string>('InsName', () => "Default Name")
 
+export var useSCIid = () => useState<string>('SCIid', () => "")
+
 export const useAccessToken=() => useState<string>("AccessToken",()=> "24.cb35e9d56c4fe549237b59fc2c4b9f73.2592000.1705819664.282335-45508337")
 interface AIMessage{
     role: string,
@@ -33,7 +35,7 @@ export const usePeople = () =>  useState<test>('people',()=>({ //箭头函数ret
 }))
 
 const enduring: { [key: string]: () => Ref<any> } = {
-    useInsid,useInsName,useAIMessageList,useRawAIMessageList,useUserName,useToken
+    useInsid,useInsName,useAIMessageList,useRawAIMessageList,useUserName,useToken,useSCIid
 }
 //下面的俩函数在app.vue的onMounted中统一调用，或者在其它情况挂载后单独调用。
 /**把所有指定数据保存到本地存储 

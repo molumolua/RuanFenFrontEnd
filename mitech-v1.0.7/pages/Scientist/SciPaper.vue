@@ -37,7 +37,7 @@ data() {
 },
 mounted() {
     this.papers=[]
-    var address="http://121.36.19.201/api/get_works/?filter=authorships.author.id:A5013134577&page="+this.$data.nowpage+"&per_page="+this.$data.one_page
+    var address="http://121.36.19.201/api/get_works/?filter=authorships.author.id:"+useSCIid().value+"&page="+this.$data.nowpage+"&per_page="+this.$data.one_page
     console.log(address)
     axios.post(address,{},{
         headers: {

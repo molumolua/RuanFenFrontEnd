@@ -101,6 +101,9 @@
       Footer,
       OffCanvasMobileMenu,
     },
+    mounted(){
+      getLoacl()
+    },
     name: "Person",
     data() {
       return {

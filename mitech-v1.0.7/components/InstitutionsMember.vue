@@ -62,7 +62,8 @@
                     for(let i=0;i<response.data.results.length;i++){
                         this.$data.teamMembers.push({
                             "name":response.data.results[i].display_name,
-                            "image":"/images/avator/scientist.png"
+                            "image":"/images/avator/scientist.png",
+                            "id":response.data.results[i].id
                         })
                     }
                     this.$data.pagelist=[]
@@ -97,7 +98,8 @@
                     for(let i=0;i<response.data.results.length;i++){
                         this.$data.teamMembers.push({
                             "name":response.data.results[i].display_name,
-                            "image":"/images/avator/scientist.png"
+                            "image":"/images/avator/scientist.png",
+                            "id":response.data.results[i].id
                         })
                     }
                     this.$data.pagelist=[]

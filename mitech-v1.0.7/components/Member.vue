@@ -1,6 +1,6 @@
 <template>
     <div class="grid-item">
-        <nuxt-link to="/" class="ht-member" @click="setLocal()">
+        <nuxt-link to="/scientist" class="ht-member" @click="storeSCIid()">
             <div class="team-image">
                 <img class="img-fluid" :src="teamMember.image" alt="team member">
             </div>
@@ -15,6 +15,13 @@
 <script>
     export default {
         props: ['teamMember'],
+        methods:{
+            storeSCIid(){
+                var SCIid=useSCIid()
+                SCIid.value=this.teamMember.id
+                setLocal()
+            }
+        }
     };
 </script>
 <style lang="scss" scoped>
