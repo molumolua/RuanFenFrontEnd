@@ -28,17 +28,19 @@
                             </div>
 
                             <div class="header-right-box">
-                                <div class="header-right-inner" id="hidden-icon-wrapper">
-                                    <div class="header-search-form default-search">
-                                        <form class="search-form-top">
-                                            <input class="search-field" type="text" placeholder="Search…">
-                                            <button class="search-submit">
-                                                <i class="search-btn-icon fa fa-search"></i>
-                                            </button>
-                                        </form>
+                                <div class="header-bottom-wrap d-md-block d-none">
+                                    <div class="header-bottom-inner">
+                                        <div class="header-bottom-left-wrap">
+                                            <div class="header__navigation d-none d-xl-block">
+                                                <nav class="navigation-menu primary--menu">
+                                                    <AvatorNavigation />
+                                                </nav>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -50,11 +52,12 @@
 <script>
     import HeaderTop from '@/components/HeaderTop';
     import Navigation from '@/components/Navigation';
-
+    import AvatorNavigation  from '@/components/AvatorNavigation.vue';
     export default {
         components: {
             HeaderTop,
             Navigation,
+            AvatorNavigation
         },
         data() {
             return {

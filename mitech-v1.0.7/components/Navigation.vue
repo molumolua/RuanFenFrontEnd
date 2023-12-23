@@ -40,6 +40,16 @@
                         <span>Modern It Company</span>
                     </nuxt-link>
                 </li>
+                <li>
+                    <nuxt-link to="/person">
+                        <span>Person</span>
+                    </nuxt-link>
+                </li>
+                <li>
+                    <nuxt-link to="/scientist">
+                        <span>Scientist</span>
+                    </nuxt-link>
+                </li>
             </ul>
         </li>
         <li class="has-children has-children--multilevel-submenu">

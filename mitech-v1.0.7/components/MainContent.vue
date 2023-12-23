@@ -46,34 +46,15 @@
 <script>
 import MainDisplay from "@/components/MainDisplay.vue";
 import axios from "axios"
-const fetchData = async () => {
-    try {
-        const response = await axios.get('https://api.example.com/data');
-        // 处理响应
-    } catch (error) {
-        // 处理错误
-    }
-}
 export default {
     components: { 
         MainDisplay 
     },
     mounted() {
-        var color=useColor()
-        console.log(color.value)
-        color.value="black"
-        var color2=useColor()
-        console.log(color2.value)
-        
 
-
-        const data = ref(null)
-        data.value=fetchData()
-        console.log("data=",data)
     },
     data(){
         return {
-            a: 10,
         }
     },
 }

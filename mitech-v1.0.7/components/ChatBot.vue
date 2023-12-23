@@ -70,11 +70,13 @@ export default {
       Delete
     },
     mounted() {
-      var rawmessage={
+      if(this.$data.RawAIMessageList.length==0){
+        var rawmessage={
           "role":"assistant",
           "content":"有什么我可以帮您？"
+        }
+        this.$data.RawAIMessageList.push(rawmessage)
       }
-      this.$data.RawAIMessageList.push(rawmessage)
     },
     data () {
         return {
@@ -187,7 +189,7 @@ img{
     // padding: 0.05rem 0.1rem;
     font-size:25px;
     color:white;
-    background-color: rgb(41,109,216);
+    background-color: rgb(91, 115, 155);
     display: flex;
     align-items: center;
     justify-content: space-between;

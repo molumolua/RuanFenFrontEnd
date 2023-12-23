@@ -2,6 +2,9 @@
 
 /**简单数据类型示例 */
 export var useColor = () => useState<string>('color', () => 'red')
+export var useToken= () => useState<string>("Token",()=>"")
+export var useUserName= () => useState<string>("UserName",() => "")
+
 
 export var useInsid = () => useState<string>('Insid', () => "")
 export var useInsName = () => useState<string>('InsName', () => "Default Name")
@@ -30,7 +33,7 @@ export const usePeople = () =>  useState<test>('people',()=>({ //箭头函数ret
 }))
 
 const enduring: { [key: string]: () => Ref<any> } = {
-    useInsid,useInsName,useAIMessageList,useRawAIMessageList
+    useInsid,useInsName,useAIMessageList,useRawAIMessageList,useUserName,useToken
 }
 //下面的俩函数在app.vue的onMounted中统一调用，或者在其它情况挂载后单独调用。
 /**把所有指定数据保存到本地存储 
@@ -53,12 +56,14 @@ export const setLocal = (key?: string) => {
                 const element = enduring[key];
                 const setKey = key.toLowerCase().substring(3)//去掉前面的use ，其它全部转小写
                 try {
+                    console.log(setKey+"     "+element().value)
                     localStorage.setItem(setKey, JSON.stringify(element().value))
                 } catch (error) {
                     console.log(`在设置${setKey}的数据时出现错误`, error);
                 }
             }
         }
+        console.log('保存成功');
     }
 }
 /**从本地存储获取数据到state中 */

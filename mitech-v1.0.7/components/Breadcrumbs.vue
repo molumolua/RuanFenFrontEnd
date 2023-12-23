@@ -7,7 +7,7 @@
                         <h2 class="breadcrumb-title">{{ breadcrumbTitle }}</h2>
                         <ul class="breadcrumb-list">
                             <li class="breadcrumb-item">
-                                <nuxt-link to="/">Home</nuxt-link>
+                                <nuxt-link to="/" @click="setLocal()">Home</nuxt-link>
                             </li>
                             <li class="breadcrumb-item active">
                                 {{ items }}

@@ -1,10 +1,10 @@
 <template>
     <div class="full-screen-background">
         <div class="container" style="transform: scale(1.25);">
-            <div class="row align-items-center" style="padding-top: 200px;">
+            <div class="row align-items-center" style="padding-top: 150px;">
                 <div class="col-lg-7">
                     <div class="image">
-                        <img class="img-fluid" src="/images/login/login.png" alt="image">
+                        <img class="img-fluid loginimg" src="/images/login/login.png" alt="image">
                     </div>
                 </div>    
                 <div class="business-solution-form-wrap me-auto ms-auto">
@@ -75,6 +75,12 @@
                     wrongData.value = 'false';
                     await axios.post(url, headers).then((response) => {
                         console.log(response.data);
+                        var Token=useToken()
+                        Token.value=response.data.token
+                        var UserName=useUserName()
+                        UserName.value=form.name
+
+                        setLocal()
                         _this.$router.push('/');
                     }).catch((error) => {
                         wrongData.value = 'true';
@@ -119,5 +125,7 @@
   height: 100vh; /* 设置高度为视口高度 */  
   width: 100%; /* 设置宽度为100% */  
 }  
-
+.loginimg{
+    height: 550px !important;
+}
 </style>

@@ -1,0 +1,123 @@
+<template>
+    <el-card class="me-area" :body-style="{ padding: '16px' }">
+        <NuxtLink to="/processing">
+            <div class="me-article-header">
+                <a @click="view(id)" class="me-article-title">title</a>
+                <el-button v-if="weight > 0" class="me-article-icon" type="text">置顶</el-button>
+                <span class="me-pull-right me-article-count">
+                    <el-icon><Star /></el-icon>&nbsp;collectCounts
+                </span>
+                <span class="me-pull-right me-article-count">
+                    <el-icon><ChatDotRound /></el-icon>&nbsp;commentCounts
+                </span>
+                <span class="me-pull-right me-article-count">
+                </span>
+                <span class="me-pull-right me-article-count">
+                    <el-icon><View /></el-icon>&nbsp;viewCounts
+                </span>
+            </div>
+            <div class="me-artile-description">
+                {{paper.title}}
+            </div>
+            <div class="preimg" v-if="preimg">
+                <div style="margin-right:30px;width:120px" v-for="item in imgList">
+                    <img v-image-preview style="cursor:pointer;" :src="item">
+                </div>
+            </div>
+            <div class="me-article-footer">
+                <span class="me-article-author" @click="personal(authorId)">
+                    <img v-if="v===3" src="@/assets/img/authentication.png" class="me-article-author-img"/>
+                    <i class="me-icon-author"></i>&nbsp;author
+                    <img v-if="avatar" :src="avatar" class="me-article-author-avatar"/>
+                </span>
+                <el-tag v-for="t in tags" :key="t.tagName" size="small" type="warning">{{t.tagName}}</el-tag>
+                <div class="me-pull-right me-article-time">
+                    <span class="me-pull-right me-article-count"></span>
+                </div>
+            </div>
+        </NuxtLink>
+        <div class="hero-button mt-30">
+            <button class="ht-btn ht-btm-md" @click="delete">
+                <el-icon><Delete /></el-icon>
+            </button>
+        </div>
+    </el-card>
+</template>
+
+<script>
+export default {
+    name: "Paper",
+    props:["paper"]
+}
+</script>
+
+<style scoped>
+.me-article-header {
+    /*padding: 10px 18px;*/
+    padding-bottom: 10px;
+}
+
+.me-article-title {
+    font-weight: 600;
+}
+
+.me-article-icon {
+    padding: 3px 8px;
+}
+
+.me-article-count {
+    color: #a6a6a6;
+    padding-left: 20px;
+    font-size: 13px;
+}
+
+.me-pull-right {
+    float: right;
+}
+
+.me-artile-description {
+    font-size: 13px;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+.me-article-author {
+    color: #a6a6a6;
+    padding-right: 18px;
+    font-size: 13px;
+    cursor: pointer;
+}
+.me-article-author-img {
+    width: 15px;
+    height: 15px;
+}
+.me-article-author-avatar {
+    width: 30px;
+    height: 30px;
+    vertical-align: text-bottom;
+    border-radius: 50%;
+}
+.el-tag {
+    margin-left: 6px;
+}
+.me-article-time {
+    margin-top: 20px;
+}
+.leftimg {
+    /* width:11%;
+    height:11%; */
+    width: 100px;
+    height: 90px;
+    float: left;
+    margin-right: 20px;
+}
+img {
+    width: 100%;
+    height: 100%;
+}
+.preimg {
+    width: 700px;
+    height: 90px;
+    margin-bottom: 10px;
+    display: flex;
+}
+</style>
