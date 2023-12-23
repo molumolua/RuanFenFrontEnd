@@ -6,7 +6,8 @@
                     <div class="col-md-3 col-sm-6 wow move-up" v-for="item in data" :key="item.id">
                         <div class="fun-fact--two text-center">
                             <div class="fun-fact__count counter">
-                                <span>{{ item.count }}</span>
+                                <nuxt-link to="/institutionlist">{{ item.count }}</nuxt-link>
+                                <!-- <span>{{ item.count }}</span> -->
                             </div>
                             <h6 class="fun-fact__text">{{ item.text }}</h6>
                         </div>
@@ -57,10 +58,14 @@
                         "count": 245,
                         "text": "Related fields"
                     },
+                    // {
+                    //     "title": "Blog <br> update ",
+                    //     "count": 980,
+                    //     "text": "Resident users"
+                    // },
                     {
-                        "title": "Blog <br> update ",
-                        "count": 980,
-                        "text": "Resident users"
+                        "text":"Related Institutions",
+                        "count":107712
                     }
                 ],
                 "blogPosts": [

@@ -1,15 +1,13 @@
 <template>
     <div class="grid-item">
-        <div class="ht-team-member">
+        <nuxt-link to="/institution" class="ht-team-member" @click="storeIns()">
             <div class="team-image">
                 <img class="img-fluid" :src="teamMember.image" alt="team member">
-                <nuxt-link to="/institution" class="inner" @click="storeIns()"></nuxt-link>
             </div>
             <div class="team-info ">
                 <h5 class="name">{{ teamMember.name }}</h5>
-                <!-- <div class="position">{{ teamMember.designation }}</div> -->
             </div>
-        </div>
+        </nuxt-link>
     </div>
 </template>
 
@@ -18,11 +16,18 @@
         props: ['teamMember'],
         methods:{
             storeIns(){
-                var Insid=useInsid()
-                Insid.value=this.teamMember.id
+                console.log("storeIns!",this.teamMember.id)
+                var InsId=useInsid()
+                InsId.value=this.teamMember.id
                 var InsName=useInsName()
                 InsName.value=this.teamMember.name
+                setLocal()
             }
         }
     };
 </script>
+<style lang="scss" scoped>
+img{
+    height: 200px;
+}
+</style>

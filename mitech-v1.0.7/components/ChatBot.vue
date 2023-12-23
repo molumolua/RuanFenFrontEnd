@@ -1,13 +1,15 @@
 <template>
   <div class="container">
     <div class="bg-cover" v-if="showCover"></div>
-    <div class="box">
+    <div class="box" v-if="showCover">
       <div class="top">
+        <Close style="height:60%" @click="returnBack()" />
         <span>AI Assistant</span>
+        <Delete style="height:60%" @click="delteMessage()" />
       </div>
       <ul class="center" ref="center">
         <li
-          v-for="item in AIMessageList"
+          v-for="item in RawAIMessageList"
           :key="item.id"
           :class="{ 'mySay': item.role ==='user' }"
         >
@@ -40,7 +42,6 @@
         </li>
       </ul>
       <div class="bottom">
-        <el-button></el-button>
         <input
           id="myInput"
           type="text"
@@ -53,33 +54,59 @@
         <button class="btnn" @click="send()" :disabled="isSendDisable">发送(S)</button>
       </div>
     </div>
+    <div class="robotBOX" @click="openChat()">
+        <img src="/images/icons/AIRobot.png" class="robotICON">
+    </div>
   </div>
 </template>
 <script>
 import axios from "axios"
+import { Close,Delete } from "@element-plus/icons-vue"
+
 export default {
+    props: ['prompt',],
+    components:{
+      Close,
+      Delete
+    },
     mounted() {
+      var rawmessage={
+          "role":"assistant",
+          "content":"有什么我可以帮您？"
+      }
+      this.$data.RawAIMessageList.push(rawmessage)
     },
     data () {
         return {
             AIMessageList:useAIMessageList().value,  
+            RawAIMessageList:useRawAIMessageList().value,
             AIavatar:"/images/avator/AIavator.png",
             Useravatar:"/images/avator/user-default.png",
             input:"",
-            isSendDisable:true,
-            showCover:true
+            isSendDisable:false,
+            showCover:false
         }
     },
     methods:{
         send(){
-            console.log("send!!")
+          if(!this.isSendDisable){
+            if(document.getElementById("myInput").value.length==0) return
             this.isSendDisable=true
+            this.input=""
+            console.log("send!!")
             var message={
+                "role":"user",
+                "content":this.prompt+document.getElementById("myInput").value
+            }
+            this.$data.AIMessageList.push(message)
+
+            var rawmessage={
                 "role":"user",
                 "content":document.getElementById("myInput").value
             }
-            this.input=""
-            this.$data.AIMessageList.push(message)
+            this.$data.RawAIMessageList.push(rawmessage)
+
+
             var address="https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions?access_token="+useAccessToken().value
             const postData={
                 "messages":JSON.parse(JSON.stringify(this.$data.AIMessageList))
@@ -90,6 +117,7 @@ export default {
                   "content":"Loading...Please Wait."
             }
             this.$data.AIMessageList.push(message)
+            this.$data.RawAIMessageList.push(message)
             axios.post(address,postData,{
                 headers: {
                     'content-type': 'application/json'
@@ -97,10 +125,27 @@ export default {
             }).then((response) =>{
                 console.log(response)
                 this.$data.AIMessageList[this.$data.AIMessageList.length-1].content=response.data.result
+                this.$data.RawAIMessageList[this.$data.RawAIMessageList.length-1].content=response.data.result
+                this.isSendDisable=false
             }).catch(error =>{
                 console.log("get ERROR in AIchat ",error)
+                this.isSendDisable=false
             })
-            this.isSendDisable=false
+          }
+        },
+        returnBack(){
+          if(!this.isSendDisable){
+            this.showCover=false
+          }
+        },
+        openChat(){
+          this.showCover=true
+        },
+        delteMessage(){
+          if(!this.isSendDisable){
+            this.AIMessageList=[]
+            this.RawAIMessageList=[]
+          }
         }
     }
 
@@ -120,6 +165,8 @@ img{
   height: 80px;
 }
 .box {
+  border:1px;
+  border-radius:10%;
   position: fixed;
   left:25%;
   top:10%;
@@ -128,11 +175,19 @@ img{
   z-index: 99;
   //height: 700px;
    .top {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     width: 100%;
-    height: 40px;
-    padding: 0.05rem 0.1rem;
-    font-size:20px;
-    background-color: gainsboro;
+    height: 50px;
+    padding-top:3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    // padding: 0.05rem 0.1rem;
+    font-size:25px;
+    color:white;
+    background-color: rgb(41,109,216);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -143,8 +198,8 @@ img{
     }
     span{
       position: relative;
-      right: -50%;
-      transform: translate(-50%, 0);
+      // right: 50%;
+      // transform: translate(50%, 0);
     }
   }
   .center {
@@ -180,12 +235,13 @@ img{
           // width: 60%;
           //clip-path: polygon(0 0, 88% 0, 88% 35%, 95% 50%, 88% 65%, 88% 100%, 0 100%);
           .title{
-            font-size: 15px;
+            font-size: 18px;
             position: relative;
-            right:10px;
+            right:15px;
             top:3px;
           }
           .content{
+            font-size:15px;
             position: relative;
             right:10px;
             bottom: 10px;
@@ -204,12 +260,6 @@ img{
               border-right: 5px solid transparent;
               border-top: 5px solid transparent;
           }
-          .imgcontent{
-            position: relative;
-            top: 5px;
-            right:5px;
-            
-          }
           //float: right;
           position: relative;
           right:10px;
@@ -222,13 +272,14 @@ img{
           //align-self: flex-end;
           // width: 60%;
           .title{
-            font-size:15px;
+            font-size:18px;
             position: relative;
-            left:10px;
+            left:15px;
             top:3px;
           }
           .content{
             position: relative;
+            font-size: 15px;
             left:10px;
             bottom: 10px;
             text-align: left;
@@ -249,12 +300,6 @@ img{
               border-bottom: 5px solid transparent;
               border-left: 5px solid transparent;
               border-top: 5px solid transparent;
-          }
-          .imgcontent{
-            position: relative;
-            top: 5px;
-            left:5px;
-
           }
           //clip-path: polygon(5% 0, 100% 0, 100% 100%,5% 100%, 5% 65%,0 50%,5% 35%); 
           //float: left;
@@ -305,22 +350,8 @@ img{
   .bottom {
     height: 50px;
     display: flex;
-    .emoji-mart{
-      width: 355px;
-      height: 400px;
-      position: absolute;
-      bottom: 160px;
-      right: 335px;
-
-    }
-    .uploader{
-      height: 50px;
-      border: 1px solid #c9c9c9;
-      // .el-icon-picture{
-      //   // height: 45px;
-      // }
-    }
     .inp {
+      border-bottom-left-radius: 5px;
       white-space:pre-wrap;
       vertical-align:text-top;
       overflow: scroll;
@@ -333,14 +364,26 @@ img{
       outline: none;
     }
     .btnn {
-      height: 50px;
+      border-bottom-right-radius: 5px;
+      height: 48px;
       width: 20%;
       box-sizing: content-box;
-      border: 1px solid rgb(201, 201, 201);
-      background-color: rgb(201, 201, 201);
-      color: rgb(0, 0, 0);
+      font-size:17px;
+      // border: 1px solid rgb(201, 201, 201);
+      color: white;
+      background-color: rgb(41,109,216);
       margin: 0;
     }
+  }
+}
+.robotBOX{
+  position:fixed;
+  height: 120px;
+  width:120px;
+  left:92%;
+  top:85%;
+  .robotICON{
+    height: 100%;
   }
 }
 </style>

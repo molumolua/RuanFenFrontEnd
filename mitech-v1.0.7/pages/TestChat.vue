@@ -1,7 +1,7 @@
 <template>
     <div class="main-container">
         <Header />
-        <ChatBot />
+        <ChatBot prompt="Beihang University,"/>
         <Footer />
     </div>
 </template>

@@ -3,6 +3,7 @@
         <Header />
         <MainContent />
         <MainDisplay />
+        <ChatBot prompt=""/>
         <Footer />
     </div>
 </template>
@@ -12,6 +13,7 @@
     import MainDisplay from '@/components/MainDisplay.vue';
     import Header from '@/components/Header';
     import MainContent from '@/components/MainContent.vue';
+    import ChatBot  from '@/components/ChatBot.vue';
     import Footer from '@/components/Footer';
     import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
     export default {
@@ -19,6 +21,7 @@
             Header,
             MainContent,
             MainDisplay,
+            ChatBot,
             Footer,
             OffCanvasMobileMenu
         }

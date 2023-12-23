@@ -2,13 +2,13 @@
     <div class="team-member-wrapper section-space--pt_70 section-space--pb_70">
         <div class="container">
             <div class="widget-search mb-30">
-                <input ref="myinput" type="text" placeholder="Enter search keyword">
+                <input ref="myinput" type="text" placeholder="Enter search keyword"  @keydown.enter="handleSearch()">
                 <button @click="handleSearch()" type="submit" class="search-submit">
                     <span class="search-btn-icon fa fa-search"></span>
                 </button>
             </div>
             <div class="row ht-team-member-style-three">
-                <div class="col-lg-3 col-md-6 text-center wow move-up" v-for="teamMember in teamMembers.slice((nowpage-1)*one_page, (nowpage-1)*one_page+one_page)" :key="teamMember.id">
+                <div class="col-lg-3 col-md-6 text-center wow move-up" v-for="teamMember in teamMembers" :key="teamMember.id">
                     <ShowInstitutions :teamMember="teamMember" />
                 </div>
             </div>
@@ -31,7 +31,6 @@
 </template>
 
 <script>
-
     import ShowInstitutions from '@/components/ShowInstitutions';
     import axios from "axios";
     export default {
@@ -48,52 +47,94 @@
                 search:""
             }
         },
-        methods:{
-            updatepage(){
-                //http://127.0.0.1:8000/api/get_institutions/?page=1&per_page=10&sort=cited_by_count:desc&search=beihang
-                this.$data.pagelist=[]
-                var cnt=0
-                for(let i=this.$data.nowpage-1;i<=this.$data.maxpage;i++){
-                    if(i>=1){
-                        this.$data.pagelist.push(i)
-                        cnt++;  
-                    }
-                    if(cnt==4) break;
-                }
-
-                const postData = {};
-                var address="http://127.0.0.1:8000/api/get_institutions/?page="+this.$data.nowpage+"&perpage="+this.$data.one_page+"&sort=cited_by_count:desc"
+        mounted(){
+                this.teamMembers=[]
+                var address="http://121.36.19.201/api/get_institutions/?page="+this.$data.nowpage+"&per_page="+this.$data.one_page+"&sort=cited_by_count:desc"
                 if(this.$data.search.length>0) {
                     address+="&search="+this.$data.search
                     this.$data.search=""
                 }
-                
-                axios.post(address,postData).then(response => {
-                    this.$data.maxpage=(response.meta.count+this.$data.one_page-1)/this.$data.one_page
-                    console.log(response.results);
-                    for(let i=0;i<response.results.length();i++){
+                console.log(address)
+                axios.post(address,{},{
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                }).then((response) => {
+                    this.$data.maxpage=parseInt((response.data.meta.count+this.$data.one_page-1)/this.$data.one_page)
+                    console.log(this.$data.maxpage);
+                    this.$data.pagelist=[]
+                    var cnt=0
+                    for(let i=this.$data.nowpage-1;i<=this.$data.maxpage;i++){
+                        if(i>=1){
+                            this.$data.pagelist.push(i)
+                            cnt++;  
+                        }
+                        if(cnt==4) {
+                            break;
+                        }
+                    }
+                    for(let i=0;i<response.data.results.length;i++){
                         this.$data.teamMembers.push({
-                            "name":response.results[i].display_name,
-                            "image":response.results[i].image_thumbnail_url,
-                            "id":response.results[i].id
+                            "name":response.data.results[i].display_name,
+                            "image":response.data.results[i].image_url,
+                            "id":response.data.results[i].id
                         })
                     }
                 })
                 .catch(error => {
                     console.error("Error in search", error);
-                });
+                }); 
+        },
+        methods:{
+            updatepage(){
+                this.teamMembers=[]
+                var address="http://121.36.19.201/api/get_institutions/?page="+this.$data.nowpage+"&per_page="+this.$data.one_page+"&sort=cited_by_count:desc"
+                if(this.$data.search.length>0) {
+                    address+="&search="+this.$data.search
+                    this.$data.search=""
+                }
+                console.log(address)
+                axios.post(address,{},{
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                }).then((response) => {
+                    this.$data.maxpage=parseInt((response.data.meta.count+this.$data.one_page-1)/this.$data.one_page)
+                    this.$data.pagelist=[]
+                    var cnt=0
+                    for(let i=this.$data.nowpage-1;i<=this.$data.maxpage;i++){
+                        if(i>=1){
+                            console.log(i)
+                            this.$data.pagelist.push(i)
+                            cnt++;  
+                        }
+                        if(cnt==4) {
+                            break;
+                        }
+                    }
+                    for(let i=0;i<response.data.results.length;i++){
+                        this.$data.teamMembers.push({
+                            "name":response.data.results[i].display_name,
+                            "image":response.data.results[i].image_url,
+                            "id":response.data.results[i].id
+                        })
+                    }
+                })
+                .catch(error => {
+                    console.error("Error in search", error);
+                }); 
             },
             nextpage(){
                 this.$data.nowpage=this.$data.nowpage+1;
-                updatepage();
+                this.updatepage();
             },
             lastpage(){
                 this.$data.nowpage=this.$data.nowpage-1;
-                updatepage();
+                this.updatepage();
             },
             setpage(p){
                 this.$data.nowpage=p;
-                updatepage();
+                this.updatepage();
             },
             
             handleSearch(){
