@@ -23,6 +23,7 @@
     "bootstrap": "^5.2.3",
     "element-plus": "^2.4.4",
     "mitt": "^3.0.1",
-    "swiper": "^8.4.7"
+    "swiper": "^8.4.7",
+    "markdown-it": "^14.0.0"
   }
 }

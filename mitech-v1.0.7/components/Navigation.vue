@@ -50,6 +50,16 @@
                         <span>Scientist</span>
                     </nuxt-link>
                 </li>
+                <li>
+                    <nuxt-link to="/test1" @click="setLocal()">
+                        <span>test1</span>
+                    </nuxt-link>
+                </li>
+                <li>
+                    <nuxt-link to="/manager" @click="setLocal()">
+                        <span>manager</span>
+                    </nuxt-link>
+                </li>
             </ul>
         </li>
         <li class="has-children has-children--multilevel-submenu">

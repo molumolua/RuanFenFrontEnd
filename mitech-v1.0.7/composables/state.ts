@@ -3,6 +3,7 @@
 /**简单数据类型示例 */
 export var useColor = () => useState<string>('color', () => 'red')
 export var useToken= () => useState<string>("Token",()=>"")
+export var useCheck = () => useState<string>('check', () => '')
 export var useUserName= () => useState<string>("UserName",() => "")
 
 
