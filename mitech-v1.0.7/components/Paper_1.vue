@@ -1,13 +1,13 @@
 <template>
     <el-card class="me-area" :body-style="{ padding: '16px' }">
             <div class="me-article-header">
-                <a class="me-article-title">{{paper.language}}&nbsp;&nbsp;&nbsp;&nbsp;引用次数：&nbsp;{{paper.cited_by_count}}</a>
+                <a>{{paper.language}}&nbsp;&nbsp;&nbsp;&nbsp;Citation Count:&nbsp;{{paper.cited_by_count}}</a>
                 <span class="me-pull-right me-article-count">
                     <el-icon><Clock /></el-icon>&nbsp;{{paper.publication_date}}
                 </span>
             </div>
             <div class="me-artile-description">
-                <div v-html="paper.title"></div>
+                <div v-html="paper.title" class="me-article-title"></div>
             </div>
             <div class="me-article-footer">
                 <span class="me-article-author" v-for="author in paper.authorships" :key="author.author.id">
@@ -41,7 +41,8 @@ export default {
 }
 
 .me-article-title {
-    font-weight: 600;
+    font-weight: 700;
+    font-size: large;
 }
 
 .me-article-icon {

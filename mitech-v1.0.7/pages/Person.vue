@@ -3,10 +3,24 @@
     <Header />
     <div>
       <div class="PersonTop">
-        <div class="PersonTop_img">
-          <img v-image-preview src="@/assets/img/defaultavatar.png" v-if="user.avatar_url==''"/>
-          <img v-image-preview :src="user.avatar_url" v-else/>
-        </div>
+        <el-popconfirm
+          width="220"
+          confirm-button-text="是"
+          cancel-button-text="不了,谢谢"
+          :icon="InfoFilled"
+          icon-color="#626AEF"
+          title="你要修改头像吗?"
+          style="font-size: 30px;"
+          @confirm="modify"
+        >
+          <template #reference>
+            <div class="hover-shadow">
+              <img v-image-preview src="@/assets/img/defaultavatar.png" v-if="user.avatar_url==''"/>
+              <img v-image-preview :src="user.avatar_url" v-else/>
+              <input type="file" style="display: none;" @change="uploadImage" accept="image/*">  
+            </div>
+          </template>
+        </el-popconfirm>
         <div class="PersonTop_text">
           <div class="user_text">
             <div class="user_name">
@@ -17,7 +31,7 @@
               <span class="user-v-font">科研工作者</span>
             </div>
             <div class="hero-button mt-30">
-              <button class="ht-btn ht-btm-md" @click="edit">编辑个人信息</button>
+              <button class="ht-btn ht-btm-md" @click="edit">Modify Personal Info</button>
               <button class="ht-btn ht-btm-md" @click="follow">认领门户</button>
             </div>
           </div>
@@ -33,31 +47,37 @@
         <div class="person_body_left">
           <el-card class="box-card" :body-style="{ padding: '0px' }">
             <div slot="header" class="clearfix">
-              <span class="person_body_list" style="border-bottom: none">个人中心</span>
+              <span class="person_body_list" style="border-bottom: none">Personal Center</span>
             </div>
-            <el-menu active-text-color="#00c3ff" class="el-menu-vertical-demo">
+            <el-menu active-text-color="#00c3ff" class="el-menu-vertical-demo" style="overflow: auto; max-height: 500px;">
               <el-menu-item>
                 <NuxtLink :to="`/person/info`">
-                  <el-icon><User /></el-icon>
-                  <span slot="title">个人简介</span>
+                  <el-icon><UserFilled /></el-icon>
+                  <span slot="title">Profile</span>
                 </NuxtLink>
               </el-menu-item>
               <el-menu-item v-if="user.is_professor">
                 <NuxtLink :to="`/person/myarticle`">
                   <el-icon><Document /></el-icon>
-                  <span slot="title">发表论文</span>
+                  <span slot="title">Paper</span>
                 </NuxtLink>
               </el-menu-item>
               <el-menu-item>
                 <NuxtLink :to="`/person/history`">
                   <el-icon><Document /></el-icon>
-                  <span slot="title">浏览历史</span>
+                  <span slot="title">History</span>
+                </NuxtLink>
+              </el-menu-item>
+              <el-menu-item>
+                <NuxtLink :to="`/person/myfollow`">
+                  <el-icon><User /></el-icon>
+                  <span slot="title">Follow List</span>
                 </NuxtLink>
               </el-menu-item>
               <el-sub-menu @click="open">
                 <template #title>
                   <el-icon><Folder /></el-icon>
-                  <span slot="title">收藏夹</span>
+                  <span slot="title">Favorite</span>
                 </template>
                 <el-menu-item v-for="a in collection" :key="a.id" v-bind="a">
                   <NuxtLink :to="`/person/mycollection`">
@@ -67,7 +87,7 @@
                 </el-menu-item>
                 <el-menu-item @click="createCollection">
                   <el-icon><Plus /></el-icon>
-                  <span slot="title">新建收藏夹</span>
+                  <span slot="title">Create new Favorite</span>
                 </el-menu-item>
               </el-sub-menu>
             </el-menu>
@@ -79,42 +99,42 @@
       </div>
     </div>
     <ClientOnly>
-      <el-dialog title="修改个人信息" v-model="dialogVisible" width="60%" :before-close="handleClose" draggable>
+      <el-dialog title="Modify Personal Info" v-model="dialogVisible" width="60%" :before-close="handleClose" draggable>
         <el-form :model="user" :rules="rules_1" ref="user" label-width="150px" size="large">
           <div class="updateinfo">
             <div class="left">
-              <el-form-item label="用户名" prop="username">
-                <el-input v-model="user.username" placeholder="用户名" clearable></el-input>
+              <el-form-item label="User_name" prop="username">
+                <el-input v-model="user.username" placeholder="User_name" clearable></el-input>
               </el-form-item>
-              <el-form-item label="姓" prop="last_name">
-                <el-input v-model="user.last_name" placeholder="姓" clearable></el-input>
+              <el-form-item label="Last_name" prop="last_name">
+                <el-input v-model="user.last_name" placeholder="Last_name" clearable></el-input>
               </el-form-item>
-              <el-form-item label="名" prop="first_name">
-                <el-input v-model="user.first_name" placeholder="名" clearable></el-input>
+              <el-form-item label="First_name" prop="first_name">
+                <el-input v-model="user.first_name" placeholder="First_name" clearable></el-input>
               </el-form-item>
-              <el-form-item label="性别" prop="gender">
-                <el-switch v-model="user.gender" active-color="#AAAAAA" inactive-color="#AAAAAA" inline-prompt active-text="男" inactive-text="女" :active-value= "男" :inactive-value= "女"></el-switch>
+              <el-form-item label="Gender" prop="gender">
+                <el-switch v-model="user.gender" active-color="#AAAAAA" inactive-color="#AAAAAA" inline-prompt active-text="Male" inactive-text="Female" :active-value= "男" :inactive-value= "女"></el-switch>
               </el-form-item>
-              <el-form-item label="邮箱" prop="email">
-                <el-input v-model="user.email" placeholder="邮箱" clearable></el-input>
+              <el-form-item label="Email" prop="email">
+                <el-input v-model="user.email" placeholder="Email" clearable></el-input>
               </el-form-item>  
             </div>
             <div class="right">
-              <el-form-item label="用户编号" prop="id">
+              <el-form-item label="User_id" prop="id">
                 <el-input v-model="user.id" disabled></el-input>
               </el-form-item>
-              <el-form-item label="简介" prop="description">
-                <el-input v-model="user.description" placeholder="个人简介" :autosize="{ minRows: 1, maxRows:4 }" type="textarea"></el-input>
+              <el-form-item label="Signature" prop="description">
+                <el-input v-model="user.description" placeholder="Signature" :autosize="{ minRows: 1, maxRows:4 }" type="textarea"></el-input>
               </el-form-item>
-              <el-form-item label="手机号码" prop="phone_number">
-                <el-input v-model="user.phone_number" placeholder="手机号" clearable></el-input>
+              <el-form-item label="PhoneNumber" prop="phone_number">
+                <el-input v-model="user.phone_number" placeholder="PhoneNumber" clearable></el-input>
               </el-form-item>
             </div>
           </div>
         </el-form>
         <span slot="footer" class="dialog-footer">
-          <button class="ht-btn ht-btm-md btn--white" @click="handleClose">取消</button>
-          <button class="ht-btn ht-btm-md" @click="submit">提交</button>
+          <button class="ht-btn ht-btm-md btn--white" @click="handleClose">Cancel</button>
+          <button class="ht-btn ht-btm-md" @click="submit">Submit</button>
         </span>
       </el-dialog>
     </ClientOnly>
@@ -204,7 +224,7 @@ export default {
         'Content-Type': 'application/json',
         'Authorization': 'token '+useToken().value
       };
-      data = await axios.get('http://121.36.19.201/api/info/', { headers }).then((response) => {
+      await axios.get('http://121.36.19.201/api/info/', { headers }).then((response) => {
         console.log(response.data);
         this.user.id = response.data.id
         this.user.username =  response.data.username
@@ -226,7 +246,7 @@ export default {
         'Content-Type': 'application/json',
         'Authorization': 'token '+useToken().value
       };
-      data = await axios.get('http://121.36.19.201/api/getCollectionPackage/', { headers }).then((response) => {
+      await axios.get('http://121.36.19.201/api/getCollectionPackage/', { headers }).then((response) => {
         this.collection = response.data
         console.log(response.data);
       }).catch((error) => {
@@ -244,7 +264,7 @@ export default {
       const postData = {
         
       };
-      data = await axios.post('http://121.36.19.201/api/editinfo/', postData, { headers }).then((response) => {
+      await axios.post('http://121.36.19.201/api/editinfo/', postData, { headers }).then((response) => {
         console.log(response.data);
       }).catch((error) => {
         console.log(error);
@@ -279,6 +299,37 @@ export default {
     handleClose_new() {
       this.dialogVisible_new = false;
     },
+    modify(){
+      console.log("点击了")
+      document.querySelector('input[type="file"]').click();
+    },
+    uploadImage(event) {  
+      const file = event.target.files[0];  
+      if(file === undefined){
+        console.log("undefined")
+      }
+      else{
+        console.log("马上提交");
+        this.submitImg(file)
+      }
+    },  
+    async submitImg(file) {
+      console.log("提交中")
+      const headers = {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': 'token '+ useToken().value
+      };
+      const postData = {
+        'image': file,
+      };
+      console.log(postData.image)
+      await axios.post('http://121.36.19.201/api/uploadimage/',postData, {headers}).then((response) => {
+        console.log(response.data);
+        this.load();
+      }).catch((error) => {
+        console.log(error);
+      })
+    }
   },
 };
 </script>
@@ -439,8 +490,9 @@ border-radius: 5px;
 background-color: white;
 }
 .box-card {
-height: auto;
+overflow: auto;
 }
+
 .el-button {
 width: 84px;
 }
@@ -454,4 +506,25 @@ width: 84px;
 .right {
   overflow: hidden;
 }
+.hover-shadow {  
+  width: 150px;
+  height: 120px;
+  background-color: #8c939d;
+  margin-right: 24px;
+  margin-left: 20px;
+  overflow: hidden;
+  border-radius: 20px;
+  object-fit: cover;  
+  border-radius: 50%;  
+  box-shadow: none; /* 移除默认的阴影 */ 
+}  
+.hover-shadow img {
+width: 100%;
+height: 100%;
+border-radius: 20px;
+}
+.hover-shadow:hover {  
+  /* 悬停时的阴影效果 */  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 可以根据需要调整阴影的颜色、模糊距离等 */  
+}  
 </style>

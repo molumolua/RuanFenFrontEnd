@@ -9,25 +9,14 @@
           <div class="PersonTop_text">
             <div class="user_text">
               <div class="user_name">
-                <span>科研人员姓名</span>
+                <span>{{ name }}</span>
               </div>
-              <div class="user-v">
-                <img src="@/assets/img/authentication.png" class="user-v-img" />
-                <span class="user-v-font">科研工作者</span>
+              <div class="user_workplace">
+                <span>WorkPlace:&nbsp;{{ last_known_institution }}</span>
               </div>
-              <div class="user_name">
-                <span>工作单位：</span>
-              </div>
-              <div class="hero-button mt-30">
-                <button class="ht-btn ht-btm-md" @click="edit">关注</button>
-            <!-- <el-button
-              class="el-icon-edit"
-              type="primary"
-              size="medium"
-              plain
-              @click="edit"
-              >编辑</el-button
-            > -->
+              <div class="hero-button mt-30" v-if="useToken().value != ''">
+                <button class="ht-btn ht-btm-md" @click="follow" v-if="isfollowed == false">Follow</button>
+                <button class="ht-btn ht-btm-md" @click="unfollow" v-else>UnFollow</button>
             <!-- <el-button
               @click="follow"
               type="primary"
@@ -43,14 +32,14 @@
             </div>
             <div class="user_num">
               <div style="cursor: pointer" @click="myfan">
-                <div class="num_number">114514</div>
-                <span class="num_text">已发表论文</span>
+                <div class="num_number">{{work_count}}</div>
+                <span class="num_text">Published</span>
               </div>
             </div>
             <div class="user_num">
               <div style="cursor: pointer" @click="myfan">
-                <div class="num_number">114514</div>
-                <span class="num_text">被引数</span>
+                <div class="num_number">{{cited_by_count}}</div>
+                <span class="num_text">Cited</span>
               </div>
             </div>
           </div>
@@ -59,19 +48,19 @@
           <div class="person_body_left">
             <el-card class="box-card" :body-style="{ padding: '0px' }">
               <div slot="header" class="clearfix">
-                <span class="person_body_list" style="border-bottom: none">个人中心</span>
+                <span class="person_body_list" style="border-bottom: none">Resercher Info</span>
               </div>
               <el-menu active-text-color="#00c3ff" class="el-menu-vertical-demo">
                 <el-menu-item>
                   <NuxtLink :to="`/scientist/sciinfo`">
                     <el-icon><User /></el-icon>
-                    <span slot="title">个人简介</span>
+                    <span slot="title">Introduction</span>
                   </NuxtLink>
                 </el-menu-item>
                 <el-menu-item>
                   <NuxtLink :to="`/scientist/scipaper`">
                     <el-icon><Document /></el-icon>
-                    <span slot="title">发表论文</span>
+                    <span slot="title">Published Paper</span>
                   </NuxtLink>
                 </el-menu-item>
               </el-menu>
@@ -92,6 +81,7 @@
   for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     nuxtApp.vueApp.component(key, component)
   }
+  import axios from "axios";
   import Header from '@/components/Header';
   import Footer from '@/components/Footer';
   import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
@@ -102,48 +92,22 @@
       OffCanvasMobileMenu,
     },
     mounted(){
-      getLoacl()
+      getLoacl();
+      this.load();
+      if(useToken().value != null) {
+        this.load_follow()
+      }
     },
     name: "Person",
     data() {
       return {
-        dialogVisible: false,
-        form: {
-          avatar: "",
-          password: "",
-          nickname: "",
-          age: "",
-          email: "",
-          mobilePhoneNumber: "",
-          sex: "",
-          id: "",
-          account: "",
-          area: "",
-          hobby: "",
-          work: "",
-          design: "",
-        },
-        rules: {
-          nickname: [
-            { required: true, message: "昵称不能为空", trigger: "blur" },
-          ],
-          password: [
-            { required: true, message: "账号密码不能为空", trigger: "blur" },
-          ],
-        },
-        avatar: "",
-        nickname: "",
-        v: 1,
-        design: "",
-        followCounts: "",
-        fanCounts: "",
-        goodCounts: "",
-        isfollow: true,
-        followData: {
-          fanId: "",
-          followId: "",
-        },
-        isfollowid: [],
+        isfollowed: false,
+        id: "",
+        name: "",
+        work_count: Number,
+        cited_by_count: Number,
+        last_known_institution: "",
+        scientists: []
       };
     },
     methods: {
@@ -151,23 +115,70 @@
       const headers = {
         'Content-Type': 'application/json',
       };
-      data = await axios.get('http://121.36.19.201/api/get_authors/', { headers }).then((response) => {
+      const postData = {
+        'single_object_id': useSCIid().value,
+      };
+      data = await axios.post('http://121.36.19.201/api/get_authors/', postData, { headers }).then((response) => {
         console.log(response.data);
-        this.user.id = response.data.id
-        this.user.username =  response.data.username
-        this.user.first_name =  response.data.first_name
-        this.user.last_name =  response.data.last_name
-        this.user.email =  response.data.email
-        this.user.phone_number =  response.data.phone_number
-        this.user.gender =  response.data.gender
-        this.user.description = response.data.description
-        this.user.avatar_url = response.data.avatar_url
-        this.user.work_count =  response.data.work_count
-        this.user.is_professor = response.data.is_professor
+        this.id = response.data.id
+        this.name = response.data.display_name
+        this.work_count = response.data.works_count
+        this.cited_by_count = response.data.cited_by_count
+        this.last_known_institution = response.data.last_known_institution.display_name
       }).catch((error) => {
         console.log(error);
       })
     },
+    async load_follow() {
+        const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + useToken().value
+      };
+      data = await axios.get('http://121.36.19.201/api/get_follow/', { headers }).then((response) => {
+        console.log(response.data);
+        this.scientists = response.data
+        for(var i = 0; i < this.scientists.length;++i) {
+          if(this.scientists[i].author.open_alex_id == useSCIid().value) {
+            this.isfollowed = true
+          }
+        }
+      }).catch((error) => {
+        console.log(error);
+      })
+      },
+      follow() {
+        const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + useToken().value
+      };
+      const postData = {
+        'openalex_id': this.id,
+        'real_name': this.name,
+        'work_count': this.work_count,
+        'institution_display_name': this.last_known_institution
+      };
+      data = axios.post('http://121.36.19.201/api/create_follow/', postData, { headers }).then((response) => {
+        console.log(response.data)
+        this.isfollowed = true
+      }).catch((error) => {
+        console.log(error);
+      })
+      },
+      unfollow() {
+        const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Token ' + useToken().value
+      };
+      const postData = {
+        'author_id': this.id,
+      };
+      data = axios.post('http://121.36.19.201/api/revoke_follow/', postData, { headers }).then((response) => {
+        console.log(response.data)
+        this.isfollowed = false
+      }).catch((error) => {
+        console.log(error);
+      })
+      },
     },
   };
   </script>
@@ -239,6 +250,11 @@
   line-height: 30px;
   }
   .user_name {
+    font-size: 30px;
+color: #333;
+  font-weight: bold;
+  }
+  .user_workplace {
   font-weight: bold;
   }
   .user-v {
