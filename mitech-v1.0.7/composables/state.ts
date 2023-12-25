@@ -28,6 +28,7 @@ interface ArticleChartData{
 }
 export var useChartData=() => useState<Array<ArticleChartData>>("ChartData",()=>[])
 export var useWorkId=()=>useState<string>("workId",()=>"")
+export var useSearchWord=()=>useState<string>("searchWord",()=>"")
 
 
 /**复杂数据类型示例 */

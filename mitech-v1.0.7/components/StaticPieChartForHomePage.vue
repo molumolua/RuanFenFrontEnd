@@ -70,7 +70,7 @@ export default {
 <style scoped>
 /* 确保容器有足够的尺寸 */
 #container {
-  display: inline-block;
+  display: flex;
   padding-top: 100px;
   width:40%;
   height: 700px;

@@ -1,6 +1,6 @@
 <template>
      <table class="scholar-table">
-            <tr class="scholar-tr">
+            <tr class="scholar-tr0">
                 <th class="scholar-th">申请ID</th>
                 <th class="scholar-th">申请人ID</th>
                 <th class="scholar-th">申请人姓名</th>
@@ -108,6 +108,15 @@ export default {
 <style>
 .scholar-table {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.scholar-tr0 {
+    margin-top: 10px;
+    width: 59%;
 }
 
 .scholar-tr {
@@ -124,12 +133,12 @@ export default {
 
 .scholar-blank {
     text-align: center;
-    width: 1250px;
+    width: 93%;
     margin-top: 20px;
 }
 
 .scholar-btn {
-    width: 360px;
+    width: 180px;
     text-align: right;
 }
 

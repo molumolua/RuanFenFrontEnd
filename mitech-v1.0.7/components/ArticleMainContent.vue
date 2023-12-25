@@ -32,47 +32,61 @@
                                         </div>
                                     </div>
                                     <div class="post-excerpt mt-30">
-                                        <span class='h4'>
-                                            keywords&score :: {{ Array.from(detailInfo._keywords).join(', ') }}
+                                        <span style="font-size:20px">
+                                            keywords : {{ Array.from(detailInfo._keywords).join(', ') }}
                                             <br>
                                             <br>
                             
                                         </span>
-                                        <p class="h3">
+                                        <h4 class="widget-title section-space--mb_50">
                                             Abstract:
-                                        </p>   
+                                        </h4>   
                                         <blockquote>
                                             <p class="p1">
                                                 {{ detailInfo.abstract }}
                                             </p>
                                         </blockquote>
-                                        <p class="h3">
+                                        <h4 class="widget-title section-space--mb_50">
                                             AuthorInfomation:
-                                        </p>    
-                                        <tbody>
-                                            <div class="post-author">
-                                            <br>
-                                            <tr v-for="author in authorList" >
-                                                <td style="font-size:18px;">{{ author.name }} -- </td>
-                                                <td style="font-size:18px;">{{ author.pos }}</td>
-                                            </tr>
+                                        </h4>    
                                         
+                                        <div class="post-author">
+                                            <div v-for="(author,index) in authorList" :key="index" class ="inline">
+                                                <span v-if="index === 0" style="font-weight:bold;font-size:20px">
+                                                    {{author.name}}
+                                                </span>
+                                                <span v-else style="font-size:20px">
+                                                    , {{ author.name }}
+                                                </span>
                                             </div>
-                                        </tbody>
+                                        
+                                        </div>
+                                        
 
-                                        <p class="h3">
+                                        <h4 class="widget-title section-space--mb_50">
                                             <br>
                                             ArticleAnalyses:
                                             <br>
-                                        </p>  
-                                        <div class="sidebar-widget widget-blog-recent-post wow move-up" >
-                                            <ul>
-                                                <li v-for="rRa in relatedArticileAnalyse" :key="rRa.id">
-                                                    <nuxt-link :to="`/blog`" style="font-size:25px;">{{ rRa.title + "----------------" + rRa.user}}</nuxt-link>
-                                
+                                        </h4>  
+                                        
+                                        <span v-for="rRa in relatedArticileAnalyse" :key="rRa.id">
+                                                    
+                                            <Card :title="rRa.title" :other="rRa.username" :id="rRa.id" :url="rRa.file_url" class="CardClass">
+
+                                            </Card>
                                                 
-                                                </li>
-                                            </ul>
+                                        </span>
+                    
+
+                                        <h4 class="widget-title section-space--mb_50">
+                                            <br>
+                                            <br>
+                                                Share your Analyses about this article!!!
+                                            
+                                            
+                                        </h4>
+                                        <div v-if="work_id"> 
+                                            <PushMd :openalex_id="work_id" :title="detailInfo.title" :cited_by_count="citedCount"/>
                                         </div>
                                         <div class="entry-post-share-wrap  border-bottom">
                                             <div class="row align-items-center">
@@ -136,7 +150,7 @@
                                                                                     <button class="comment-reply-link" @click="showReplyForm(reply)">Reply</button>
                                                                                     <div v-if="reply.visible">
                                                                                         <input type="text" v-model="newReplyText">
-                                                                                        <button @click="addReply(reply) " class="submit">Submit Reply</button>
+                                                                                        <button @click="addReply(reply) " class="button">Submit Reply</button>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -168,8 +182,8 @@
                                                                                 placeholder="Your Comment" v-model = "newCommentText"></textarea>
                                                                         </div>
                                                                         <div class="comment-submit-btn text-center" >
-                                                                            <button class="ht-btn ht-btn-md"
-                                                                                 @click="addComment()">Submit</button>
+                                                                            <button class="button" 
+                                                                                 @click="addComment() ">Submit</button>
                                                                         </div>
                                                                     </div>
                                                                 </form>
@@ -204,9 +218,9 @@ import Footer from '@/components/Footer';
 import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
 import data from '../data/blog.json';
 import axios from 'axios';
-
-
-
+import PushMd from '@/components/PushMd';
+import Md2 from '@/components/Md2';
+import Card from '@/components/Card';
 
 export default {
     components: {
@@ -218,6 +232,7 @@ export default {
     },
     data() {
         return {
+            citedCount:0,
             replyToCommentId: null,
             newReplyText:'',
             token:"",
@@ -247,6 +262,10 @@ export default {
             var commentId = reply.id;
             this.replyToCommentId = commentId;
         },
+        change2Md(rRa){
+            useCheck().value = rRa.file_url;
+            this.$router.push('/markdowndisplay');
+        },
         fetchArticle(){
             var body = {
                 "single_object_id" : this.$data.article_id
@@ -259,6 +278,7 @@ export default {
                 this.$data.detailInfo.abstract = response.data.abstract;
                 this.$data.isOa = response.data.open_access.is_oa;
                 this.$data.oa_url = response.data.open_access.oa_url;
+                this.$data.citedCount = response.data.cited_by_count;
                 for(var i=0;i<response.data.keywords.length;i++){
                     this.$data.detailInfo._keywords.push(response.data.keywords[i].keyword);
                 }
@@ -280,9 +300,11 @@ export default {
             }
 
             // console.log(headers,data)
-            axios({method:'post',data:{work_id:this.$data.work_id},url:'http://121.36.19.201/api/work/getana'}).then((response)=>{
+            console.log(useWorkId().value);
+            axios({method:'post',data:{work_id:useWorkId().value},url:'http://121.36.19.201/api/work/getana'}).then((response)=>{
                 console.log(response);
                 this.$data.relatedArticileAnalyse = response.data;
+                console.log('fetch analysis access');
             }).catch((error)=>{
                 console.log(error);
                 console.log("fetchAnalyse Error");
@@ -326,13 +348,14 @@ export default {
                 'openalex_id':this.$data.article_id,
                 'data':this.$data.newCommentText,
             }
+            this.$data.newCommentText = '';
             //console.log(data);
             axios.post('http://121.36.19.201/api/comment_on_work/',data,{headers}).then((response) => {
                 //console.log(response.data);
             }).catch((error) => {
                 console.log(error);
             })
-            this.fetchComments();
+            //this.fetchComments();
         },
         addReply(reply){
             reply.visible = false;
@@ -346,6 +369,7 @@ export default {
                 'comment_id':comment_id,
                 'data':this.$data.newReplyText,
             }
+            this.$data.newReplyText = '';
             console.log(data);
             axios.post('http://121.36.19.201/api/comment_on_comment/',data,{headers}).then((response) => {
                 console.log(response.data);
@@ -359,6 +383,7 @@ export default {
         getLoacl();
         this.$data.token = "f55807b7e70689d2a6756521a3b8375b2531d3d9";
         this.$data.work_id = useWorkId().value;
+
         this.$data.article_id = 'W'+this.$data.work_id.split("W")[1];
         console.log(this.$data.work_id,this.$data.article_id)
         this.fetchComments();
@@ -369,10 +394,12 @@ export default {
 };
 </script>
 <style scoped>
-.keyword-item {
-    border: #45bc82 1px solid;
-    border-radius: 15px;
-    margin-right: 5px;
-    padding: 2px 3px;
+.CardClass{
+    display: inline-block;
+    margin-right : 15px;
+    margin-bottom: 15px;
+}
+.inline{
+    display: inline;
 }
 </style>

@@ -1,5 +1,4 @@
 <template>
-    <div class="container">
     <div class="message" :class="{ 'hidden': dataLoaded }">
         <table v-if="messages" class="message-table">
             <tr class="message-tr-head">
@@ -33,8 +32,6 @@
             </tr>
         </table>
     </div>
-    </div>
-    
 </template>
 
 <script>
@@ -65,14 +62,15 @@ export default {
             })
         },
         markAsRead(index, id) {
-            this.messages[index].is_read = true
+            // this.messages[index].is_read = true
             this.readMessage(id)
         },
         deleteMessages() {
-            const oldMessages = this.messages
+            const oldMessages = this.userMessages
             var data = {}
             this.messages = []
             oldMessages.forEach((item) => {
+                if (item.type == 6 || item.type == 10)
                 data = {
                     message_id: item.id
                 }
@@ -101,7 +99,7 @@ export default {
         },
         readMessages() {
             var data = {}
-            this.messages.forEach((item) => {
+            this.userMessages.forEach((item) => {
                 item.is_read = true
                 data = {
                     message_id: item.id
@@ -132,6 +130,10 @@ export default {
         put() {
             console.log(this.messages);
         },
+        // goto() {
+        //     const article = 'articleDetail'
+        //     this.$router.push(article)
+        // }
     },
     computed: {
         userMessages: function () {
@@ -208,7 +210,6 @@ export default {
 }
 
 .message-button {
-    padding-top: 5px;
     padding-bottom: 5px;
 }
 

@@ -402,6 +402,7 @@ declare global {
   const useRouter: typeof import('../../node_modules/nuxt/dist/app')['useRouter']
   const useRuntimeConfig: typeof import('../../node_modules/nuxt/dist/app')['useRuntimeConfig']
   const useSCIid: typeof import('../../composables/state')['useSCIid']
+  const useSearchWord: typeof import('../../composables/state')['useSearchWord']
   const useSeoMeta: typeof import('../../node_modules/nuxt/dist/head/runtime')['useSeoMeta']
   const useServerSeoMeta: typeof import('../../node_modules/nuxt/dist/head/runtime')['useServerSeoMeta']
   const useSlots: typeof import('vue')['useSlots']
@@ -824,6 +825,7 @@ declare module 'vue' {
     readonly useRouter: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useRouter']>
     readonly useRuntimeConfig: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useRuntimeConfig']>
     readonly useSCIid: UnwrapRef<typeof import('../../composables/state')['useSCIid']>
+    readonly useSearchWord: UnwrapRef<typeof import('../../composables/state')['useSearchWord']>
     readonly useSeoMeta: UnwrapRef<typeof import('../../node_modules/nuxt/dist/head/runtime')['useSeoMeta']>
     readonly useServerSeoMeta: UnwrapRef<typeof import('../../node_modules/nuxt/dist/head/runtime')['useServerSeoMeta']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>

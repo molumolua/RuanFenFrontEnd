@@ -4,7 +4,10 @@
         <MainContent />
         <MainDisplay />
         <ChatBot prompt=""/>
-        <StaticPieChartForHomePage/>
+        <div class="displaycontainer">
+            <StaticPieChartForHomePage/>
+            <StaticInstitutionMember/>  
+        </div>
         <Footer />
     </div>
 </template>
@@ -18,6 +21,7 @@
     import Footer from '@/components/Footer';
     import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
     import StaticPieChartForHomePage from '@/components/StaticPieChartForHomePage';
+    import StaticInstitutionMember from '@/components/StaticInstitutionMember';
     export default {
         components: {
             Header,
@@ -26,8 +30,16 @@
             ChatBot,
             Footer,
             OffCanvasMobileMenu,
-            StaticPieChartForHomePage
+            StaticPieChartForHomePage,
+            StaticInstitutionMember
         }
     };
 
 </script>
+
+<style scoped>
+.displaycontainer{
+    position: relative;
+    left: 10%;
+}
+</style>

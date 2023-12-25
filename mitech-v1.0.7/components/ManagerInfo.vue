@@ -42,6 +42,9 @@ export default {
 <style>
 .manager-table {
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .manager-th {

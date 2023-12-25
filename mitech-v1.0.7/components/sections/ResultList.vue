@@ -31,7 +31,7 @@
                         <el-text>{{key}}({{value}})</el-text>
                         </el-row>
                         </template>
-                        <el-row class="more" @click="changeState()" v-if="true">
+                        <el-row class="more" @click="changeState()" v-if="fields">
                             <el-text>{{fold?"More...":"Fold"}}</el-text>
                         </el-row>
                       <div class="space2"></div>
@@ -163,13 +163,13 @@ export default{
     methods:{
         changeState(){
             this.fold=!this.fold;
-            console.log(this.$data.fields.size);
         },
         handleChange(){
         },
         getResults(flag){
             if(flag)this.$data.selectedMap.clear();
             var url = this.$data.url[0] + this.$data.currentPage + this.$data.url[1];
+            console.log(url);
             this.$data.loading = true;
             var timeid = setTimeout(()=>{
                 if(!this.$data.loading)return;
@@ -177,9 +177,12 @@ export default{
                 ElMessage.error("搜索超时...");
             },10000);
             scrollTo(0,0);
-            axios.post(url).
+            axios.post(url,{"isAdvanced":"1"},{headers:{
+                "Content-Type":"application/json",
+            }}).
             then((response) => {
                 console.log(response);
+                clearTimeout(timeid);
                 if(flag)this.init();
                 this.$data.count = response.data.meta.count;
                 this.$data.list = response.data.results;
@@ -201,10 +204,11 @@ export default{
                 }
                 if(flag)this.$data.fields = response.data.concepts_count;
                 this.$data.loading = false;
-                clearTimeout(timeid);
             })
             .catch((error)  => {
-                console.log(error);
+                clearTimeout(timeid);
+                this.$data.loading = false;
+
             });
             return;
         },

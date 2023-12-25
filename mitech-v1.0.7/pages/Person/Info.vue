@@ -1,25 +1,25 @@
 <template>
     <div>
         <el-card>
-            <el-descriptions class="margin-top" title="简介" :column="1" border>
+            <el-descriptions class="margin-top" title="Profile" :column="1" border>
                 <el-descriptions-item align="center">
                     <template #label>
                         <el-icon><User /></el-icon>
-                        用户名
+                        User_name
                     </template>
                     {{user.username}}
                 </el-descriptions-item>
                 <el-descriptions-item align="center">
                     <template #label>
                         <el-icon><UserFilled /></el-icon>
-                        姓
+                        Last_name
                     </template>
                     {{user.last_name}}
                 </el-descriptions-item>
                 <el-descriptions-item align="center">
                     <template #label>
                         <el-icon><UserFilled /></el-icon>
-                        名
+                        First_name
                     </template>
                     {{user.first_name}}
                 </el-descriptions-item>
@@ -27,35 +27,35 @@
                     <template #label>
                         <el-icon><Male /></el-icon>
                         <el-icon><Female /></el-icon>
-                        性别
+                        Gender
                     </template>
                     <el-tag size="small" v-if="user.gender != null">{{ user.gender }}</el-tag>
                 </el-descriptions-item>
                 <el-descriptions-item align="center" min-width="100px">
                     <template #label>
                         <el-icon><Message /></el-icon>
-                        邮箱Email
+                        Email
                     </template>
                     {{user.email}}
                 </el-descriptions-item>
                 <el-descriptions-item align="center">
                     <template #label>
                         <el-icon><Iphone /></el-icon>
-                        手机号码
+                        Phone_number
                     </template>
                     {{user.phone_number}}
                 </el-descriptions-item>
                 <el-descriptions-item align="center">
                     <template #label>
                         <el-icon><EditPen /></el-icon>
-                        个人简介
+                        Signature
                     </template>
                     {{user.description}}
                 </el-descriptions-item>
                 <el-descriptions-item align="center">
                     <template #label>
                         <el-icon><Calendar /></el-icon>
-                        注册日期
+                        Registration_date
                     </template>
                     {{user.date_joined.substring(0, user.date_joined.lastIndexOf("T"))}}
                 </el-descriptions-item>

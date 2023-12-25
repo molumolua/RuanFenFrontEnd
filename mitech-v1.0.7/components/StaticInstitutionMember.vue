@@ -74,7 +74,7 @@ export default {
 
 <style scoped>
 #container{
-  display: inline-block;
+  display: flex;
   padding-top: 100px;
   width:40%;
   height: 700px;

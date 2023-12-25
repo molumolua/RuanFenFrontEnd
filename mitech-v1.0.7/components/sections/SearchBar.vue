@@ -20,6 +20,9 @@
           <el-form-item label="显示以下刊物发表的文章:">
             <el-input v-model="form.periodical"></el-input>
           </el-form-item>
+          <el-form-item label="显示以下领域相关的文章:">
+            <el-input v-model="form.field"></el-input>
+          </el-form-item>
           <el-form-item label="显示以下时间发表的文章:">
               <el-date-picker
                 v-model="form.timespan"
@@ -137,11 +140,13 @@ export default{
                 author:"作者",
                 periodical:"期刊",
                 timespan:"时间",
+                field:"领域",
             },
             form: {
                 author:"",
                 periodical:"",
                 timespan:"",
+                field:"",
             },
             selectedSortKey:"relevance_score",
             sortKey:[{
@@ -175,6 +180,13 @@ export default{
                 this.cnt = 0;
             }
         })
+        getLoacl();
+        this.$data.input = useSearchWord().value;
+        if(this.$data.input){
+        setTimeout(() => {
+                this.onSubmit();
+            }, 200);
+        }
     },
     methods:{
         querySearchAsync(queryString, cb) {
@@ -203,7 +215,7 @@ export default{
             var to_publication_date = "2023-12-25"
             if(this.$data.form.timespan[1])to_publication_date = this.$data.form.timespan[1];
             var author = this.$data.form.author;
-            var concept = ""
+            var concept = this.$data.form.field;
             var sort = this.$data.selectedSortKey+":"+this.$data.selectedSortOrder;
             var url1 = "http://121.36.19.201/api/get_works/?" +
             "filter=from_publication_date:"+from_publication_date+",to_publication_date:"+to_publication_date+

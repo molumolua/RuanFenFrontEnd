@@ -1,20 +1,18 @@
 <template>
     <table class="paper-table">
-        <tr class="paper-tr">
+        <tr class="paper-tr0">
             <th class="paper-th">申请ID</th>
             <th class="paper-th">论文标题</th>
-            <th class="paper-th">论文详情</th>
             <th class="paper-th">解析人姓名</th>
             <th class="paper-th">解析内容</th>
         </tr>
         <tr class="paper-tr" v-for="(item, index) in undefinedApplications" :key="index">
             <td class="paper-td">{{ item.analysis }}</td>
             <td class="paper-td">{{ item.work_title }}</td>
-            <td class="paper-td">{{ item.paperContent }}</td>
             <td class="paper-td">{{ item.sender_name }}</td>
             <td class="paper-td">
                 <nuxt-link :to="`/paper-check/${item.analysis}`" @click="setCheck(item.analysis_url)">
-                    <p>门户认领pdf的跳转链接</p>
+                    <p>来自{{ item.sender_name }}的解析</p>
                 </nuxt-link></td>
             <td class="paper-btn">
                 <button class="check-btn" @click="agree(item)">
@@ -97,6 +95,15 @@ export default {
 <style>
 .paper-table {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.paper-tr0 {
+    margin-top: 10px;
+    width: 59%;
 }
 
 .paper-tr {
@@ -113,8 +120,8 @@ export default {
 
 .paper-blank {
     text-align: center;
-    width: 1250px;
     margin-top: 20px;
+    width: 93%;
 }
 
 .paper-btn {
