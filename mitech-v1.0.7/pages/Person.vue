@@ -48,6 +48,12 @@
                   <span slot="title">发表论文</span>
                 </NuxtLink>
               </el-menu-item>
+              <el-menu-item>
+                <NuxtLink :to="`/person/history`">
+                  <el-icon><Document /></el-icon>
+                  <span slot="title">浏览历史</span>
+                </NuxtLink>
+              </el-menu-item>
               <el-sub-menu @click="open">
                 <template #title>
                   <el-icon><Folder /></el-icon>

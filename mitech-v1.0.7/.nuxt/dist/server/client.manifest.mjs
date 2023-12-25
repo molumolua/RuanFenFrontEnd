@@ -1,1 +1,1 @@
-export { default } from "file:///D:/%E5%A4%A7%E4%B8%89%E4%B8%8A/%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/src/RuanFenFrontEnd/mitech-v1.0.7/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
+export { default } from "file:///C:/Users/Ziming%20Hao/Desktop/RuanFenFrontEnd/mitech-v1.0.7/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
