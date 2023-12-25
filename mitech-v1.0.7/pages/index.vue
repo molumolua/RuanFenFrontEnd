@@ -4,6 +4,7 @@
         <MainContent />
         <MainDisplay />
         <ChatBot prompt=""/>
+        <StaticPieChartForHomePage/>
         <Footer />
     </div>
 </template>
@@ -16,6 +17,7 @@
     import ChatBot  from '@/components/ChatBot.vue';
     import Footer from '@/components/Footer';
     import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
+    import StaticPieChartForHomePage from '@/components/StaticPieChartForHomePage';
     export default {
         components: {
             Header,
@@ -23,7 +25,8 @@
             MainDisplay,
             ChatBot,
             Footer,
-            OffCanvasMobileMenu
+            OffCanvasMobileMenu,
+            StaticPieChartForHomePage
         }
     };
 

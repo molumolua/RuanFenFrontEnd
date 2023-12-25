@@ -45,7 +45,7 @@
                 "data": [
                     {
                         "title": "Successfully work <br> with",
-                        "count": "7000w+",
+                        "count": "5000w+",
                         "text": "Collected papers"
                     },
                     {
@@ -55,7 +55,7 @@
                     },
                     {
                         "title": "Recruit more <br> than",
-                        "count": 245,
+                        "count": 65073,
                         "text": "Related fields"
                     },
                     // {

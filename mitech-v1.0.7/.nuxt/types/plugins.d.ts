@@ -13,6 +13,7 @@ type NuxtAppInjections =
   InjectionType<typeof import("../element-plus-teleports.plugin").default> &
   InjectionType<typeof import("../element-plus-injection.plugin").default> &
   InjectionType<typeof import("../../plugins/element-plus.client").default> &
+  InjectionType<typeof import("../../plugins/event-bus.client").default> &
   InjectionType<typeof import("../../plugins/useBootstrap.client").default>
 
 declare module '#app' {

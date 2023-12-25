@@ -19,6 +19,9 @@ interface AIMessage{
 export var useAIMessageList=() => useState<Array<AIMessage>>("AIMessageList",()=>[])
 export var useRawAIMessageList=() => useState<Array<AIMessage>>("RawAIMessageList",()=>[])
 
+
+export var useChartData=() => useState<Array<number>>("ChartData",()=>[])
+
 /**复杂数据类型示例 */
 interface test{
     /**姓名 */
