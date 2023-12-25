@@ -31,7 +31,7 @@
                         <el-text>{{key}}({{value}})</el-text>
                         </el-row>
                         </template>
-                        <el-row class="more" @click="changeState()" v-if="fields">
+                        <el-row class="more" @click="changeState()" v-if="more">
                             <el-text>{{fold?"More...":"Fold"}}</el-text>
                         </el-row>
                       <div class="space2"></div>
@@ -120,6 +120,7 @@ export default{
     data() {
         return {
             fold:true,
+            more:false,
             cnt:0,
             perPage:perPage,
             loading:false,
@@ -202,7 +203,10 @@ export default{
                     this.$data.list[i]._keywords = _keywords;
                     this.$data.list[i]._authors = _authors;
                 }
-                if(flag)this.$data.fields = response.data.concepts_count;
+                if(flag){
+                    this.$data.fields = response.data.concepts_count;
+                    this.$data.more = (JSON.stringify(this.$data.fields).split(":").length >= 3);
+                }
                 this.$data.loading = false;
             })
             .catch((error)  => {
@@ -214,15 +218,17 @@ export default{
         },
         gotoDetail(res){
             useWorkId().value = res.id;
+            useWorkName().value = res.display_name;
             setLocal();
             let routeInfo = this.$router.resolve({ path: '/articledetail' });
             window.open(routeInfo.href, '_blank');
         },
         analyse(){
-            useChartData().value = Array.from(this.$data.selectedMap.values)
-            console.log(useChartData().value);
-            // setLocal();
-            // this.$router.push("/netforeassy");
+            useChartData().value = [];
+            for(let item of this.$data.selectedMap.values())useChartData().value.push(item);
+            setLocal();
+            let routeInfo = this.$router.resolve({ path: '/netForEssay' });
+            window.open(routeInfo.href, '_blank');
         },
         selectAll(flag){
             for(var i = 0; i < this.$data.list.length; i++){

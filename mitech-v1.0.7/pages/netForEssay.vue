@@ -19,6 +19,8 @@ import axios from "axios";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
+import {getLoacl} from "~/composables/state";
+import paper from "~/components/Paper.vue";
 
     
 export default {
@@ -88,8 +90,7 @@ export default {
       const model = node.getModel();
       this.tooltipContent = `${model.title}<br>被引次数: ${model.papersPublished}`;
       this.tooltipPos = { x: evt.clientX+12, y: evt.clientY+12 };
-      console.log("xy: "+ this.tooltipPos.x+" "+this.tooltipPos.y)
-      console.log(this.tooltipContent)
+
       this.showTooltip = true;
     },
     hideTooltip() {
@@ -134,16 +135,20 @@ export default {
       try {
         const response = await axios.post(`http://121.36.19.201/api/get_works/?filter=ids.openalex:`+this.idsForArea+'&select=id,cited_by_count,title,counts_by_year');
         this.transformData(response.data);
-        console.log(this.final_data);
+
       } catch (error) {
         console.error('Error fetching paper details:', error);
         // 处理错误
       }
     },
     async fetchPaperDetails() {
+      this.chart_data=useChartData().value;
+      console.log(this.chart_data);
       this.processPapers();
+      // console.log(this.ids);
       try {
         const response = await axios.post(`http://121.36.19.201/api/get_works/?filter=ids.openalex:`+this.ids+'&select=id,cited_by_count,display_name');
+        console.log(response.data)
         this.papers = this.papers.map(paper => {
           const matchingData = response.data.results.find(item => item.id === paper.id);
           return {
@@ -152,8 +157,6 @@ export default {
             citations: matchingData ? matchingData.cited_by_count : paper.citations,
           };
         });
-        // console.log(this.papers);
-        // this.createChart();
       } catch (error) {
         console.error('Error fetching paper details:', error);
         // 处理错误
@@ -171,7 +174,11 @@ export default {
           type: "initial"
         });
         let a=1;
+        let b=0;
+        let c=0;
         for (const refId of paper.referenced_works) {
+          if (b==3) break;
+          b++;
           // const refPaper = await this.fetchPaperDetails(refId);
           if (a==1){
             a=0;
@@ -190,7 +197,8 @@ export default {
         }
 
         for (const relId of paper.related_works) {
-          // const relPaper = await this.fetchPaperDetails(relId);
+          if (c==4) break;
+          c++;
           this.ids+='|';
           this.ids+=relId;
           this.papers.push({
@@ -208,12 +216,13 @@ export default {
   },
 
   async mounted() {
+    getLoacl();
     await this.fetchPaperDetails();
     await this.getList();
     {
       const graph = new G6.Graph({
         container: this.$refs.container,
-        width: 1500,
+        width: 1120,
         height: 600,
         layout: {
           type: 'force', // 布局
@@ -233,8 +242,7 @@ export default {
           default: ['drag-canvas',  'drag-node','click-select','zoom-canvas'],
         },
       });
-      console.log(this.papers);
-      console.log(this.relations);
+
       const nodes = this.papers.map(paper => ({
         id: paper.id.toString(),
         title: paper.title,
@@ -266,7 +274,7 @@ export default {
       graph.on('node:mouseenter', (evt) => {
         const node = evt.item;
         this.showNodeTooltip(node,evt);
-        console.log("aaaa")
+
         const connectedNodes = graph.getNeighbors(node);
         const connectedNodeIds = connectedNodes.map(n => n.getID());
 

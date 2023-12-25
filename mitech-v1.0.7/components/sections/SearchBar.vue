@@ -216,11 +216,13 @@ export default{
             if(this.$data.form.timespan[1])to_publication_date = this.$data.form.timespan[1];
             var author = this.$data.form.author;
             var concept = this.$data.form.field;
+            var location = this.$data.form.periodical;
             var sort = this.$data.selectedSortKey+":"+this.$data.selectedSortOrder;
             var url1 = "http://121.36.19.201/api/get_works/?" +
             "filter=from_publication_date:"+from_publication_date+",to_publication_date:"+to_publication_date+
             (author?",authorships.author.display_name:"+author:"")+
             (concept?",concepts.display_name:"+concept:"")+
+            (location?",locations.source.display_name:"+location:"")+
             "&page=";
             var url2 = "&per_page="+perPage+
             "&search="+search+"&sort="+sort;

@@ -1,6 +1,8 @@
 <template>
     <div class="main-container">
         <ArticleMainContent />
+        
+        <ChatBot :prompt="useWorkName().value+','"/>
     </div>
 </template>
 
@@ -10,7 +12,7 @@
     import ArticleMainContent from '@/components/ArticleMainContent';
     import Footer from '@/components/Footer';
     import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
-
+    import ChatBot from "@/components/ChatBot.vue"
     export default {
         name: 'articledetail',
         components: {
@@ -18,7 +20,17 @@
             Header,
             PageHeader,
             Footer,
-            OffCanvasMobileMenu
+            OffCanvasMobileMenu,
+            ChatBot
+        },
+        mounted(){
+            getLoacl()
+            console.log(useWorkName().value)
+        },
+        data(){
+            return{
+                WorkName:useWorkName().value
+            }
         },
         head() {
             return {

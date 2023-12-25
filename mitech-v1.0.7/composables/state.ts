@@ -29,6 +29,7 @@ interface ArticleChartData{
 export var useChartData=() => useState<Array<ArticleChartData>>("ChartData",()=>[])
 export var useWorkId=()=>useState<string>("workId",()=>"")
 export var useSearchWord=()=>useState<string>("searchWord",()=>"")
+export var useWorkName=()=>useState<string>("workName",()=>"")
 
 
 /**复杂数据类型示例 */
@@ -47,7 +48,7 @@ export const usePeople = () =>  useState<test>('people',()=>({ //箭头函数ret
 }))
 
 const enduring: { [key: string]: () => Ref<any> } = {
-    useInsid,useInsName,useAIMessageList,useRawAIMessageList,useUserName,useToken,useSCIid,useChartData,useWorkId
+    useInsid,useInsName,useAIMessageList,useRawAIMessageList,useUserName,useToken,useSCIid,useChartData,useWorkId,useWorkName
 }
 //下面的俩函数在app.vue的onMounted中统一调用，或者在其它情况挂载后单独调用。
 /**把所有指定数据保存到本地存储 

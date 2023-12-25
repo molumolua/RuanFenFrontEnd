@@ -411,6 +411,7 @@ declare global {
   const useTransitionState: typeof import('vue')['useTransitionState']
   const useUserName: typeof import('../../composables/state')['useUserName']
   const useWorkId: typeof import('../../composables/state')['useWorkId']
+  const useWorkName: typeof import('../../composables/state')['useWorkName']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
   const withCtx: typeof import('vue')['withCtx']
@@ -834,6 +835,7 @@ declare module 'vue' {
     readonly useTransitionState: UnwrapRef<typeof import('vue')['useTransitionState']>
     readonly useUserName: UnwrapRef<typeof import('../../composables/state')['useUserName']>
     readonly useWorkId: UnwrapRef<typeof import('../../composables/state')['useWorkId']>
+    readonly useWorkName: UnwrapRef<typeof import('../../composables/state')['useWorkName']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly withCtx: UnwrapRef<typeof import('vue')['withCtx']>
