@@ -1,6 +1,7 @@
 <template>
   <Header/>
-  <div ref="container" style="width: 1500px; height: 600px;"></div>
+  <div class="netChart" ref="container"></div>
+  <div class="chart-container" ref="container1" ></div>
   <div v-if="showTooltip" :style="{ background: '#666666', position: 'fixed', left: tooltipPos.x + 'px', top: tooltipPos.y + 'px' ,color: 'white'}" >
     <div v-html="tooltipContent"></div>
   </div>
@@ -13,6 +14,7 @@
 
 <script>
 import G6 from '@antv/g6';
+import { Area } from '@antv/g2plot';
 import axios from "axios";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -66,91 +68,12 @@ export default {
           ],
         },
       ],
+      final_data:[],
+      idsForArea:"",
       papers:[],
       relations:[],
       rec_data:[],
       ids: "",
-      // papers: [
-      //   { "id": 1, "title": "Deep Learning for Image Classification", "citations": 60000, "type": "initial" },
-      //   { "id": 2, "title": "Reinforcement Learning in Robotics", "citations": 95, "type": "initial" },
-      //   { "id": 3, "title": "Graph Neural Networks for Node Classification", "citations": 80, "type": "reference" },
-      //   { "id": 4, "title": "Natural Language Processing with Transformers", "citations": 110, "type": "reference" },
-      //   { "id": 5, "title": "Computer Vision: Advances and Challenges", "citations": 75, "type": "reference" },
-      //   { "id": 6, "title": "Quantum Computing: Principles and Applications", "citations": 70, "type": "related" },
-      //   { "id": 7, "title": "Blockchain Technology: A Comprehensive Overview", "citations": 65, "type": "related" },
-      //   { "id": 8, "title": "Edge Computing: Trends and Future Directions", "citations": 60, "type": "related" },
-      //   { "id": 9, "title": "Cybersecurity Threats and Countermeasures", "citations": 55, "type": "related" },
-      //   { "id": 10, "title": "Internet of Things (IoT) in Healthcare", "citations": 50, "type": "related" },
-      //   { "id": 11, "title": "Quantum Machine Learning Algorithms", "citations": 45, "type": "reference" },
-      //   { "id": 12, "title": "Deep Reinforcement Learning for Games", "citations": 40, "type": "reference" },
-      //   { "id": 13, "title": "Advances in Cloud Computing Technologies", "citations": 35, "type": "reference" },
-      //   { "id": 14, "title": "5G Wireless Networks: Challenges and Opportunities", "citations": 30, "type": "reference" },
-      //   { "id": 15, "title": "AI in Healthcare: Current Applications and Future Prospects", "citations": 25, "type": "reference" },
-      //   { "id": 16, "title": "Edge AI: Enabling Intelligence at the Edge", "citations": 20, "type": "related" },
-      //   { "id": 17, "title": "Quantum Cryptography: Principles and Applications", "citations": 15, "type": "related" },
-      //   { "id": 18, "title": "Big Data Analytics for Business Insights", "citations": 10, "type": "related" },
-      //   { "id": 19, "title": "Human-Robot Interaction in Industry 4.0", "citations": 18, "type": "related" },
-      //   { "id": 20, "title": "Smart Cities: Technologies and Challenges", "citations": 20, "type": "initial" },
-      //   { "id": 21, "title": "Advancements in Natural Language Generation", "citations": 38, "type": "reference" },
-      //   { "id": 22, "title": "Quantum Machine Learning: Recent Developments", "citations": 42, "type": "reference" },
-      //   { "id": 23, "title": "AI Ethics: Challenges and Guidelines", "citations": 22, "type": "reference" },
-      //   { "id": 24, "title": "Edge Computing in IoT: Opportunities and Challenges", "citations": 16, "type": "reference" },
-      //   { "id": 25, "title": "Cybersecurity in Autonomous Vehicles", "citations": 12, "type": "reference" },
-      //   { "id": 26, "title": "Blockchain in Supply Chain Management", "citations": 28, "type": "reference" },
-      //   { "id": 27, "title": "Quantum Computing in Finance", "citations": 34, "type": "reference" },
-      //   { "id": 28, "title": "AI-driven Healthcare Diagnostics", "citations": 26, "type": "reference" },
-      //   { "id": 29, "title": "Robotic Process Automation in Business", "citations": 18, "type": "reference" },
-      //   { "id": 30, "title": "IoT Security: Emerging Threats and Solutions", "citations": 14, "type": "reference" },
-      //   { "id": 31, "title": "Federated Learning in Privacy-preserving AI", "citations": 11, "type": "reference" },
-      //   { "id": 32, "title": "Quantum Computing: Quantum Algorithms", "citations": 19, "type": "reference" },
-      //   { "id": 33, "title": "AI-driven Customer Service Chatbots", "citations": 27, "type": "reference" },
-      //   { "id": 34, "title": "Cloud-native Application Development", "citations": 32, "type": "reference" },
-      //   { "id": 35, "title": "Ethical Considerations in AI Research", "citations": 16, "type": "reference" },
-      //   { "id": 36, "title": "AI in Financial Trading", "citations": 15, "type": "reference" },
-      //   { "id": 37, "title": "Blockchain-based Supply Chain Traceability", "citations": 23, "type": "related" },
-      //   { "id": 38, "title": "Quantum Machine Learning in Healthcare", "citations": 22, "type": "related" },
-      //   { "id": 39, "title": "Edge AI for Smart Cities", "citations": 11, "type": "related" },
-      //   { "id": 40, "title": "AI in Education: Personalized Learning", "citations": 21, "type": "related" }
-      // ],
-      // relations: [
-      //   { "source": "1", "target": "6" },
-      //   { "source": "1", "target": "20" },
-      //   { "source": "1", "target": "7" },
-      //   { "source": "1", "target": "8" },
-      //   { "source": "1", "target": "9" },
-      //   { "source": "1", "target": "10" },
-      //   { "source": "2", "target": "37" },
-      //   { "source": "2", "target": "38" },
-      //   { "source": "2", "target": "39" },
-      //   { "source": "2", "target": "40" },
-      //   { "source": "20", "target": "16" },
-      //   { "source": "20", "target": "17" },
-      //   { "source": "20", "target": "18" },
-      //   { "source": "20", "target": "19" },
-      //   { "source": "1", "target": "3" },
-      //   { "source": "1", "target": "4" },
-      //   { "source": "1", "target": "5" },
-      //   { "source": "1", "target": "11" },
-      //   { "source": "1", "target": "12" },
-      //   { "source": "1", "target": "13" },
-      //   { "source": "1", "target": "14" },
-      //   { "source": "2", "target": "21" },
-      //   { "source": "2", "target": "22" },
-      //   { "source": "2", "target": "23" },
-      //   { "source": "2", "target": "24" },
-      //   { "source": "2", "target": "25" },
-      //   { "source": "2", "target": "26" },
-      //   { "source": "2", "target": "27" },
-      //   { "source": "2", "target": "28" },
-      //   { "source": "2", "target": "29" },
-      //   { "source": "2", "target": "30" },
-      //   { "source": "2", "target": "31" },
-      //   { "source": "20", "target": "32" },
-      //   { "source": "20", "target": "33" },
-      //   { "source": "20", "target": "34" },
-      //   { "source": "20", "target": "35" },
-      //   { "source": "20", "target": "36" },
-      // ],
       showTooltip: false,
       tooltipContent: '',
       tooltipPos: { x: 0, y: 0 },
@@ -181,13 +104,46 @@ export default {
     hideEdgeTooltip() {
       this.showEdgetip = false;
     },
-
+    getIDS(){
+      let a=0;
+      for (let people of this.chart_data){
+        if(a==0){
+          this.idsForArea+=people.id;
+          a=1;
+        }else{
+          this.idsForArea+='|';
+          this.idsForArea+=people.id;
+        }
+      }
+    },
+    transformData(responseData) {
+      const years = Array.from({ length: 8 }, (_, i) => 2016 + i); // 生成年份数组，从2013到2023
+      responseData.results.forEach(result => {
+        years.forEach(year => {
+          const yearData = result.counts_by_year.find(y => y.year === year) || { cited_by_count: 0 };
+          this.final_data.push({
+            year: year.toString(),
+            series: result.title,
+            value: yearData.cited_by_count,
+          });
+        });
+      });
+    },
+    async getList(){
+      this.getIDS();
+      try {
+        const response = await axios.post(`http://121.36.19.201/api/get_works/?filter=ids.openalex:`+this.idsForArea+'&select=id,cited_by_count,title,counts_by_year');
+        this.transformData(response.data);
+        console.log(this.final_data);
+      } catch (error) {
+        console.error('Error fetching paper details:', error);
+        // 处理错误
+      }
+    },
     async fetchPaperDetails() {
       this.processPapers();
       try {
         const response = await axios.post(`http://121.36.19.201/api/get_works/?filter=ids.openalex:`+this.ids+'&select=id,cited_by_count,display_name');
-        console.log(this.ids)
-        console.log(response.data);
         this.papers = this.papers.map(paper => {
           const matchingData = response.data.results.find(item => item.id === paper.id);
           return {
@@ -253,6 +209,7 @@ export default {
 
   async mounted() {
     await this.fetchPaperDetails();
+    await this.getList();
     {
       const graph = new G6.Graph({
         container: this.$refs.container,
@@ -442,8 +399,42 @@ export default {
       graph.data({ nodes, edges });
       graph.render();
     }
-
+    {
+      const areaChart = new Area(this.$refs.container1, {
+      data: this.final_data.map(item => ({
+        ...item,
+        color: '#' + Math.floor(Math.random()*16777215).toString(16) // 随机生成颜色
+      })),
+      xField: 'year',
+      yField: 'value',
+      seriesField: 'series',
+      smooth: true,
+      legend: {
+        position: 'right', // 将图例位置设置为右侧
+      },
+    });
+    areaChart.render();
+    }
 
   },
 };
 </script>
+<style >
+.netChart{
+  margin:50px auto;
+  width: 1200px;
+  height:600px;
+  border: 2px solid black;
+  justify-content: center;
+  align-content: center;
+}
+.chart-container {
+  margin:100px auto;
+  width: 1200px;
+  height: 400px;
+  border: 2px solid black; /* 添加黑色边框 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

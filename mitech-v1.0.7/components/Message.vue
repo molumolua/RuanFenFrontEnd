@@ -1,9 +1,10 @@
 <template>
-    <div :class="{ 'hidden': dataLoaded }">
+    <div class="container">
+    <div class="message" :class="{ 'hidden': dataLoaded }">
         <table v-if="messages" class="message-table">
-            <tr class="message-tr">
+            <tr class="message-tr-head">
                 <th class="message-th">消息ID</th>
-                <th class="message-th">消息内容</th>
+                <th class="message-th1">消息内容</th>
                 <th class="message-button">
                     <button class="message-btn" @click="deleteMessages()">
                         <span>全部删除</span>
@@ -17,22 +18,23 @@
             </tr>
             <tr class="message-tr" v-for="(item, index) in userMessages" :key="item.id" @click="markAsRead(index, item.id)">
                 <td class="message-td">{{ item.id }}</td>
-                <td class="message-td">{{ item.content }}</td>
+                <td class="message-td1">{{ item.content }}</td>
                 <td class="message-button">
                     <button class="message-btn1" @click="deleteMessage(item.id)">
-                        <span>删除</span>
+                        <span>删&emsp;除</span>
                     </button>
                 </td>
                 <td class="message-button">
                     <button class="message-btn1" @click="readMessage(item.id)">
-                        <span>已读</span>
+                        <span>已&emsp;读</span>
                     </button>
                 </td>
                 <div class="unreadFlag" :class="{ 'hidden': item.is_read }"></div>
             </tr>
         </table>
-        <button @click="put">按钮</button>
     </div>
+    </div>
+    
 </template>
 
 <script>
@@ -146,8 +148,20 @@ export default {
 </script>
 
 <style>
+.message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .message-table {
     margin-top: 20px;
+}
+
+.message-tr-head {
+    margin-top: 40px;
+    border-bottom: 3px solid #ccc;
+    cursor: pointer;
 }
 
 .message-tr {
@@ -157,11 +171,19 @@ export default {
 }
 
 .message-th {
-    width: 180px;
+    width: 250px;
 }
 
 .message-td {
-    width: 180px;
+    width: 250px;
+}
+
+.message-th1 {
+    width: 600px;
+}
+
+.message-td1 {
+    width: 600px;
 }
 
 .unreadFlag {
@@ -186,47 +208,52 @@ export default {
 }
 
 .message-button {
+    padding-top: 5px;
     padding-bottom: 5px;
 }
 
 .message-btn {
-    background-color: #0869d8;
+    background-color: #1a77e2d3;
     border: none;
     color: white;
     padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 10px;
+    font-size: 15px;
     margin: 2px 2px;
     cursor: pointer;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    border-radius: 15px;
+    border-radius: 8px;
+    width: 80px;
+    height: 40px;
+    margin-right: 25px;
 }
 
 .message-btn:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 12px 16px 0 rgba(107, 105, 105, 0.24),0 17px 50px 0 rgba(131, 127, 127, 0.19);
 }
 
 .message-btn1 {
-    background-color: #0869d8;
+    background-color: #1a77e2d3;
     border: none;
     color: white;
     padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 10px;
+    font-size: 15px;
     margin: 2px 2px;
     cursor: pointer;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    border-radius: 15px;
-    margin-left: 10px;
+    border-radius: 8px;
+    width: 80px;
+    height: 40px;
 }
 
 .message-btn1:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 12px 16px 0 rgba(107, 105, 105, 0.24),0 17px 50px 0 rgba(131, 127, 127, 0.19);
 }
 </style>

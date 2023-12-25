@@ -35,7 +35,8 @@ export default {
         data: this.chartData, // 使用新的变量名
         angleField: 'value',
         colorField: 'type',
-        innerRadius: 0.6,
+        innerRadius: 0.55,
+        radius:0.9,
         interactions: [{ type: 'element-selected' }, { type: 'element-active' }],
         label: {
           content: ({ percent }) => {
@@ -69,8 +70,9 @@ export default {
 <style scoped>
 /* 确保容器有足够的尺寸 */
 #container {
+  display: inline-block;
   padding-top: 100px;
-  width:50%;
+  width:40%;
   height: 700px;
   padding-bottom: 100px;
   overflow: visible;

@@ -20,8 +20,15 @@ interface AIMessage{
 export var useAIMessageList=() => useState<Array<AIMessage>>("AIMessageList",()=>[])
 export var useRawAIMessageList=() => useState<Array<AIMessage>>("RawAIMessageList",()=>[])
 
+interface ArticleChartData{
+    id:string,
+    title:string,
+    referenced_works:Array<string>,
+    related_works:Array<string>,
+}
+export var useChartData=() => useState<Array<ArticleChartData>>("ChartData",()=>[])
+export var useWorkId=()=>useState<string>("workId",()=>"")
 
-export var useChartData=() => useState<Array<number>>("ChartData",()=>[])
 
 /**复杂数据类型示例 */
 interface test{
@@ -39,7 +46,7 @@ export const usePeople = () =>  useState<test>('people',()=>({ //箭头函数ret
 }))
 
 const enduring: { [key: string]: () => Ref<any> } = {
-    useInsid,useInsName,useAIMessageList,useRawAIMessageList,useUserName,useToken,useSCIid
+    useInsid,useInsName,useAIMessageList,useRawAIMessageList,useUserName,useToken,useSCIid,useChartData,useWorkId
 }
 //下面的俩函数在app.vue的onMounted中统一调用，或者在其它情况挂载后单独调用。
 /**把所有指定数据保存到本地存储 

@@ -65,6 +65,7 @@
     <el-col :offset="12" :span="4" class="filter-title"></el-col>
     <el-col :span="4">
         <el-select v-model="selectedSortKey" 
+        @change="onSubmit()"
         size="large">
             <el-option
               v-for="item in sortKey"
@@ -75,7 +76,9 @@
         </el-select>
     </el-col>
     <el-col :span="4">
-        <el-select v-model="selectedSortOrder" size="large">
+        <el-select v-model="selectedSortOrder" 
+        @change="onSubmit()"
+        size="large">
             <el-option
               v-for="item in sortOrder"
               :key="item.value"
@@ -221,8 +224,8 @@ export default{
     overflow: visible;
     text-align: left;
     position: relative;
-    left:25%;
-    width:60%;
+    left:20%;
+    width:70%;
     margin-top:20px;
     margin-bottom:20px;
 }

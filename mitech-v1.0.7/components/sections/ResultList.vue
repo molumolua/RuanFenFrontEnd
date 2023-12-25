@@ -1,44 +1,55 @@
 <template>
     <div class="hello">
-        <el-container>
-        <el-aside width="300px" class="filter">
-            <el-row class="filter-title">相关搜索</el-row>
-                <!-- <el-collapse v-model="activeNames">
-                    <el-collapse-item v-for="filterProp in filterProps" :title="filterProp" v-if="filter[filterProp].length > 1" :key="filterProp">
-                        <el-checkbox-group class="filter-option"
-                        @change="handleChange()"
-                        v-model="checkedFilter[filterProp]"
-                        :min="1">
-                        <el-checkbox v-for="item in filter[filterProp]" :label="item" :key="item">{{item}}</el-checkbox>
-                      </el-checkbox-group>
-                    </el-collapse-item>
-                  </el-collapse> -->
-                  <template v-for="rec in recommends">
-                    <el-row class="recommend-row">
-                  <el-text class="recommend" @click="search(rec.keyword)" v-if="rec.keyword">
-                    <el-icon><CaretRight /></el-icon>
-                    {{rec.keyword}}
-                    </el-text>
-                </el-row>
-                  </template>
-                  <div class="space"></div>
-                    <el-row class="filter-title">领域筛选</el-row>
-                  <template v-for="(value,key,index) in fields">
-                    <el-row v-if="index<3" class="field">
-                    <el-icon class="field-button" @click="selectWithField(key ,true)"><CircleCheck/></el-icon>
-                    <el-icon class="field-button" @click="selectWithField(key,false)"><CircleClose/></el-icon>
-
-                    <el-text>{{key}}({{value}})</el-text>
+        <div class="filter">
+            <el-affix position="top" :offset="120">
+                <el-row class="filter-title">相关搜索</el-row>
+                    <!-- <el-collapse v-model="activeNames">
+                        <el-collapse-item v-for="filterProp in filterProps" :title="filterProp" v-if="filter[filterProp].length > 1" :key="filterProp">
+                            <el-checkbox-group class="filter-option"
+                            @change="handleChange()"
+                            v-model="checkedFilter[filterProp]"
+                            :min="1">
+                            <el-checkbox v-for="item in filter[filterProp]" :label="item" :key="item">{{item}}</el-checkbox>
+                          </el-checkbox-group>
+                        </el-collapse-item>
+                      </el-collapse> -->
+                      <template v-for="rec in recommends">
+                        <el-row class="recommend-row" @click="search(rec.keyword)">
+                      <el-text class="recommend" v-if="rec.keyword">
+                        <el-icon><Search /></el-icon>
+                        {{rec.keyword}}
+                        </el-text>
                     </el-row>
-                    </template>
-        </el-aside>
-        <el-main class="result-display">
+                      </template>
+                      <div class="space"></div>
+                        <el-row class="filter-title">领域筛选</el-row>
+                      <template v-for="(value,key,index) in fields">
+                        <el-row v-if="index<(fold?3:8)" class="field">
+                        <el-icon class="field-button" @click="selectWithField(key ,true)"><CircleCheck/></el-icon>
+                        <el-icon class="field-button" @click="selectWithField(key,false)"><CircleClose/></el-icon>
+    
+                        <el-text>{{key}}({{value}})</el-text>
+                        </el-row>
+                        </template>
+                        <el-row class="more" @click="changeState()" v-if="true">
+                            <el-text>{{fold?"More...":"Fold"}}</el-text>
+                        </el-row>
+                      <div class="space2"></div>
+                    </el-affix >
+                    </div>
+        <el-container>
+            <el-aside width="300px" class="aside-back">
+            </el-aside>
+        <el-container class="result-display">
+            <el-main>
             <div class="select-num">
                 已选择：{{selectedMap.size}} &emsp;
                 <el-button @click="selectAll(false)">清空选择</el-button>
                 <el-button @click="selectAll(true)">全选当页</el-button>
                 <el-button @click="analyse()">数据分析</el-button>
             </div>
+        <div class="min-height" v-loading="loading">
+            <div v-if="!list.length" class="mid"> <el-empty description="当前暂时没有结果捏~" /></div>
         <div v-for="res in list">
             <div 
             class="item">
@@ -72,6 +83,7 @@
             </el-card>
         </div>
         </div>
+        </div>
 
             <el-pagination
             class="mid"
@@ -82,6 +94,7 @@
             :total="count">
             </el-pagination>
         </el-main>
+        </el-container>
         
         <el-aside width="40px"></el-aside>
         </el-container>
@@ -91,12 +104,13 @@
 <script setup>
 import axios from 'axios';
 import emitter from '~~/plugins/event-bus.client';
+import { ElMessage } from 'element-plus'
 import {
   Select,
   Plus,
-  CaretRight,
   CircleCheck,
-  CircleClose
+  CircleClose,
+  Search
 } from '@element-plus/icons-vue'
 </script>
 <script>
@@ -105,9 +119,11 @@ export const perPage = 10;
 export default{
     data() {
         return {
+            fold:true,
             cnt:0,
             perPage:perPage,
-            fields:[],
+            loading:false,
+            fields:{},
             filterProps:filterProps,
             checkedFilter:{
                 author:[],
@@ -136,6 +152,7 @@ export default{
         emitter.on('search-url',(url)=>{
             if(this.cnt==0){
                 this.cnt=1;
+                this.$data.currentPage = 1;
                 if(url==this.$data.url)return;
                 this.$data.url = url;
                 this.getResults(true);
@@ -144,16 +161,26 @@ export default{
         })
     },
     methods:{
+        changeState(){
+            this.fold=!this.fold;
+            console.log(this.$data.fields.size);
+        },
         handleChange(){
         },
         getResults(flag){
             if(flag)this.$data.selectedMap.clear();
             var url = this.$data.url[0] + this.$data.currentPage + this.$data.url[1];
-            console.log(url);
+            this.$data.loading = true;
+            var timeid = setTimeout(()=>{
+                if(!this.$data.loading)return;
+                this.$data.loading = false;
+                ElMessage.error("搜索超时...");
+            },10000);
+            scrollTo(0,0);
             axios.post(url).
             then((response) => {
-                this.init();
                 console.log(response);
+                if(flag)this.init();
                 this.$data.count = response.data.meta.count;
                 this.$data.list = response.data.results;
                 for(var i = 0; i < this.$data.list.length;i++){
@@ -172,8 +199,9 @@ export default{
                     this.$data.list[i]._keywords = _keywords;
                     this.$data.list[i]._authors = _authors;
                 }
-                this.$data.fields = response.data.concepts_count;
-                console.log(this.$data.recommends);
+                if(flag)this.$data.fields = response.data.concepts_count;
+                this.$data.loading = false;
+                clearTimeout(timeid);
             })
             .catch((error)  => {
                 console.log(error);
@@ -181,10 +209,16 @@ export default{
             return;
         },
         gotoDetail(res){
-            console.log(res);
+            useWorkId().value = res.id;
+            setLocal();
+            let routeInfo = this.$router.resolve({ path: '/articledetail' });
+            window.open(routeInfo.href, '_blank');
         },
         analyse(){
-
+            useChartData().value = Array.from(this.$data.selectedMap.values)
+            console.log(useChartData().value);
+            // setLocal();
+            // this.$router.push("/netforeassy");
         },
         selectAll(flag){
             for(var i = 0; i < this.$data.list.length; i++){
@@ -194,7 +228,6 @@ export default{
         },
         selectWithField(field,flag){
             for(var i = 0; i < this.$data.list.length; i++){
-                console.log(field,this.$data.list[i].concepts[0])
                 if(field == this.$data.list[i].concepts[0].display_name)this.select(this.$data.list[i],flag);
             }
         },
@@ -212,7 +245,6 @@ export default{
             else{
                 this.$data.selectedMap.delete(res.id);
             }
-            console.log(this.$data.selectedMap);
         },
         init(){
             this.$data.keywords={};
@@ -298,13 +330,18 @@ export default{
 .mid{
     margin-top:20px;
 }
+.more{
+    justify-content: right;
+    text-align: right;
+    color:inherit;
+}
 .prop{
     font-size:16px;
     width:100px;
     font-weight: 550;
 }
 .result-display{
-    margin-left:360px;
+    margin-left:20px;
 }
 .item{
     border-radius: 5px;;
@@ -317,19 +354,26 @@ export default{
     border: 2px solid rgb(68, 126, 219);
 }
 .recommend-row{
-    min-height:40px;
+    min-height:30px;
+    color:black;
+}
+
+.recommend-row:hover{
+    background-color: rgba(226, 245, 255, 0.44);
+    font-weight: bold;
+    user-select:none;
+    color:#2d96fe;
+}
+.more:hover{
+    background-color: rgba(226, 245, 255, 0.44);
+    font-weight: bold;
+    user-select:none;
+    color:#1c8eff;
 }
 .recommend{
     display:block;
-    color:black;
+    color:inherit;
     font-size:16px;
-}
-.recommend:hover{   
-    margin-top:2px;
-    margin-bottom:2px;
-    font-weight: bold;
-    user-select:none;
-    color:blue;
 }
 .select-button{
     border-radius: 0px;
@@ -337,7 +381,10 @@ export default{
     height:inherit;
 }
 .space{
-    height:100px;
+    height:20px;
+}
+.space2{
+    height:300px;
 }
 .article{
     width: 100%;
@@ -363,6 +410,9 @@ export default{
 .article-else{
     margin:10px 0 10px 10px;
     font-size:13px;
+}
+.min-height{
+    min-height: 720px;
 }
 .tag{
     float: right;
@@ -400,9 +450,11 @@ export default{
     background-color: rgba(0, 0, 0, 0);
 }
 .filter{
-    margin-top:-40px;
-    position: fixed;
     margin-left:40px;
+    position:absolute;
+    width:240px;
+    color:black;
+    scroll-margin-bottom:400px;
 }
 .filter-title{
     border-top: 1px solid grey;
@@ -436,6 +488,12 @@ export default{
 .select-num{
     position: absolute;
     margin-top:-55px;
+}
+.aside-back{
+    z-index:-1;
+    margin-top:-190px;
+    position: relative;
+    background-color: rgba(226, 245, 255, 0.214);
 }
 </style>
   
