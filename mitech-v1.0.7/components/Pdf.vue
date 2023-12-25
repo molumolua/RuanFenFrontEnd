@@ -1,20 +1,4 @@
 <template>
-    <div>
-        <iframe :src="pdfUrl" width="100%" height="600px"></iframe>
-    </div>
-</template>
-
-<script setup>
-const props = defineProps({
-    url: {
-        type: String
-    }
-})
-const pdfUrl = props.url; // 替换为实际的 PDF 文件路径
-</script>
-
-
-<!-- <template>
     <div class="pdf-viewer-wrap">
         <div id="pdfjs-container" class="page-container">
             <div id="pdfViewer" class="pdfViewer"></div>
@@ -117,4 +101,4 @@ onMounted(async () => {
         // border: 2px solid red;
     }
 }
-</style> -->
+</style>

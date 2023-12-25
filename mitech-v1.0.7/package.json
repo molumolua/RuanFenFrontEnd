@@ -22,8 +22,9 @@
     "axios": "^1.6.2",
     "bootstrap": "^5.2.3",
     "element-plus": "^2.4.4",
+    "markdown-it": "^14.0.0",
+    "pdfjs-dist": "3.7.107",
     "mitt": "^3.0.1",
-    "swiper": "^8.4.7",
-    "markdown-it": "^14.0.0"
+    "swiper": "^8.4.7"
   }
 }
