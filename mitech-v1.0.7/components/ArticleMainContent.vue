@@ -5,7 +5,7 @@
         <div class="blog-pages-wrapper section-space--ptb_50">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-20 ms-auto me-auto">
+                    <div class="col-lg-20 ms-auto me-auto" style="padding-left: 60px;border-left: 2px solid;padding-right: 60px;border-right: 2px solid;">
                         <div class="main-blog-wrap">
                             <!--======= Single Blog Item Start ========-->
                             <div class="single-blog-item  wow move-up">
@@ -25,10 +25,17 @@
                                             <span class="far fa-calendar meta-icon"></span>
                                             {{ detailInfo.date }}
                                         </div>
+                                        
                                         <div class="post-comments">
                                             <span class="far fa-comment-alt meta-icon"></span>
-                                            <a href="#" class="smooth-scroll-link">{{ detailInfo.commentCount }}
+                                            <a href="#comment" class="smooth-scroll-link">{{ detailInfo.commentCount }}
                                             Comments</a>
+                                        </div>
+                                        <div class="post-view" v-if="token">
+                                            <span class="meta-icon far fa-folder"></span>
+                                            <a herf="#" class="smooth-scroll-link" @click="drawer2=true">
+                                                Collect
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="post-excerpt mt-30">
@@ -47,7 +54,7 @@
                                             </p>
                                         </blockquote>
                                         <h4 class="widget-title section-space--mb_50">
-                                            AuthorInfomation:
+                                            Author Infomation:
                                         </h4>    
                                         
                                         <div class="post-author">
@@ -65,7 +72,7 @@
 
                                         <h4 class="widget-title section-space--mb_50">
                                             <br>
-                                            ArticleAnalyses:
+                                            Article Analyses:
                                             <br>
                                         </h4>  
                                         
@@ -81,7 +88,7 @@
                                         <h4 class="widget-title section-space--mb_50">
                                             <br>
                                             <br>
-                                                Share your Analyses about this article!!!
+                                                Share your Analyses about this article
                                             
                                             
                                         </h4>
@@ -98,7 +105,7 @@
                                                 <div class="comment-list-wrapper">
                                                     <div class="row">
                                                         <div class="col-lg-12">
-                                                            <h4 class="widget-title section-space--mb_50">Comments： </h4>
+                                                            <h4 class="widget-title section-space--mb_50" id="comment">Comments： </h4>
                                                         </div>
                                                         <div v-for = "comment in comments" :key = "comment.id">
                                                             <div class="col-lg-12">
@@ -168,8 +175,8 @@
                                                 <div class="comment-list-wrapper">
                                                     <div class="row">
                                                         <div class="col-lg-12">
-                                                            <h4 class="widget-title mb-20">留下你的足迹: </h4>
-                                                            <p>与大家分享一下现在的感想吧。
+                                                            <h4 class="widget-title mb-20">Share Your Idea About The Article: </h4>
+                                                            <p>Add your commment.
                                                             </p>
                                                         </div>
 
@@ -204,18 +211,39 @@
                 </div>
             </div> 
         </div>       
-        <CtaThree />
-        <Footer />
-        <OffCanvasMobileMenu />
+        
+    
+        
     </div>
+    <ClientOnly>
+    <el-drawer v-model="drawer2">
+                <template #header>
+                <h4>Collections</h4>
+                <el-divider></el-divider>
+                </template>
+                <template #default>
+                <div>
+                    <CollectionPlane :collection="collections" :token="token"/>
+                </div>
+                </template>
+                <template #footer>
+                <div style="flex: auto">
+                    <el-button @click="cancelClick()">cancel</el-button>
+                    <el-button type="primary" @click="confirmClick()">confirm</el-button>
+                </div>
+                </template>
+        </el-drawer>
+    </ClientOnly>
 </template>
 
 <script>
+import emitter from '~~/plugins/event-bus.client';
 import Header from '@/components/Header';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import CtaThree from '@/components/CtaThree';
 import Footer from '@/components/Footer';
 import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
+import CollectionPlane from '@/components/sections/CollectionPlane';
 import data from '../data/blog.json';
 import axios from 'axios';
 import PushMd from '@/components/PushMd';
@@ -228,10 +256,12 @@ export default {
         Breadcrumbs,
         CtaThree,
         Footer,
-        OffCanvasMobileMenu
+        OffCanvasMobileMenu,
+        CollectionPlane,
     },
     data() {
         return {
+            drawer2:false,
             citedCount:0,
             replyToCommentId: null,
             newReplyText:'',
@@ -246,6 +276,7 @@ export default {
                 _keywords: [],
                 keywords:[],
             },
+            collections:[],
             relatedArticileAnalyse:[],
             newCommentText:' ',
             work_id:"",
@@ -257,6 +288,13 @@ export default {
         }
     },
     methods: {
+        cancelClick() {
+            drawer2.value = false
+        },
+        confirmClick() {
+            emitter.emit('confirm');
+            this.drawer2 = false;
+        },
         showReplyForm(reply) {
             reply.visible = true;
             var commentId = reply.id;
@@ -377,7 +415,39 @@ export default {
                 console.log(error);
             })
             this.fetchComments();
-        }
+        },
+            fetchCollections(){
+                if(!this.token)return;
+                var headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Token '+ this.token,
+                };
+                axios.get(
+                    "http://121.36.19.201/api/getCollectionPackage/",{headers}).then((response) => {
+                        console.log(response);
+                        this.$data.collections = response.data;
+                        for(let item of response.data){
+                            this.fetchUnderCollection(item);
+                        }
+                    }).catch((error)=>{
+                    console.log(error);
+                    
+                });
+            },
+            fetchUnderCollection(col){
+                var headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Token '+ this.token,
+                };
+                axios.get(
+                    "http://121.36.19.201/api/getCollectionPackageContents/"+col.id,{headers}).then((response) => {
+                        console.log(response);
+                        col.articles=response.data;
+                    }).catch((error)=>{
+                    console.log(error);
+                    
+                });
+            }
     },
     mounted(){
         getLoacl();
@@ -389,6 +459,7 @@ export default {
         this.fetchComments();
         this.fetchAnalyse();
         this.fetchArticle();
+        this.fetchCollections();
     },
 
 };

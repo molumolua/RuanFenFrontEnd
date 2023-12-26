@@ -2,6 +2,7 @@
     <div>
         <Header />
         <Md />
+        <ChatBot/>
         <Footer />
         <OffCanvasMobileMenu />
     </div>
@@ -12,13 +13,14 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
 import Md from '@/components/Md';
-
+import ChatBot from "@/components/ChatBot.vue";
 export default {
     components: {
         Header,
         Footer,
         OffCanvasMobileMenu,
         Md,
+        ChatBot
     },
     data() {
         return {

@@ -1,6 +1,6 @@
 <template>
     <div>
-        解析标题：
+        <h6> Analysis Title:</h6>
         <input
           class="a-input"
           type="text"
@@ -12,7 +12,7 @@
           style="display: none"
           @change="handleFileChange"
         />
-        <button class="btn" @click="triggerFileInput">上传.md文件</button>
+        <button class="btn" @click="triggerFileInput">Upload md File</button>
     </div>
 </template>
 
@@ -81,7 +81,8 @@ export default {
 
 <style scoped>
 .a-input {
-    width: 120px;
+    height: 40px;
+    width: 200px;
     margin-right: 10px;
 }
 

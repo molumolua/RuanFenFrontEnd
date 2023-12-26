@@ -5,7 +5,7 @@
                 <span>Login</span>
             </nuxt-link>
 
-            <nuxt-link to="/institutionlist" v-if="userName!=''" @click="setLocal()">
+            <nuxt-link to="/person" v-if="userName!=''" @click="setLocal()">
                 <span>{{ userName }}</span>
             </nuxt-link>
         </li>

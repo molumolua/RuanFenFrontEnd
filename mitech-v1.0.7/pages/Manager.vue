@@ -7,6 +7,7 @@
         <Divider />
         <PaperCheck />
         <Divider />
+        <ChatBot/>
         <Footer />
         <OffCanvasMobileMenu />
     </div>
@@ -20,6 +21,7 @@ import ScholarCheck from '@/components/ScholarCheck';
 import PaperCheck from '@/components/PaperCheck';
 import Footer from '@/components/Footer';
 import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
+import ChatBot from "@/components/ChatBot.vue";
 import axios from 'axios';
 export default {
     data() {
@@ -39,7 +41,8 @@ export default {
         ScholarCheck,
         PaperCheck,
         Footer,
-        OffCanvasMobileMenu
+        OffCanvasMobileMenu,
+        ChatBot
     },
     methods: {
         // async getData() {

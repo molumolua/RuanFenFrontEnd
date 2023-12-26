@@ -1,7 +1,5 @@
 <template>
     <div class="header-area header-area--default">
-        <!-- <HeaderTop /> -->
-
         <div class="header-bottom-wrap" :class="{'is-sticky': isSticky}">
             <div class="container-fluid">
                 <div class="row">
@@ -53,6 +51,7 @@
     import HeaderTop from '@/components/HeaderTop';
     import Navigation from '@/components/Navigation';
     import AvatorNavigation  from '@/components/AvatorNavigation.vue';
+import { getLocale } from '@antv/g2plot/lib/core/locale';
     export default {
         components: {
             HeaderTop,
@@ -77,6 +76,7 @@
         },
 
         mounted(){
+            getLoacl()
             window.addEventListener('scroll', () => {
                 let scrollPos = window.scrollY
                 if(scrollPos >= 200){

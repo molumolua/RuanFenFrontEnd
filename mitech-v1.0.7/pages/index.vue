@@ -4,10 +4,10 @@
         <MainContent />
         <MainDisplay />
         <ChatBot prompt=""/>
-        <div class="displaycontainer">
+        <!-- <div class="displaycontainer">
             <StaticPieChartForHomePage/>
             <StaticInstitutionMember/>  
-        </div>
+        </div> -->
         <Footer />
     </div>
 </template>

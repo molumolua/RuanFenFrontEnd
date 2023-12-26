@@ -5,8 +5,8 @@
       <div class="PersonTop">
         <el-popconfirm
           width="220"
-          confirm-button-text="是"
-          cancel-button-text="不了,谢谢"
+          confirm-button-text="Yes"
+          cancel-button-text="No,thanks"
           :icon="InfoFilled"
           icon-color="#626AEF"
           title="你要修改头像吗?"
@@ -26,18 +26,12 @@
             <div class="user_name">
               <span>{{user.username}}</span>
             </div>
-            <div class="user-v" v-if="user.is_professor">
-              <img src="@/assets/img/authentication.png" class="user-v-img" />
+            <div class="user-v"  v-if="user.open_alex_id_author != ''">
+              <img src="@/assets/img/authentication.png" class="user-v-img"/>
               <span class="user-v-font">科研工作者</span>
             </div>
             <div class="hero-button mt-30">
               <button class="ht-btn ht-btm-md" @click="edit">Modify Personal Info</button>
-            </div>
-          </div>
-          <div class="user_num" v-if="user.is_professor">
-            <div style="cursor: pointer" @click="myfan">
-              <div class="num_number">{{ user.work_count }}</div>
-              <span class="num_text">已发表论文</span>
             </div>
           </div>
         </div>
@@ -49,18 +43,24 @@
               <span class="person_body_list" style="border-bottom: none">Personal Center</span>
             </div>
             <el-menu active-text-color="#00c3ff" class="el-menu-vertical-demo" style="overflow: auto; max-height: 500px;">
+              <el-menu-item v-if="user.open_alex_id_author != ''">
+                <nuxt-link to="/scientist" @click="storeSCIid()">
+                  <el-icon><Switch /></el-icon>
+                  <span slot="title">切换至科研门户</span>
+                </nuxt-link>
+              </el-menu-item>
               <el-menu-item>
                 <NuxtLink :to="`/person/info`">
                   <el-icon><UserFilled /></el-icon>
                   <span slot="title">Profile</span>
                 </NuxtLink>
               </el-menu-item>
-              <el-menu-item v-if="user.is_professor">
+              <!-- <el-menu-item v-if="user.is_professor">
                 <NuxtLink :to="`/person/myarticle`">
                   <el-icon><Document /></el-icon>
                   <span slot="title">Paper</span>
                 </NuxtLink>
-              </el-menu-item>
+              </el-menu-item> -->
               <el-menu-item>
                 <NuxtLink :to="`/person/history`">
                   <el-icon><Document /></el-icon>
@@ -73,13 +73,13 @@
                   <span slot="title">Follow List</span>
                 </NuxtLink>
               </el-menu-item>
-              <el-sub-menu @click="open">
+              <el-sub-menu @click="open" style="padding-top: 20px;">
                 <template #title>
                   <el-icon><Folder /></el-icon>
                   <span slot="title">Favorite</span>
                 </template>
                 <el-menu-item v-for="a in collection" :key="a.id" v-bind="a">
-                  <NuxtLink :to="`/person/mycollection`">
+                  <NuxtLink :to="`/person/mycollection-${a.id}`">
                     <el-icon><Folder /></el-icon>
                     <span slot="title">{{a.name}}</span>
                   </NuxtLink>
@@ -112,7 +112,7 @@
                 <el-input v-model="user.first_name" placeholder="First_name" clearable></el-input>
               </el-form-item>
               <el-form-item label="Gender" prop="gender">
-                <el-switch v-model="user.gender" active-color="#AAAAAA" inactive-color="#AAAAAA" inline-prompt active-text="Male" inactive-text="Female" :active-value= "男" :inactive-value= "女"></el-switch>
+                <el-switch v-model="user.gender" active-color="#AAAAAA" inactive-color="#AAAAAA" inline-prompt active-text="Male" inactive-text="Female" active-value= "男" inactive-value= "女"></el-switch>
               </el-form-item>
               <el-form-item label="Email" prop="email">
                 <el-input v-model="user.email" placeholder="Email" clearable></el-input>
@@ -165,14 +165,12 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
-// import radarChart from '@/components/radarChart.vue';
 import axios from "axios";
 export default {
   components: {
     Header,
     Footer,
-    OffCanvasMobileMenu,
-    // radarChart
+    OffCanvasMobileMenu
   },
   name: "Person",
   data() {
@@ -191,7 +189,8 @@ export default {
         description: "",
         avatar_url: "",
         work_count: Number,
-        is_professor: Boolean,
+        is_professional: Number,
+        open_alex_id_author: ""
       },
       new_collection: {
         name: "",
@@ -237,7 +236,8 @@ export default {
         this.user.description = response.data.description
         this.user.avatar_url = response.data.avatar_url
         this.user.work_count =  response.data.work_count
-        this.user.is_professor = response.data.is_professor
+        this.user.is_professional = response.data.is_professional
+        this.user.open_alex_id_author = response.data.open_alex_id_author
       }).catch((error) => {
         console.log(error);
       })
@@ -263,7 +263,10 @@ export default {
         'Authorization': 'token '+useToken().value
       };
       const postData = {
-        
+        'phone_number': this.user.phone_number,
+        'gender': this.user.gender,
+        'description': this.user.description,
+        'email': this.user.email,
       };
       await axios.post('http://121.36.19.201/api/editinfo/', postData, { headers }).then((response) => {
         console.log(response.data);
@@ -274,9 +277,6 @@ export default {
     },
     handleClose() {
       this.dialogVisible = false;
-    },
-    follow() {
-
     },
     createCollection() {
       this.dialogVisible_new = true;
@@ -330,7 +330,12 @@ export default {
       }).catch((error) => {
         console.log(error);
       })
-    }
+    },
+    storeSCIid(){
+                var SCIid=useSCIid()
+                SCIid.value=this.user.open_alex_id_author
+                setLocal()
+            }
   },
 };
 </script>
@@ -467,20 +472,8 @@ width: 100%;
 height: 50px;
 margin-top: 25px;
 font-size: 22px;
-border-bottom: 1px solid #f0f0f0;
-background-image: -webkit-linear-gradient(
-    left,
-    rgb(42, 134, 141),
-    #e9e625dc 20%,
-    #3498db 40%,
-    #e74c3c 60%,
-    #09ff009a 80%,
-    rgba(82, 196, 204, 0.281) 100%
-);
--webkit-text-fill-color: transparent;
--webkit-background-clip: text;
--webkit-background-size: 200% 100%;
--webkit-animation: masked-animation 4s linear infinite;
+border-bottom: 1px solid black;
+font-weight: 500;
 }
 .el-menu-item {
 margin-top: 22px;

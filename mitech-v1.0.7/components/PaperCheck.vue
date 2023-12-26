@@ -103,7 +103,7 @@ export default {
 
 .paper-tr0 {
     margin-top: 10px;
-    width: 59%;
+    width: 47%;
 }
 
 .paper-tr {

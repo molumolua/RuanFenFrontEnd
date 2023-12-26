@@ -56,7 +56,7 @@
             <el-button class="select-button" :type="res.selected?'primary':'default'" :icon="res.selected?Select:Plus" @click="select(res,!res.selected)"></el-button>
             <el-card class="article"
                 :key="res.id"
-                @click="gotoDetail(res)">
+                >
                 <div>
                 <div class="tag">
                     <div class="subtag">
@@ -72,7 +72,7 @@
                         <div class="tag-content">&emsp;相关度 : {{(res.relevance_score?res.relevance_score:res.concepts[0].score*1000).toFixed(2)}}&emsp;</div>
                     </div>
                 </div>
-                <p class="article-title">{{res.title}}</p>
+                <p class="article-title" @click="gotoDetail(res)">{{res.title}}</p>
                 <p class="article-key-word"><span class="prop">关键词 : &emsp;</span>{{ res._keywords.length?res._keywords.join(", "):"(NULL)"}}</p>
                 <el-text line-clamp="4" class="article-abstract"><span class="prop">摘&emsp;要 : &emsp;</span>{{res.abstract?res.abstract:"(NULL)"}}</el-text>
                 <p class="article-else">
@@ -411,6 +411,12 @@ export default{
     line-height:40px;
     font-size:24px;
     font-weight: bold;
+    color: black; /* 初始颜色 */  
+    transition: color 0.3s ease; /* 渐变效果 */ 
+}
+.article-title:hover{
+    cursor: pointer;
+    color: rgb(62, 37, 223); /* 悬停时的颜色 */  
 }
 .article-abstract, .article-key-word{
     margin:10px 0 0 10px;

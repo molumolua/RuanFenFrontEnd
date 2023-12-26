@@ -83,7 +83,8 @@
                 })
                 .catch(error => {
                     console.error("Error in search", error);
-                }); 
+                });
+
         },
         methods:{
             updatepage(){

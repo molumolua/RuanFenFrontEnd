@@ -56,7 +56,6 @@
                 }
                 console.log(address)
                 axios.post(address,postData).then(response => {
-                    console.log(response)
                     this.$data.maxpage=(response.data.meta.count+this.$data.one_page-1)/this.$data.one_page
                     console.log(response.data.results);
                     for(let i=0;i<response.data.results.length;i++){
@@ -75,10 +74,42 @@
                         }
                         if(cnt==4) break;
                     }
+
+                    var address="http://121.36.19.201/api/get_author_avatar/";
+                    for(let i=0;i<this.$data.teamMembers.length;i++){
+                        console.log(i);
+                        var data={
+                            "open_alex_id":this.$data.teamMembers[i].id
+                        }
+                        axios.post(address,data).then(response => {
+                            console.log(response)
+                            if(response.data.url) this.$data.teamMembers[i].image=response.data.url
+                        }).catch(error => {
+                            console.error("Error in search avator", error);
+                        });
+                        this.$data.teamMembers[i].id
+                    }
+
                     })
                 .catch(error => {
                     console.error("Error in search", error);
                 });
+
+                // console.log("hhhhhhhh");
+                // var address="http://121.36.19.201/api/get_author_avatar/";
+                // for(let i=0;i<this.$data.teamMembers.length;i++){
+                //     console.log(i);
+                //     var data={
+                //         "open_alex_id":this.$data.teamMembers[i].id
+                //     }
+                //     axios.post(address,data).then(response => {
+                //         console.log(response)
+                //         this.$data.teamMembers[i].image=response.data.url
+                //     }).catch(error => {
+                //         console.error("Error in search avator", error);
+                //     });
+                //     this.$data.teamMembers[i].id
+                // }
         },
         methods:{
             updatepage(){
@@ -111,6 +142,23 @@
                         }
                         if(cnt==4) break;
                     }
+
+                    var address="http://121.36.19.201/api/get_author_avatar/";
+                    for(let i=0;i<this.$data.teamMembers.length;i++){
+                        console.log(i);
+                        var data={
+                            "open_alex_id":this.$data.teamMembers[i].id
+                        }
+                        axios.post(address,data).then(response => {
+                            console.log(response)
+                            if(response.data.url) this.$data.teamMembers[i].image=response.data.url
+                        }).catch(error => {
+                            console.error("Error in search avator", error);
+                        });
+                        this.$data.teamMembers[i].id
+                    }
+
+                    
                     })
                 .catch(error => {
                     console.error("Error in search", error);

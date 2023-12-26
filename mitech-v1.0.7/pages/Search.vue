@@ -3,6 +3,7 @@
         <Header/>
         <SearchBar></SearchBar>
         <ResultList></ResultList>
+        <ChatBot/>
         <Footer/>
     </div>
 </template>
@@ -13,6 +14,7 @@ import Footer from '@/components/Footer';
 import SearchBar from '@/components/sections/SearchBar';
 import ResultList from '@/components/sections/ResultList';
 import { getLocale } from '@antv/g2plot/lib/core/locale';
+import ChatBot from "@/components/ChatBot.vue";
 export default {
   data() {
     return {
@@ -24,7 +26,8 @@ export default {
     SearchBar,
     ResultList,
     Footer,
-    Header
+    Header,
+    ChatBot
   },
   mounted(){
     getLoacl()

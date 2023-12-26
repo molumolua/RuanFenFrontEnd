@@ -2,6 +2,7 @@
     <div>
         <Header />
         <pdf :url="url" />
+        <ChatBot/>
         <Footer />
         <OffCanvasMobileMenu />
     </div>
@@ -12,13 +13,15 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import OffCanvasMobileMenu from '@/components/OffCanvasMobileMenu';
 import axios from 'axios';
-import pdf from '@/components/Pdf'
+import pdf from '@/components/Pdf';
+import ChatBot from "@/components/ChatBot.vue";
 export default {
     components: {
         pdf,
         Header,
         Footer,
-        OffCanvasMobileMenu
+        OffCanvasMobileMenu,
+        ChatBot
     },
     data() {
         return {

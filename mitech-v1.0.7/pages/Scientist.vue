@@ -4,7 +4,8 @@
       <div>
         <div class="PersonTop">
           <div class="PersonTop_img">
-            <!-- <img v-image-preview :src="avatar" /> -->
+            <img v-image-preview src="@/assets/img/defaultavatar.png" v-if="avatar_url==''"/>
+            <el-avatar shape="square" :size="150" fit="cover" :src="avatar_url" v-else />
           </div>
           <div class="PersonTop_text">
             <div class="user_text">
@@ -14,10 +15,13 @@
               <div class="user_workplace">
                 <span>WorkPlace:&nbsp;{{ last_known_institution }}</span>
               </div>
+              <div class="user_workplace" v-if="avatar_url != ''">
+              <img src="@/assets/img/authentication.png" class="user-v-img" />
+              <span class="user-v-font">已认证学者</span>
+            </div>
               <div class="hero-button mt-30" v-if="useToken().value != ''">
                 <button class="ht-btn ht-btm-md" @click="follow" v-if="isfollowed == false">Follow</button>
                 <button class="ht-btn ht-btm-md" @click="unfollow" v-else>UnFollow</button>
-                <button class="ht-btn ht-btm-md" @click="edit">门户</button>
               </div>
             </div>
             <div class="user_num">
@@ -52,6 +56,10 @@
                     <el-icon><Document /></el-icon>
                     <span slot="title">Published Paper</span>
                   </NuxtLink>
+                </el-menu-item>
+                <el-menu-item v-if="avatar_url == ''">
+                  <el-icon><StarFilled /></el-icon>
+                    <span slot="title" @click="edit" >门户认领</span>
                 </el-menu-item>
               </el-menu>
             </el-card>
@@ -110,6 +118,7 @@
     mounted(){
       getLoacl();
       this.load();
+      this.load_avatar();
       if(useToken().value != null) {
         this.load_follow()
       }
@@ -117,6 +126,7 @@
     name: "Person",
     data() {
       return {
+        avatar_url: "",
         file1: null,
         file2: null,
         isfollowed: false,
@@ -128,12 +138,12 @@
         last_known_institution: "",
         scientists: [],
         user: {
-
         }
       };
     },
     methods: {
       async load() {
+        console.log(useSCIid().value)
       const headers = {
         'Content-Type': 'application/json',
       };
@@ -147,6 +157,21 @@
         this.work_count = response.data.works_count
         this.cited_by_count = response.data.cited_by_count
         this.last_known_institution = response.data.last_known_institution.display_name
+      }).catch((error) => {
+        console.log(error);
+      })
+    },
+    async load_avatar() {
+      console.log("SCI" + useSCIid().value)
+      const headers = {
+        'Content-Type': 'application/json',
+      };
+      const postData = {
+        'open_alex_id': useSCIid().value,
+      };
+      data = await axios.post('http://121.36.19.201/api/get_author_avatar/', postData, { headers }).then((response) => {
+        console.log(response.data);
+        this.avatar_url = response.data.url
       }).catch((error) => {
         console.log(error);
       })
@@ -229,6 +254,7 @@
         'Authorization': 'token '+ useToken().value
       };
       const postData = {
+        'image': this.file1,
         'pdf': this.file2,
         'real_name': this.name,
         'work_count': this.work_count,
@@ -282,7 +308,7 @@
   }
   .PersonTop {
   width: 1000px;
-  height: 10px;
+  height: 20px;
   padding-top: 20px;
   background-color: white;
   margin-top: 30px;
@@ -381,24 +407,12 @@ color: #333;
   text-align: center;
   }
   .person_body_list {
-  width: 100%;
-  height: 50px;
-  margin-top: 25px;
-  font-size: 22px;
-  border-bottom: 1px solid #f0f0f0;
-  background-image: -webkit-linear-gradient(
-      left,
-      rgb(42, 134, 141),
-      #e9e625dc 20%,
-      #3498db 40%,
-      #e74c3c 60%,
-      #09ff009a 80%,
-      rgba(82, 196, 204, 0.281) 100%
-  );
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-background-size: 200% 100%;
-  -webkit-animation: masked-animation 4s linear infinite;
+width: 100%;
+height: 50px;
+margin-top: 25px;
+font-size: 22px;
+border-bottom: 1px solid black;
+font-weight: 500;
   }
   .el-menu-item {
   margin-top: 22px;
@@ -427,5 +441,4 @@ color: #333;
   .div-label {
     width: 100%;
   }
-
   </style>

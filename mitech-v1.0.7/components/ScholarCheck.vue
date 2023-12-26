@@ -116,7 +116,7 @@ export default {
 
 .scholar-tr0 {
     margin-top: 10px;
-    width: 59%;
+    width: 47%;
 }
 
 .scholar-tr {

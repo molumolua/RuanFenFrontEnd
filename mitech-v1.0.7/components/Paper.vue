@@ -1,53 +1,45 @@
 <template>
-    <el-card class="me-area" :body-style="{ padding: '16px' }">
-        <NuxtLink to="/processing">
-            <div class="me-article-header">
-                <a @click="view(id)" class="me-article-title">title</a>
-                <el-button v-if="weight > 0" class="me-article-icon" type="text">置顶</el-button>
+    <el-card class="me-area" :body-style="{ padding: '16px' }" @click="gotoDetail(paper.work)">
+            <!-- <div class="me-article-header">
+                <a>{{paper.language}}&nbsp;&nbsp;&nbsp;&nbsp;Citation Count:&nbsp;{{paper.cited_by_count}}</a>
                 <span class="me-pull-right me-article-count">
-                    <el-icon><Star /></el-icon>&nbsp;collectCounts
+                    <el-icon><Clock /></el-icon>&nbsp;{{paper.publication_date}}
                 </span>
-                <span class="me-pull-right me-article-count">
-                    <el-icon><ChatDotRound /></el-icon>&nbsp;commentCounts
-                </span>
-                <span class="me-pull-right me-article-count">
-                </span>
-                <span class="me-pull-right me-article-count">
-                    <el-icon><View /></el-icon>&nbsp;viewCounts
-                </span>
-            </div>
+            </div> -->
             <div class="me-artile-description">
-                {{paper.title}}
+                <div v-html="paper.work.title" class="me-article-title"></div>
+                <div style="padding-top: 10px;">{{ paper.work.author_display_name }}</div>
             </div>
-            <div class="preimg" v-if="preimg">
-                <div style="margin-right:30px;width:120px" v-for="item in imgList">
-                    <img v-image-preview style="cursor:pointer;" :src="item">
-                </div>
-            </div>
-            <div class="me-article-footer">
-                <span class="me-article-author" @click="personal(authorId)">
-                    <img v-if="v===3" src="@/assets/img/authentication.png" class="me-article-author-img"/>
-                    <i class="me-icon-author"></i>&nbsp;author
-                    <img v-if="avatar" :src="avatar" class="me-article-author-avatar"/>
+            <!-- <div class="me-article-footer">
+                <span class="me-article-author" v-for="author in paper.authorships" :key="author.author.id">
+                    <i class="me-icon-author"></i>&nbsp;{{ author.author.display_name }}
                 </span>
                 <el-tag v-for="t in tags" :key="t.tagName" size="small" type="warning">{{t.tagName}}</el-tag>
                 <div class="me-pull-right me-article-time">
                     <span class="me-pull-right me-article-count"></span>
                 </div>
-            </div>
-        </NuxtLink>
-        <div class="hero-button mt-30">
-            <button class="ht-btn ht-btm-md" @click="delete">
+            </div> -->
+        <!-- <div class="hero-button mt-30">
+            <button class="ht-btn ht-btm-md" @click="edit">
                 <el-icon><Delete /></el-icon>
             </button>
-        </div>
+        </div> -->
     </el-card>
 </template>
 
 <script>
 export default {
     name: "Paper",
-    props:["paper"]
+    props:["paper"],
+    methods:{
+        gotoDetail(res){
+                console.log(res);
+                useWorkId().value = "https://openalex.org/" + res.open_alex_id;
+                useWorkName().value = res.display_name
+                setLocal();
+                this.$router.push("/articledetail")
+            },
+    }
 }
 </script>
 
@@ -58,7 +50,8 @@ export default {
 }
 
 .me-article-title {
-    font-weight: 600;
+    font-weight: 700;
+    font-size: large;
 }
 
 .me-article-icon {

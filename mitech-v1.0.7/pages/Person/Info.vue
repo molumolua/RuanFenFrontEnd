@@ -33,7 +33,7 @@
                 </el-descriptions-item>
                 <el-descriptions-item align="center" min-width="100px">
                     <template #label>
-                        <el-icon><Message /></el-icon>
+                        <el-icon><MessageBox /></el-icon>
                         Email
                     </template>
                     {{user.email}}

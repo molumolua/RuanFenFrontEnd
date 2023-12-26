@@ -1,12 +1,16 @@
 <template>
   <Header/>
-  <div class="netChart" ref="container"></div>
-  <div class="chart-container" ref="container1" ></div>
-  <div v-if="showTooltip" :style="{ background: '#666666', position: 'fixed', left: tooltipPos.x + 'px', top: tooltipPos.y + 'px' ,color: 'white'}" >
-    <div v-html="tooltipContent"></div>
-  </div>
-  <div v-if="showEdgetip" :style="{background: '#666666', position: 'fixed', left: EdgetipPos.x + 'px', top: EdgetipPos.y + 'px' ,color: 'white'}">
-    <div v-html="EdgetipContent"></div>
+  <div class="container">
+    <div style="padding-top: 40px; margin-bottom: -35px;"><h3> 文献互引网络分析</h3></div>
+    <div class="netChart" ref="container"></div>
+    <div style="padding-top: 20px; margin-bottom: -89px;"><h3> 总体趋势分析</h3></div>
+    <div class="chart-container" ref="container1" ></div>
+    <div v-if="showTooltip" :style="{ background: '#666666', position: 'fixed', left: tooltipPos.x + 'px', top: tooltipPos.y + 'px' ,color: 'white'}" >
+      <div v-html="tooltipContent"></div>
+    </div>
+    <div v-if="showEdgetip" :style="{background: '#666666', position: 'fixed', left: EdgetipPos.x + 'px', top: EdgetipPos.y + 'px' ,color: 'white'}">
+      <div v-html="EdgetipContent"></div>
+    </div>
   </div>
   <Footer/>
 </template>
@@ -31,45 +35,7 @@ export default {
   name: 'G6Chart',
   data() {
     return {
-      chart_data:[
-        {
-          "id": "https://openalex.org/W3163652268",
-          "title": "Attention Is All You Need In Speech Separation",
-          "referenced_works": [
-            "https://openalex.org/W2064675550",
-            "https://openalex.org/W2127851351",
-            "https://openalex.org/W2221409856",
-            "https://openalex.org/W2460742184",
-            "https://openalex.org/W2734774145",
-            "https://openalex.org/W2794209590",
-            "https://openalex.org/W2903739847",
-            "https://openalex.org/W2952218014",
-            "https://openalex.org/W2963317762",
-            "https://openalex.org/W2963443859",
-            "https://openalex.org/W2964199361",
-            "https://openalex.org/W2972460025",
-            "https://openalex.org/W2972818416",
-            "https://openalex.org/W2981436548",
-            "https://openalex.org/W3015834770",
-            "https://openalex.org/W3016129867",
-            "https://openalex.org/W3094607766",
-            "https://openalex.org/W3095717210",
-            "https://openalex.org/W3096893582"
-          ],
-          "related_works": [
-            "https://openalex.org/W7958345",
-            "https://openalex.org/W2279739",
-            "https://openalex.org/W14899464",
-            "https://openalex.org/W3011399",
-            "https://openalex.org/W4354089",
-            "https://openalex.org/W8459508",
-            "https://openalex.org/W6882942",
-            "https://openalex.org/W13529535",
-            "https://openalex.org/W6452702",
-            "https://openalex.org/W5683847"
-          ],
-        },
-      ],
+      chart_data:[],
       final_data:[],
       idsForArea:"",
       papers:[],
@@ -133,9 +99,9 @@ export default {
     async getList(){
       this.getIDS();
       try {
-        const response = await axios.post(`http://121.36.19.201/api/get_works/?filter=ids.openalex:`+this.idsForArea+'&select=id,cited_by_count,title,counts_by_year');
-        this.transformData(response.data);
-
+        const response = await axios.post(`http://121.36.19.201/api/get_works/?filter=ids.openalex:`+this.idsForArea+'&select=id,cited_by_count,title,counts_by_year&per_page=50');
+        this.transformData(response.data)
+        console.log("aaa"+response.data)
       } catch (error) {
         console.error('Error fetching paper details:', error);
         // 处理错误
@@ -147,15 +113,18 @@ export default {
       this.processPapers();
       // console.log(this.ids);
       try {
-        const response = await axios.post(`http://121.36.19.201/api/get_works/?filter=ids.openalex:`+this.ids+'&select=id,cited_by_count,display_name');
-        console.log(response.data)
+        console.log(this.ids);
+        const response = await axios.post(`http://121.36.19.201/api/get_works/?filter=ids.openalex:`+this.ids+'&select=id,cited_by_count,display_name&per_page=50');
+        // console.log("aaa"+response.data)
         this.papers = this.papers.map(paper => {
           const matchingData = response.data.results.find(item => item.id === paper.id);
+          if(matchingData==null)console.log(paper.id)
           return {
             ...paper,
             title: matchingData ? matchingData.display_name : paper.title,
             citations: matchingData ? matchingData.cited_by_count : paper.citations,
           };
+          
         });
       } catch (error) {
         console.error('Error fetching paper details:', error);
@@ -179,7 +148,6 @@ export default {
         for (const refId of paper.referenced_works) {
           if (b==3) break;
           b++;
-          // const refPaper = await this.fetchPaperDetails(refId);
           if (a==1){
             a=0;
             this.ids+=refId;

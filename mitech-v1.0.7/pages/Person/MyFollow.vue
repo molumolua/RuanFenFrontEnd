@@ -1,33 +1,28 @@
 <template>
-    <div class="fanorfollow_box">
-      <div class="fanorfollow" v-for="author in scientists" :key="author.id">
-        <div class="fanorfollow_left">
-          <img class="fanorfollow_img" v-image-preview src="@/assets/img/defaultavatar.png" />
+  <div class="fanorfollow_box">
+    <div class="fanorfollow" v-for="author in scientists" :key="author.id">
+      <div class="fanorfollow_left">
+        <img class="fanorfollow_img" v-image-preview src="@/assets/img/defaultavatar.png" v-if="author.author.avatar_url == ''"/>
+        <img class="fanorfollow_img" v-image-preview :src="author.author.avatar_url" v-else/>
+      </div>
+      <div class="fanorfollow_info">
+        <div class="fanorfollow_info_top">
+          <span style="color: #666; max-width: 180px; font-size: large; font-weight: 500;" @click="personal(author.author.open_alex_id)">
+            {{ author.author.real_name }}
+          </span>
         </div>
-        <div class="fanorfollow_info">
-          <div class="fanorfollow_info_top">
-            <span
-              style="color: #666; max-width: 180px; font-size: large; font-weight: 500;"
-              @click="personal(author.id)"
-              >{{ author.author.real_name }}</span
-            >
-          </div>
-          <div class="fanorfollow_info_bottom">
-            <span>WorkPlace:&nbsp;{{ author.author.institution_display_name }}</span>
-          </div>
-        </div>
-        <div class="fanorfollow_botton">
-            <div class="hero-button mt-30">
-              <button class="ht-btn ht-btm-md" @click="unfollow(author.author.open_alex_id)">Unfollow</button>
-            </div>
+        <div class="fanorfollow_info_bottom">
+          <span>
+            WorkPlace:&nbsp;{{ author.author.institution_display_name }}
+          </span>
         </div>
       </div>
-      <!-- <div>
-        <el-empty
-          v-if="this.scientists.length == 0"
-          :image-size="250"
-          description="这里什么都没有哟"></el-empty>
-      </div> -->
+      <div class="fanorfollow_botton">
+        <div class="hero-button mt-30">
+          <button class="ht-btn ht-btm-md" @click="unfollow(author.author.open_alex_id)">Unfollow</button>
+        </div>
+      </div>
+      </div>
     </div>
   </template>
   
@@ -44,13 +39,38 @@
       getLoacl();
       this.load();
     },
+    watch: {
+      scientists: function(newVal,oldVal){
+                for(let cnt = 0; cnt < newVal.length; cnt++) {
+                  const headers = {
+        'Content-Type': 'application/json',
+      };
+      const postData = {
+        'open_alex_id': newVal[cnt].author.open_alex_id,
+      };
+      axios.post('http://121.36.19.201/api/get_author_avatar/', postData, { headers }).then((response) => {
+        console.log(response.data);
+        console.log(this.scientists[cnt].avatar_url)
+        this.scientists[cnt].author.avatar_url = response.data.url
+      }).catch((error) => {
+        console.log(error);
+        this.scientists[cnt].author.avatar_url = "111"
+      })
+                }
+      }
+    },
     methods: {
-      async load() {
+      personal(id){
+        useSCIid().value=id
+        setLocal()
+        this.$router.push("/scientist")
+      },
+      load() {
         const headers = {
         'Content-Type': 'application/json',
         'Authorization': 'Token ' + useToken().value
       };
-      data = await axios.get('http://121.36.19.201/api/get_follow/', { headers }).then((response) => {
+      axios.get('http://121.36.19.201/api/get_follow/', { headers }).then((response) => {
         console.log(response.data);
         this.scientists = response.data
       }).catch((error) => {

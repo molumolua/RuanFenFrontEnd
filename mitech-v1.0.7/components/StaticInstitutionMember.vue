@@ -1,5 +1,5 @@
 <template>
-  <div id="container" style="width: 600px; height: 400px;"></div>
+  <div id="container" style="width: 600px; height: 0px; padding: 0; margin:0;"></div>
 </template>
 <script>
 import { Bar  } from '@antv/g2plot';
@@ -10,21 +10,18 @@ export default {
     return {
 
       line_data: [
-        { "institution_name": "机构1", "member_num": 60 },
-        { "institution_name": "机构2", "member_num": 57 },
-        { "institution_name": "机构3", "member_num": 53 },
-        { "institution_name": "机构4", "member_num": 49 },
-        { "institution_name": "机构5", "member_num": 47 },
-        { "institution_name": "机构6", "member_num": 43 },
-        { "institution_name": "机构7", "member_num": 39 },
-        { "institution_name": "机构8", "member_num": 36 },
-        { "institution_name": "机构9", "member_num": 33 },
-        { "institution_name": "机构10", "member_num": 30 },
-        { "institution_name": "机构11", "member_num": 26 },
-        { "institution_name": "机构12", "member_num": 22 },
-        { "institution_name": "机构13", "member_num": 19 },
-        { "institution_name": "机构14", "member_num": 16 },
-        { "institution_name": "机构15", "member_num": 12 }
+        { "institution_name": "Beihang University", "member_num": 80 },
+        { "institution_name": "Stanford University", "member_num": 67 },
+        { "institution_name": "Tsinghua University", "member_num": 58 },
+        { "institution_name": "Harvard University", "member_num": 49 },
+        { "institution_name": "Peking University", "member_num": 47 },
+        { "institution_name": "University of Washington", "member_num": 33 },
+        { "institution_name": "Zhejiang University", "member_num": 25 },
+        { "institution_name": "National University of Singapore", "member_num": 16 },
+        { "institution_name": "Massachusetts Institute of Technology", "member_num": 7 },
+        { "institution_name": "University of Cambridge", "member_num": 3 },
+  
+
       ]
 
     }
