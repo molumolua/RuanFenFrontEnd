@@ -1,0 +1,1937 @@
+{
+  "assets/webfonts/fa-brands-400.eot": {
+    "file": "_nuxt/fa-brands-400.e4299464.eot",
+    "src": "assets/webfonts/fa-brands-400.eot"
+  },
+  "assets/webfonts/fa-regular-400.eot": {
+    "file": "_nuxt/fa-regular-400.79d08806.eot",
+    "src": "assets/webfonts/fa-regular-400.eot"
+  },
+  "assets/webfonts/fa-solid-900.eot": {
+    "file": "_nuxt/fa-solid-900.373c04fd.eot",
+    "src": "assets/webfonts/fa-solid-900.eot"
+  },
+  "assets/webfonts/fa-brands-400.woff2": {
+    "file": "_nuxt/fa-brands-400.8ea87917.woff2",
+    "src": "assets/webfonts/fa-brands-400.woff2"
+  },
+  "assets/webfonts/fa-regular-400.woff2": {
+    "file": "_nuxt/fa-regular-400.e42a8844.woff2",
+    "src": "assets/webfonts/fa-regular-400.woff2"
+  },
+  "assets/webfonts/fa-solid-900.woff2": {
+    "file": "_nuxt/fa-solid-900.9834b82a.woff2",
+    "src": "assets/webfonts/fa-solid-900.woff2"
+  },
+  "assets/webfonts/fa-brands-400.woff": {
+    "file": "_nuxt/fa-brands-400.f9217f66.woff",
+    "src": "assets/webfonts/fa-brands-400.woff"
+  },
+  "assets/webfonts/fa-regular-400.woff": {
+    "file": "_nuxt/fa-regular-400.cb9e9e69.woff",
+    "src": "assets/webfonts/fa-regular-400.woff"
+  },
+  "assets/webfonts/fa-solid-900.woff": {
+    "file": "_nuxt/fa-solid-900.3f6d3488.woff",
+    "src": "assets/webfonts/fa-solid-900.woff"
+  },
+  "assets/webfonts/fa-brands-400.ttf": {
+    "file": "_nuxt/fa-brands-400.cda59d6e.ttf",
+    "src": "assets/webfonts/fa-brands-400.ttf"
+  },
+  "assets/webfonts/fa-regular-400.ttf": {
+    "file": "_nuxt/fa-regular-400.e8711bbb.ttf",
+    "src": "assets/webfonts/fa-regular-400.ttf"
+  },
+  "assets/webfonts/fa-solid-900.ttf": {
+    "file": "_nuxt/fa-solid-900.af639750.ttf",
+    "src": "assets/webfonts/fa-solid-900.ttf"
+  },
+  "assets/webfonts/fa-regular-400.svg": {
+    "file": "_nuxt/fa-regular-400.62f1f2b9.svg",
+    "src": "assets/webfonts/fa-regular-400.svg"
+  },
+  "assets/webfonts/fa-brands-400.svg": {
+    "file": "_nuxt/fa-brands-400.9b3a8965.svg",
+    "src": "assets/webfonts/fa-brands-400.svg"
+  },
+  "assets/webfonts/fa-solid-900.svg": {
+    "file": "_nuxt/fa-solid-900.25630646.svg",
+    "src": "assets/webfonts/fa-solid-900.svg"
+  },
+  "assets/img/defaultavatar.png": {
+    "file": "_nuxt/defaultavatar.1d62f509.png",
+    "src": "assets/img/defaultavatar.png"
+  },
+  "assets/img/authentication.png": {
+    "file": "_nuxt/authentication.725a5349.png",
+    "src": "assets/img/authentication.png"
+  },
+  "virtual:nuxt:D:/大三上/软件系统分析与设计/src/zfq/RuanFenFrontEnd/mitech-v1.0.7/.nuxt/error-component.css": {
+    "file": "_nuxt/error-component.12842598.css",
+    "src": "virtual:nuxt:D:/大三上/软件系统分析与设计/src/zfq/RuanFenFrontEnd/mitech-v1.0.7/.nuxt/error-component.css"
+  },
+  "pages/Person/MyCollection-[id].css": {
+    "file": "_nuxt/SciPaper.e720821d.css",
+    "src": "pages/Person/MyCollection-[id].css"
+  },
+  "OffCanvasMobileMenu.css": {
+    "file": "_nuxt/OffCanvasMobileMenu.abc3eaad.css",
+    "src": "OffCanvasMobileMenu.css"
+  },
+  "el-card.css": {
+    "file": "_nuxt/el-card.7155ea48.css",
+    "src": "el-card.css"
+  },
+  "pages/Scientist/SciInfo.css": {
+    "file": "_nuxt/SciInfo.4be127da.css",
+    "src": "pages/Scientist/SciInfo.css"
+  },
+  "pages/Person/Info.css": {
+    "file": "_nuxt/Info.4af29b09.css",
+    "src": "pages/Person/Info.css"
+  },
+  "pages/MessageCenter.css": {
+    "file": "_nuxt/MessageCenter.80568e46.css",
+    "src": "pages/MessageCenter.css"
+  },
+  "pages/Test.css": {
+    "file": "_nuxt/Test.7fe14095.css",
+    "src": "pages/Test.css"
+  },
+  "Paper_1.css": {
+    "file": "_nuxt/Paper_1.b117f898.css",
+    "src": "Paper_1.css"
+  },
+  "el-overlay.css": {
+    "file": "_nuxt/el-overlay.6e0625dd.css",
+    "src": "el-overlay.css"
+  },
+  "el-form.css": {
+    "file": "_nuxt/el-form.57b45e33.css",
+    "src": "el-form.css"
+  },
+  "pages/netForEssay.css": {
+    "file": "_nuxt/netForEssay.0c2cc63b.css",
+    "src": "pages/netForEssay.css"
+  },
+  "el-icon.css": {
+    "file": "_nuxt/el-icon.12f2798b.css",
+    "src": "el-icon.css"
+  },
+  "Footer.css": {
+    "file": "_nuxt/Footer.cb3ed37a.css",
+    "src": "Footer.css"
+  },
+  "pages/Person/MyFollow.css": {
+    "file": "_nuxt/MyFollow.b4088701.css",
+    "src": "pages/Person/MyFollow.css"
+  },
+  "pages/Manager.css": {
+    "file": "_nuxt/Manager.0c2b7fc1.css",
+    "src": "pages/Manager.css"
+  },
+  "pages/Person/History.css": {
+    "file": "_nuxt/History.6a7924b9.css",
+    "src": "pages/Person/History.css"
+  },
+  "el-popover.css": {
+    "file": "_nuxt/el-popover.42c2bc56.css",
+    "src": "el-popover.css"
+  },
+  "pages/Institution.css": {
+    "file": "_nuxt/Institution.0c54f7ed.css",
+    "src": "pages/Institution.css"
+  },
+  "Paper.css": {
+    "file": "_nuxt/Paper.254241b6.css",
+    "src": "Paper.css"
+  },
+  "pages/Register.css": {
+    "file": "_nuxt/Register.37d58982.css",
+    "src": "pages/Register.css"
+  },
+  "el-descriptions.css": {
+    "file": "_nuxt/el-descriptions.22bee64e.css",
+    "src": "el-descriptions.css"
+  },
+  "pages/index.css": {
+    "file": "_nuxt/index.fb3867b6.css",
+    "src": "pages/index.css"
+  },
+  "el-popper.css": {
+    "file": "_nuxt/el-popper.7909cce2.css",
+    "src": "el-popper.css"
+  },
+  "pages/Login.css": {
+    "file": "_nuxt/Login.0133fda5.css",
+    "src": "pages/Login.css"
+  },
+  "pages/Institutionlist.css": {
+    "file": "_nuxt/Institutionlist.3136e42a.css",
+    "src": "pages/Institutionlist.css"
+  },
+  "el-tag.css": {
+    "file": "_nuxt/el-tag.ac5d8e05.css",
+    "src": "el-tag.css"
+  },
+  "ChatBot.css": {
+    "file": "_nuxt/ChatBot.7e0d5951.css",
+    "src": "ChatBot.css"
+  },
+  "el-autocomplete.css": {
+    "file": "_nuxt/el-autocomplete.04f63c32.css",
+    "src": "el-autocomplete.css"
+  },
+  "pages/Scientist.css": {
+    "file": "_nuxt/Scientist.ab3cfacd.css",
+    "src": "pages/Scientist.css"
+  },
+  "pages/Person.css": {
+    "file": "_nuxt/Person.10d6e799.css",
+    "src": "pages/Person.css"
+  },
+  "authentication.css": {
+    "file": "_nuxt/authentication.321b693e.css",
+    "src": "authentication.css"
+  },
+  "el-input.css": {
+    "file": "_nuxt/el-input.3fc85dc7.css",
+    "src": "el-input.css"
+  },
+  "el-button.css": {
+    "file": "_nuxt/el-button.aa646169.css",
+    "src": "el-button.css"
+  },
+  "pages/ArticleDetail.css": {
+    "file": "_nuxt/ArticleDetail.b5daa142.css",
+    "src": "pages/ArticleDetail.css"
+  },
+  "pages/scholar-check/[id].css": {
+    "file": "_nuxt/_id_.32a66320.css",
+    "src": "pages/scholar-check/[id].css"
+  },
+  "el-row.css": {
+    "file": "_nuxt/el-row.a555356e.css",
+    "src": "el-row.css"
+  },
+  "base.css": {
+    "file": "_nuxt/base.0750e8f8.css",
+    "src": "base.css"
+  },
+  "pages/Search.css": {
+    "file": "_nuxt/Search.b69aa0a4.css",
+    "src": "pages/Search.css"
+  },
+  "node_modules/nuxt/dist/app/entry.css": {
+    "file": "_nuxt/entry.8db3fabf.css",
+    "src": "node_modules/nuxt/dist/app/entry.css"
+  },
+  "_reply-comm.a19715a4.js": {
+    "file": "_nuxt/reply-comm.a19715a4.js"
+  },
+  "_FeatureItem.4f44404d.js": {
+    "file": "_nuxt/FeatureItem.4f44404d.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_ContactUsFour.ef478718.js": {
+    "file": "_nuxt/ContactUsFour.ef478718.js",
+    "imports": [
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_ServiceItemStyleTwo.3e2c5f83.js": {
+    "file": "_nuxt/ServiceItemStyleTwo.3e2c5f83.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_cta.4c436c57.js": {
+    "file": "_nuxt/cta.4c436c57.js"
+  },
+  "_ServiceStyleTwo.cf901295.js": {
+    "file": "_nuxt/ServiceStyleTwo.cf901295.js",
+    "imports": [
+      "components/SectionTitle.vue",
+      "_ServiceItemStyleTwo.3e2c5f83.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_service.c21aac85.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_ServiceItem.bd8b2822.js": {
+    "file": "_nuxt/ServiceItem.bd8b2822.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_about.434d9149.js": {
+    "file": "_nuxt/about.434d9149.js"
+  },
+  "pages/IT-Services.vue": {
+    "file": "_nuxt/IT-Services.c13a3742.js",
+    "src": "pages/IT-Services.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_ServiceIT.ff510ab5.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_ContactUsThree.7bc53364.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_ServiceItem.bd8b2822.js",
+      "_service.c21aac85.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_CaseStudiesSection.1bf2e87e.js": {
+    "file": "_nuxt/CaseStudiesSection.1bf2e87e.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "components/SectionTitle.vue",
+      "components/CaseStudiesItem.vue",
+      "_swiper-slide.eb1cded8.js",
+      "_pagination.78108995.js",
+      "_caseStidies.34905284.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ],
+    "dynamicImports": [
+      "components/SectionTitle.vue",
+      "components/CaseStudiesItem.vue"
+    ]
+  },
+  "_hero.9184a2c8.js": {
+    "file": "_nuxt/hero.9184a2c8.js"
+  },
+  "_HeaderTop.fc351d8a.js": {
+    "file": "_nuxt/HeaderTop.fc351d8a.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_avatar-06-90x90.699a2360.js": {
+    "file": "_nuxt/avatar-06-90x90.699a2360.js"
+  },
+  "_mitech-slider-cybersecurity-global-image.bc5ac33e.js": {
+    "file": "_nuxt/mitech-slider-cybersecurity-global-image.bc5ac33e.js"
+  },
+  "_TeamTwo.2a862499.js": {
+    "file": "_nuxt/TeamTwo.2a862499.js",
+    "imports": [
+      "_team.61f52393.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_FeatureItemTwo.56481985.js": {
+    "file": "_nuxt/FeatureItemTwo.56481985.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_FunFactTwo.cd005c0e.js": {
+    "file": "_nuxt/FunFactTwo.cd005c0e.js",
+    "imports": [
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_testimonial.08dcc02c.js": {
+    "file": "_nuxt/testimonial.08dcc02c.js"
+  },
+  "_funfact.d9186b79.js": {
+    "file": "_nuxt/funfact.d9186b79.js"
+  },
+  "_blog.93ec568a.js": {
+    "file": "_nuxt/blog.93ec568a.js"
+  },
+  "pages/Contact.vue": {
+    "file": "_nuxt/Contact.d7bab3ef.js",
+    "src": "pages/Contact.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_CtaOne.0b55b363.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_ContactUsFour.ef478718.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "components/SectionTitle.vue": {
+    "file": "_nuxt/SectionTitle.99c3522d.js",
+    "src": "components/SectionTitle.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_CtaContact.429e8900.js": {
+    "file": "_nuxt/CtaContact.429e8900.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_BlogStyleOne.06768ab7.js": {
+    "file": "_nuxt/BlogStyleOne.06768ab7.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_blog.93ec568a.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "pages/TestChat.vue": {
+    "file": "_nuxt/TestChat.ea51c7e5.js",
+    "src": "pages/TestChat.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_ChatBot.85e95aeb.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_axios.28bc18a3.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_BrandLogoCarousel.16181686.js": {
+    "file": "_nuxt/BrandLogoCarousel.16181686.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_swiper-slide.eb1cded8.js",
+      "_autoplay.b7e16ea7.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_CtaThree.25177853.js": {
+    "file": "_nuxt/CtaThree.25177853.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_cta.4c436c57.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_TestimonialTwo.aa693ee7.js": {
+    "file": "_nuxt/TestimonialTwo.aa693ee7.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "components/SectionTitle.vue",
+      "_swiper-slide.eb1cded8.js",
+      "_pagination.78108995.js",
+      "_testimonial.08dcc02c.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ],
+    "dynamicImports": [
+      "components/SectionTitle.vue"
+    ]
+  },
+  "pages/About.vue": {
+    "file": "_nuxt/About.eeb33ac5.js",
+    "src": "pages/About.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_PageHeader.12d22828.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_about.434d9149.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_cta.4c436c57.js",
+      "_FunFactTwo.cd005c0e.js",
+      "_BrandLogoCarousel.16181686.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_TestimonialTwo.aa693ee7.js",
+      "_ContactUsThree.7bc53364.js",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_swiper-slide.eb1cded8.js",
+      "_autoplay.b7e16ea7.js",
+      "components/SectionTitle.vue",
+      "_pagination.78108995.js",
+      "_testimonial.08dcc02c.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_mitech-home-infotechno-box-large-image-03-540x320.7d856d83.js": {
+    "file": "_nuxt/mitech-home-infotechno-box-large-image-03-540x320.7d856d83.js"
+  },
+  "pages/element/call-to-action.vue": {
+    "file": "_nuxt/call-to-action.6af66d3a.js",
+    "src": "pages/element/call-to-action.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_CtaThree.25177853.js",
+      "_CtaOne.0b55b363.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/Cybersecurity.vue": {
+    "file": "_nuxt/Cybersecurity.0362eecf.js",
+    "src": "pages/Cybersecurity.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_Footer.c5032859.js",
+      "_swiper-slide.eb1cded8.js",
+      "_autoplay.b7e16ea7.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_mitech-slider-cybersecurity-global-image.bc5ac33e.js",
+      "_FunFactTwo.cd005c0e.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_ServiceStyleTwo.cf901295.js",
+      "_PricingOne.501cbe92.js",
+      "_BlogStyleOne.06768ab7.js",
+      "_ContactUsFour.ef478718.js",
+      "_ContactUsThree.7bc53364.js",
+      "_state.4da28978.js",
+      "components/SectionTitle.vue",
+      "_ServiceItemStyleTwo.3e2c5f83.js",
+      "_service.c21aac85.js",
+      "_caseStidies.34905284.js",
+      "_blog.93ec568a.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/case-studies/index.vue": {
+    "file": "_nuxt/index.08bf34f6.js",
+    "src": "pages/case-studies/index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_CtaThree.25177853.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "components/SectionTitle.vue",
+      "components/CaseStudiesItem.vue",
+      "_caseStidies.34905284.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/element/counters.vue": {
+    "file": "_nuxt/counters.61e2a184.js",
+    "src": "pages/element/counters.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_FunFact.8068214a.js",
+      "_FunFactTwo.cd005c0e.js",
+      "_FunFactThree.f6e20b94.js",
+      "_CtaThree.25177853.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_funfact.d9186b79.js",
+      "_cta.4c436c57.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_ServiceStyleThree.1e23233f.js": {
+    "file": "_nuxt/ServiceStyleThree.1e23233f.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_service.c21aac85.js"
+    ]
+  },
+  "pages/element/box-icon.vue": {
+    "file": "_nuxt/box-icon.2020efa6.js",
+    "src": "pages/element/box-icon.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_CtaThree.25177853.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_FeatureGalleryFour.8485d1a1.js",
+      "_ServiceStyleTwo.cf901295.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js",
+      "_service.c21aac85.js",
+      "components/SectionTitle.vue",
+      "_ServiceItemStyleTwo.3e2c5f83.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_FunFact.8068214a.js": {
+    "file": "_nuxt/FunFact.8068214a.js",
+    "imports": [
+      "_funfact.d9186b79.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "pages/element/gradation.vue": {
+    "file": "_nuxt/gradation.761f8c29.js",
+    "src": "pages/element/gradation.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_CtaThree.25177853.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_FourSteps.66b93d74.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js",
+      "_service.c21aac85.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/case-studies/[id].vue": {
+    "file": "_nuxt/_id_.f37f7edf.js",
+    "src": "pages/case-studies/[id].vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_AccordionTwo.33672eba.js",
+      "_CtaThree.25177853.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_caseStidies.34905284.js",
+      "_TestimonialTwo.aa693ee7.js",
+      "_mitech-home-infotechno-box-large-image-03-540x320.7d856d83.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js",
+      "components/SectionTitle.vue",
+      "_swiper-slide.eb1cded8.js",
+      "_pagination.78108995.js",
+      "_testimonial.08dcc02c.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/blog/[slug].vue": {
+    "file": "_nuxt/_slug_.e2c2d070.js",
+    "src": "pages/blog/[slug].vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_CtaThree.25177853.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_blog.93ec568a.js",
+      "_avatar-06-90x90.699a2360.js",
+      "_reply-comm.a19715a4.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_AccordionTwo.33672eba.js": {
+    "file": "_nuxt/AccordionTwo.33672eba.js",
+    "imports": [
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "pages/element/accordion.vue": {
+    "file": "_nuxt/accordion.28139d01.js",
+    "src": "pages/element/accordion.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_CtaThree.25177853.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_AccordionTwo.33672eba.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/element/teams.vue": {
+    "file": "_nuxt/teams.eaeaf272.js",
+    "src": "pages/element/teams.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_CtaThree.25177853.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_TeamOne.bbc847d2.js",
+      "_TeamTwo.2a862499.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js",
+      "_team.61f52393.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_green-curve-arrow.e83e43ef.js": {
+    "file": "_nuxt/green-curve-arrow.e83e43ef.js"
+  },
+  "_FourSteps.66b93d74.js": {
+    "file": "_nuxt/FourSteps.66b93d74.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_service.c21aac85.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "pages/element/box-large-image.vue": {
+    "file": "_nuxt/box-large-image.8e2ace97.js",
+    "src": "pages/element/box-large-image.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_CtaThree.25177853.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "components/SectionTitle.vue",
+      "_FeatureItem.4f44404d.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_service.c21aac85.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_ServiceStyleThree.1e23233f.js",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/paper-check/[id].vue": {
+    "file": "_nuxt/_id_.243f1a2e.js",
+    "src": "pages/paper-check/[id].vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_state.4da28978.js",
+      "_axios.28bc18a3.js",
+      "_index.3c6563bf.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_ChatBot.85e95aeb.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_HeaderTop.fc351d8a.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/element/box-image.vue": {
+    "file": "_nuxt/box-image.989f0a13.js",
+    "src": "pages/element/box-image.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_ServiceIT.ff510ab5.js",
+      "_CtaThree.25177853.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_ServiceStyleThree.1e23233f.js",
+      "_FeatureGallery.841f69d7.js",
+      "_FeatureItemStyleThree.beccbaaa.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_service.c21aac85.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_ServiceItem.bd8b2822.js",
+      "_cta.4c436c57.js",
+      "_FeatureItemTwo.56481985.js",
+      "_swiper-slide.eb1cded8.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/Processing.vue": {
+    "file": "_nuxt/Processing.d4146b9e.js",
+    "src": "pages/Processing.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_VideoWithImages.9be4e62c.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_hero.9184a2c8.js",
+      "_AppointmentForm.d8fc5cf8.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_FunFactThree.f6e20b94.js",
+      "_cta.4c436c57.js",
+      "_BrandLogoCarousel.16181686.js",
+      "_CtaContactTwo.e876b92b.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_SearchOverlay.751558d1.js",
+      "_ServiceStyleThree.1e23233f.js",
+      "_TestimonialTwo.aa693ee7.js",
+      "_HeaderTop.fc351d8a.js",
+      "_funfact.d9186b79.js",
+      "_swiper-slide.eb1cded8.js",
+      "_autoplay.b7e16ea7.js",
+      "_state.4da28978.js",
+      "_service.c21aac85.js",
+      "components/SectionTitle.vue",
+      "_pagination.78108995.js",
+      "_testimonial.08dcc02c.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/Person/Info.vue": {
+    "file": "_nuxt/Info.c9380583.js",
+    "src": "pages/Person/Info.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_axios.28bc18a3.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ],
+    "css": [
+      "_nuxt/Info.4af29b09.css",
+      "_nuxt/base.0750e8f8.css",
+      "_nuxt/el-icon.12f2798b.css",
+      "_nuxt/el-descriptions.22bee64e.css",
+      "_nuxt/el-tag.ac5d8e05.css",
+      "_nuxt/el-card.7155ea48.css"
+    ]
+  },
+  "pages/blog/index.vue": {
+    "file": "_nuxt/index.72524602.js",
+    "src": "pages/blog/index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_CtaThree.25177853.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_blog.93ec568a.js",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/Appointment.vue": {
+    "file": "_nuxt/Appointment.7b20b46e.js",
+    "src": "pages/Appointment.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_Footer.c5032859.js",
+      "_swiper-slide.eb1cded8.js",
+      "_autoplay.b7e16ea7.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_AppointmentForm.d8fc5cf8.js",
+      "_hero.9184a2c8.js",
+      "_CtaOne.0b55b363.js",
+      "_FunFactTwo.cd005c0e.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_ServiceStyleTwo.cf901295.js",
+      "_service.c21aac85.js",
+      "_TeamOne.bbc847d2.js",
+      "_CaseStudiesSection.1bf2e87e.js",
+      "_TestimonialTwo.aa693ee7.js",
+      "_state.4da28978.js",
+      "_cta.4c436c57.js",
+      "components/SectionTitle.vue",
+      "_ServiceItemStyleTwo.3e2c5f83.js",
+      "_team.61f52393.js",
+      "components/CaseStudiesItem.vue",
+      "_pagination.78108995.js",
+      "_caseStidies.34905284.js",
+      "_testimonial.08dcc02c.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_PricingOne.501cbe92.js": {
+    "file": "_nuxt/PricingOne.501cbe92.js",
+    "imports": [
+      "_swiper-slide.eb1cded8.js",
+      "_caseStidies.34905284.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "pages/Scientist/SciInfo.vue": {
+    "file": "_nuxt/SciInfo.cf4aaa5f.js",
+    "src": "pages/Scientist/SciInfo.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ],
+    "css": [
+      "_nuxt/SciInfo.4be127da.css",
+      "_nuxt/base.0750e8f8.css",
+      "_nuxt/el-icon.12f2798b.css",
+      "_nuxt/el-descriptions.22bee64e.css",
+      "_nuxt/el-tag.ac5d8e05.css",
+      "_nuxt/el-card.7155ea48.css"
+    ]
+  },
+  "pages/Register.vue": {
+    "file": "_nuxt/Register.13fbfa6b.js",
+    "src": "pages/Register.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_axios.28bc18a3.js",
+      "_login.f65b5d95.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ],
+    "css": [
+      "_nuxt/Register.37d58982.css"
+    ]
+  },
+  "pages/Person/MyCollection-[id].vue": {
+    "file": "_nuxt/MyCollection-_id_.72ab4a8b.js",
+    "src": "pages/Person/MyCollection-[id].vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_state.4da28978.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_axios.28bc18a3.js"
+    ],
+    "css": [
+      "_nuxt/SciPaper.e720821d.css",
+      "_nuxt/base.0750e8f8.css",
+      "_nuxt/el-card.7155ea48.css",
+      "_nuxt/Paper.254241b6.css"
+    ]
+  },
+  "layouts/default.vue": {
+    "file": "_nuxt/default.428fdc55.js",
+    "src": "layouts/default.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_defaultavatar.37b16ac5.js": {
+    "file": "_nuxt/defaultavatar.37b16ac5.js",
+    "assets": [
+      "_nuxt/defaultavatar.1d62f509.png"
+    ]
+  },
+  "_FunFactThree.f6e20b94.js": {
+    "file": "_nuxt/FunFactThree.f6e20b94.js",
+    "imports": [
+      "_funfact.d9186b79.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_CtaOne.0b55b363.js": {
+    "file": "_nuxt/CtaOne.0b55b363.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_cta.4c436c57.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_PageHeader.12d22828.js": {
+    "file": "_nuxt/PageHeader.12d22828.js",
+    "imports": [
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "pages/index-back.vue": {
+    "file": "_nuxt/index-back.0868cca7.js",
+    "src": "pages/index-back.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_hero.9184a2c8.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_BrandLogoCarousel.16181686.js",
+      "_ServiceItem.bd8b2822.js",
+      "_service.c21aac85.js",
+      "_FunFact.8068214a.js",
+      "_CtaContact.429e8900.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "components/SectionTitle.vue",
+      "_FeatureItem.4f44404d.js",
+      "_about.434d9149.js",
+      "_CaseStudiesSection.1bf2e87e.js",
+      "_swiper-slide.eb1cded8.js",
+      "_pagination.78108995.js",
+      "_testimonial.08dcc02c.js",
+      "_BlogStyleOne.06768ab7.js",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_autoplay.b7e16ea7.js",
+      "_funfact.d9186b79.js",
+      "components/CaseStudiesItem.vue",
+      "_caseStidies.34905284.js",
+      "_blog.93ec568a.js"
+    ],
+    "dynamicImports": [
+      "components/SectionTitle.vue"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/Institution.vue": {
+    "file": "_nuxt/Institution.0cc5dccc.js",
+    "src": "pages/Institution.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_ChatBot.85e95aeb.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_axios.28bc18a3.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_HeaderTop.fc351d8a.js"
+    ],
+    "css": [
+      "_nuxt/Institution.0c54f7ed.css",
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "components/CaseStudiesItem.vue": {
+    "file": "_nuxt/CaseStudiesItem.605b8bab.js",
+    "src": "components/CaseStudiesItem.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_TeamOne.bbc847d2.js": {
+    "file": "_nuxt/TeamOne.bbc847d2.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_team.61f52393.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_FeatureGallery.841f69d7.js": {
+    "file": "_nuxt/FeatureGallery.841f69d7.js",
+    "imports": [
+      "_FeatureItemTwo.56481985.js",
+      "_swiper-slide.eb1cded8.js",
+      "_service.c21aac85.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "pages/blog/blog-details.vue": {
+    "file": "_nuxt/blog-details.49b730c7.js",
+    "src": "pages/blog/blog-details.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_CtaThree.25177853.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_blog.93ec568a.js",
+      "_avatar-06-90x90.699a2360.js",
+      "_reply-comm.a19715a4.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_SearchOverlay.751558d1.js": {
+    "file": "_nuxt/SearchOverlay.751558d1.js",
+    "imports": [
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "pages/Test.vue": {
+    "file": "_nuxt/Test.d8b42cdc.js",
+    "src": "pages/Test.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_state.4da28978.js",
+      "_axios.28bc18a3.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_HeaderTop.fc351d8a.js"
+    ],
+    "css": [
+      "_nuxt/Test.7fe14095.css",
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/Person/MyFollow.vue": {
+    "file": "_nuxt/MyFollow.3433a6d8.js",
+    "src": "pages/Person/MyFollow.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_state.4da28978.js",
+      "_axios.28bc18a3.js",
+      "_defaultavatar.37b16ac5.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "node_modules/nuxt/dist/app/entry.mjs"
+    ],
+    "css": [
+      "_nuxt/MyFollow.b4088701.css"
+    ]
+  },
+  "_state.4da28978.js": {
+    "file": "_nuxt/state.4da28978.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs"
+    ]
+  },
+  "_FeatureItemStyleThree.beccbaaa.js": {
+    "file": "_nuxt/FeatureItemStyleThree.beccbaaa.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "pages/service/[slug].vue": {
+    "file": "_nuxt/_slug_.71f47249.js",
+    "src": "pages/service/[slug].vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_AccordionTwo.33672eba.js",
+      "_CtaThree.25177853.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_service.c21aac85.js",
+      "_mitech-home-infotechno-box-large-image-03-540x320.7d856d83.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_login.f65b5d95.js": {
+    "file": "_nuxt/login.f65b5d95.js"
+  },
+  "_VideoWithImages.9be4e62c.js": {
+    "file": "_nuxt/VideoWithImages.9be4e62c.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_Footer.c5032859.js",
+      "_HeaderTop.fc351d8a.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "pages/Scientist/SciPaper.vue": {
+    "file": "_nuxt/SciPaper.ab2c39ab.js",
+    "src": "pages/Scientist/SciPaper.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_state.4da28978.js",
+      "_axios.28bc18a3.js",
+      "_Paper_1.d55cd511.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "node_modules/nuxt/dist/app/entry.mjs"
+    ],
+    "css": [
+      "_nuxt/SciPaper.e720821d.css",
+      "_nuxt/base.0750e8f8.css",
+      "_nuxt/el-icon.12f2798b.css",
+      "_nuxt/el-tag.ac5d8e05.css",
+      "_nuxt/el-card.7155ea48.css"
+    ]
+  },
+  "_team.61f52393.js": {
+    "file": "_nuxt/team.61f52393.js",
+    "imports": [
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_FeatureGalleryFour.8485d1a1.js": {
+    "file": "_nuxt/FeatureGalleryFour.8485d1a1.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_service.c21aac85.js"
+    ]
+  },
+  "pages/Resolutions.vue": {
+    "file": "_nuxt/Resolutions.17c9b8a6.js",
+    "src": "pages/Resolutions.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_Footer.c5032859.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_hero.9184a2c8.js",
+      "_FunFactThree.f6e20b94.js",
+      "_CtaContactTwo.e876b92b.js",
+      "_CtaThree.25177853.js",
+      "_BrandLogoCarousel.16181686.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_SearchOverlay.751558d1.js",
+      "_FeatureItemStyleThree.beccbaaa.js",
+      "_service.c21aac85.js",
+      "_FeatureGalleryFour.8485d1a1.js",
+      "_TestimonialTwo.aa693ee7.js",
+      "_state.4da28978.js",
+      "_funfact.d9186b79.js",
+      "_cta.4c436c57.js",
+      "_swiper-slide.eb1cded8.js",
+      "_autoplay.b7e16ea7.js",
+      "components/SectionTitle.vue",
+      "_pagination.78108995.js",
+      "_testimonial.08dcc02c.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/Login.vue": {
+    "file": "_nuxt/Login.27624114.js",
+    "src": "pages/Login.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_axios.28bc18a3.js",
+      "_login.f65b5d95.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ],
+    "css": [
+      "_nuxt/Login.0133fda5.css"
+    ]
+  },
+  "_ChatBot.85e95aeb.js": {
+    "file": "_nuxt/ChatBot.85e95aeb.js",
+    "imports": [
+      "_state.4da28978.js",
+      "_axios.28bc18a3.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ],
+    "css": [
+      "_nuxt/ChatBot.7e0d5951.css"
+    ]
+  },
+  "_autoplay.b7e16ea7.js": {
+    "file": "_nuxt/autoplay.b7e16ea7.js",
+    "imports": [
+      "_swiper-slide.eb1cded8.js"
+    ]
+  },
+  "pages/IT-Solutions.vue": {
+    "file": "_nuxt/IT-Solutions.c7111f51.js",
+    "src": "pages/IT-Solutions.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_CtaContactTwo.e876b92b.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "components/SectionTitle.vue",
+      "_FeatureItem.4f44404d.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_service.c21aac85.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_Paper_1.d55cd511.js": {
+    "file": "_nuxt/Paper_1.d55cd511.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ],
+    "css": [
+      "_nuxt/Paper_1.b117f898.css",
+      "_nuxt/base.0750e8f8.css",
+      "_nuxt/el-icon.12f2798b.css",
+      "_nuxt/el-tag.ac5d8e05.css",
+      "_nuxt/el-card.7155ea48.css"
+    ]
+  },
+  "_ContactUsThree.7bc53364.js": {
+    "file": "_nuxt/ContactUsThree.7bc53364.js",
+    "imports": [
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "virtual:nuxt:D:/大三上/软件系统分析与设计/src/zfq/RuanFenFrontEnd/mitech-v1.0.7/.nuxt/error-component.mjs": {
+    "file": "_nuxt/error-component.978e7c55.js",
+    "src": "virtual:nuxt:D:/大三上/软件系统分析与设计/src/zfq/RuanFenFrontEnd/mitech-v1.0.7/.nuxt/error-component.mjs",
+    "isDynamicEntry": true,
+    "imports": [
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ],
+    "css": [
+      "_nuxt/error-component.12842598.css"
+    ]
+  },
+  "pages/Person/MyArticle.vue": {
+    "file": "_nuxt/MyArticle.c8f30b7b.js",
+    "src": "pages/Person/MyArticle.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Paper_1.d55cd511.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "node_modules/nuxt/dist/app/entry.mjs"
+    ],
+    "css": [
+      "_nuxt/SciPaper.e720821d.css",
+      "_nuxt/base.0750e8f8.css",
+      "_nuxt/el-icon.12f2798b.css",
+      "_nuxt/el-tag.ac5d8e05.css",
+      "_nuxt/el-card.7155ea48.css"
+    ]
+  },
+  "pages/MessageCenter.vue": {
+    "file": "_nuxt/MessageCenter.4e578ab8.js",
+    "src": "pages/MessageCenter.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_state.4da28978.js",
+      "_axios.28bc18a3.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_ChatBot.85e95aeb.js",
+      "_Footer.c5032859.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_HeaderTop.fc351d8a.js"
+    ],
+    "css": [
+      "_nuxt/MessageCenter.80568e46.css"
+    ]
+  },
+  "pages/Institutionlist.vue": {
+    "file": "_nuxt/Institutionlist.c65cb1b1.js",
+    "src": "pages/Institutionlist.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_ChatBot.85e95aeb.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_axios.28bc18a3.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_HeaderTop.fc351d8a.js"
+    ],
+    "css": [
+      "_nuxt/Institutionlist.3136e42a.css",
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_AppointmentForm.d8fc5cf8.js": {
+    "file": "_nuxt/AppointmentForm.d8fc5cf8.js",
+    "imports": [
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "pages/Scientist.vue": {
+    "file": "_nuxt/Scientist.26a2fb92.js",
+    "src": "pages/Scientist.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_el-overlay.538533c5.js",
+      "_Footer.c5032859.js",
+      "_authentication.849d26eb.js",
+      "_state.4da28978.js",
+      "_axios.28bc18a3.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_defaultavatar.37b16ac5.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_HeaderTop.fc351d8a.js"
+    ],
+    "css": [
+      "_nuxt/Scientist.ab3cfacd.css",
+      "_nuxt/base.0750e8f8.css",
+      "_nuxt/el-icon.12f2798b.css",
+      "_nuxt/el-popper.7909cce2.css",
+      "_nuxt/el-card.7155ea48.css",
+      "_nuxt/el-form.57b45e33.css",
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/Service.vue": {
+    "file": "_nuxt/Service.dcd45e81.js",
+    "src": "pages/Service.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_VideoWithImages.9be4e62c.js",
+      "_hero.9184a2c8.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_CtaThree.25177853.js",
+      "_BrandLogoCarousel.16181686.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_SearchOverlay.751558d1.js",
+      "_FeatureGallery.841f69d7.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_ServiceStyleTwo.cf901295.js",
+      "_FourSteps.66b93d74.js",
+      "_PricingOne.501cbe92.js",
+      "_blog.93ec568a.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js",
+      "_swiper-slide.eb1cded8.js",
+      "_autoplay.b7e16ea7.js",
+      "_state.4da28978.js",
+      "_FeatureItemTwo.56481985.js",
+      "_service.c21aac85.js",
+      "components/SectionTitle.vue",
+      "_ServiceItemStyleTwo.3e2c5f83.js",
+      "_caseStidies.34905284.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_Breadcrumbs.18353780.js": {
+    "file": "_nuxt/Breadcrumbs.18353780.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "pages/Leadership.vue": {
+    "file": "_nuxt/Leadership.746d6686.js",
+    "src": "pages/Leadership.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "_CtaContact.429e8900.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_TeamTwo.2a862499.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_team.61f52393.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/Person/History.vue": {
+    "file": "_nuxt/History.f4d06814.js",
+    "src": "pages/Person/History.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_state.4da28978.js",
+      "_axios.28bc18a3.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ],
+    "css": [
+      "_nuxt/History.6a7924b9.css",
+      "_nuxt/base.0750e8f8.css",
+      "_nuxt/el-icon.12f2798b.css",
+      "_nuxt/el-tag.ac5d8e05.css",
+      "_nuxt/el-card.7155ea48.css"
+    ]
+  },
+  "_caseStidies.34905284.js": {
+    "file": "_nuxt/caseStidies.34905284.js"
+  },
+  "_service.c21aac85.js": {
+    "file": "_nuxt/service.c21aac85.js"
+  },
+  "pages/index.vue": {
+    "file": "_nuxt/index.e298ec73.js",
+    "src": "pages/index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_green-curve-arrow.e83e43ef.js",
+      "_mitech-slider-cybersecurity-global-image.bc5ac33e.js",
+      "_index.943c822d.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_axios.28bc18a3.js",
+      "_ChatBot.85e95aeb.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_HeaderTop.fc351d8a.js"
+    ],
+    "css": [
+      "_nuxt/index.fb3867b6.css",
+      "_nuxt/base.0750e8f8.css",
+      "_nuxt/el-button.aa646169.css",
+      "_nuxt/el-autocomplete.04f63c32.css",
+      "_nuxt/el-input.3fc85dc7.css",
+      "_nuxt/el-popper.7909cce2.css",
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_OffCanvasMobileMenu.b67ad2ce.js": {
+    "file": "_nuxt/OffCanvasMobileMenu.b67ad2ce.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_Footer.c5032859.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_authentication.849d26eb.js": {
+    "file": "_nuxt/authentication.849d26eb.js",
+    "css": [
+      "_nuxt/authentication.321b693e.css"
+    ],
+    "assets": [
+      "_nuxt/authentication.725a5349.png"
+    ]
+  },
+  "_ServiceIT.ff510ab5.js": {
+    "file": "_nuxt/ServiceIT.ff510ab5.js",
+    "imports": [
+      "_ServiceItem.bd8b2822.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_service.c21aac85.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_CtaContactTwo.e876b92b.js": {
+    "file": "_nuxt/CtaContactTwo.e876b92b.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_el-overlay.538533c5.js": {
+    "file": "_nuxt/el-overlay.538533c5.js",
+    "imports": [
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ],
+    "css": [
+      "_nuxt/el-overlay.6e0625dd.css"
+    ]
+  },
+  "pages/Person.vue": {
+    "file": "_nuxt/Person.6d04c9f3.js",
+    "src": "pages/Person.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_el-overlay.538533c5.js",
+      "_Footer.c5032859.js",
+      "_authentication.849d26eb.js",
+      "_state.4da28978.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_axios.28bc18a3.js",
+      "_defaultavatar.37b16ac5.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_HeaderTop.fc351d8a.js"
+    ],
+    "css": [
+      "_nuxt/Person.10d6e799.css",
+      "_nuxt/base.0750e8f8.css",
+      "_nuxt/el-popper.7909cce2.css",
+      "_nuxt/el-popover.42c2bc56.css",
+      "_nuxt/el-button.aa646169.css",
+      "_nuxt/el-icon.12f2798b.css",
+      "_nuxt/el-card.7155ea48.css",
+      "_nuxt/el-input.3fc85dc7.css",
+      "_nuxt/el-form.57b45e33.css",
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/Modern-It-Company.vue": {
+    "file": "_nuxt/Modern-It-Company.a946cc1f.js",
+    "src": "pages/Modern-It-Company.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_Footer.c5032859.js",
+      "_HeaderTop.fc351d8a.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_green-curve-arrow.e83e43ef.js",
+      "_BrandLogoCarousel.16181686.js",
+      "_funfact.d9186b79.js",
+      "_CtaContactTwo.e876b92b.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_swiper-slide.eb1cded8.js",
+      "_service.c21aac85.js",
+      "_FeatureItemTwo.56481985.js",
+      "_pagination.78108995.js",
+      "_state.4da28978.js",
+      "_autoplay.b7e16ea7.js"
+    ],
+    "css": [
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/Manager.vue": {
+    "file": "_nuxt/Manager.a7f466f5.js",
+    "src": "pages/Manager.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_state.4da28978.js",
+      "_axios.28bc18a3.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_ChatBot.85e95aeb.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_HeaderTop.fc351d8a.js"
+    ],
+    "css": [
+      "_nuxt/Manager.0c2b7fc1.css",
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_pagination.78108995.js": {
+    "file": "_nuxt/pagination.78108995.js",
+    "imports": [
+      "_swiper-slide.eb1cded8.js"
+    ]
+  },
+  "_Footer.c5032859.js": {
+    "file": "_nuxt/Footer.c5032859.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ],
+    "css": [
+      "_nuxt/Footer.cb3ed37a.css"
+    ]
+  },
+  "pages/ArticleDetail.vue": {
+    "file": "_nuxt/ArticleDetail.54815d08.js",
+    "src": "pages/ArticleDetail.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Breadcrumbs.18353780.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_state.4da28978.js",
+      "_ServiceItemStyleTwo.3e2c5f83.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_axios.28bc18a3.js",
+      "_el-overlay.538533c5.js",
+      "_CtaThree.25177853.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_index.3c6563bf.js",
+      "_reply-comm.a19715a4.js",
+      "_ChatBot.85e95aeb.js",
+      "_PageHeader.12d22828.js",
+      "_HeaderTop.fc351d8a.js",
+      "_cta.4c436c57.js"
+    ],
+    "css": [
+      "_nuxt/ArticleDetail.b5daa142.css",
+      "_nuxt/base.0750e8f8.css",
+      "_nuxt/el-button.aa646169.css",
+      "_nuxt/el-row.a555356e.css",
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "_axios.28bc18a3.js": {
+    "file": "_nuxt/axios.28bc18a3.js"
+  },
+  "_Header.460fa155.js": {
+    "file": "_nuxt/Header.460fa155.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_Footer.c5032859.js",
+      "_state.4da28978.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_HeaderTop.fc351d8a.js"
+    ]
+  },
+  "__plugin-vue_export-helper.2c3522c3.js": {
+    "file": "_nuxt/_plugin-vue_export-helper.2c3522c3.js"
+  },
+  "_swiper-slide.eb1cded8.js": {
+    "file": "_nuxt/swiper-slide.eb1cded8.js",
+    "imports": [
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ]
+  },
+  "_index.3c6563bf.js": {
+    "file": "_nuxt/index.3c6563bf.js"
+  },
+  "pages/Search.vue": {
+    "file": "_nuxt/Search.72055cd1.js",
+    "src": "pages/Search.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_ChatBot.85e95aeb.js",
+      "_Footer.c5032859.js",
+      "_state.4da28978.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_axios.28bc18a3.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_HeaderTop.fc351d8a.js"
+    ],
+    "css": [
+      "_nuxt/Search.b69aa0a4.css",
+      "_nuxt/base.0750e8f8.css",
+      "_nuxt/el-input.3fc85dc7.css",
+      "_nuxt/el-form.57b45e33.css",
+      "_nuxt/el-autocomplete.04f63c32.css",
+      "_nuxt/el-popper.7909cce2.css",
+      "_nuxt/el-button.aa646169.css",
+      "_nuxt/el-popover.42c2bc56.css",
+      "_nuxt/el-row.a555356e.css",
+      "_nuxt/el-tag.ac5d8e05.css",
+      "_nuxt/el-card.7155ea48.css",
+      "_nuxt/el-icon.12f2798b.css"
+    ]
+  },
+  "_index.943c822d.js": {
+    "file": "_nuxt/index.943c822d.js",
+    "imports": [
+      "_Header.460fa155.js",
+      "node_modules/nuxt/dist/app/entry.mjs"
+    ]
+  },
+  "node_modules/nuxt/dist/app/entry.mjs": {
+    "file": "_nuxt/entry.0cdb93ce.js",
+    "src": "node_modules/nuxt/dist/app/entry.mjs",
+    "isEntry": true,
+    "imports": [
+      "__plugin-vue_export-helper.2c3522c3.js"
+    ],
+    "dynamicImports": [
+      "pages/About.vue",
+      "pages/Appointment.vue",
+      "pages/ArticleDetail.vue",
+      "pages/Contact.vue",
+      "pages/Cybersecurity.vue",
+      "pages/IT-Services.vue",
+      "pages/IT-Solutions.vue",
+      "pages/Institution.vue",
+      "pages/Institutionlist.vue",
+      "pages/Leadership.vue",
+      "pages/Login.vue",
+      "pages/Manager.vue",
+      "pages/MessageCenter.vue",
+      "pages/Modern-It-Company.vue",
+      "pages/Person/History.vue",
+      "pages/Person/Info.vue",
+      "pages/Person/MyArticle.vue",
+      "pages/Person/MyCollection-[id].vue",
+      "pages/Person/MyFollow.vue",
+      "pages/Person.vue",
+      "pages/Processing.vue",
+      "pages/Register.vue",
+      "pages/Resolutions.vue",
+      "pages/Scientist/SciInfo.vue",
+      "pages/Scientist/SciPaper.vue",
+      "pages/Scientist.vue",
+      "pages/Search.vue",
+      "pages/Service.vue",
+      "pages/Test.vue",
+      "pages/TestChat.vue",
+      "pages/blog/[slug].vue",
+      "pages/blog/blog-details.vue",
+      "pages/blog/index.vue",
+      "pages/case-studies/[id].vue",
+      "pages/case-studies/index.vue",
+      "pages/element/accordion.vue",
+      "pages/element/box-icon.vue",
+      "pages/element/box-image.vue",
+      "pages/element/box-large-image.vue",
+      "pages/element/call-to-action.vue",
+      "pages/element/counters.vue",
+      "pages/element/gradation.vue",
+      "pages/element/teams.vue",
+      "pages/index-back.vue",
+      "pages/index.vue",
+      "pages/netForEssay.vue",
+      "pages/paper-check/[id].vue",
+      "pages/scholar-check/[id].vue",
+      "pages/service/[slug].vue",
+      "layouts/default.vue",
+      "virtual:nuxt:D:/大三上/软件系统分析与设计/src/zfq/RuanFenFrontEnd/mitech-v1.0.7/.nuxt/error-component.mjs"
+    ],
+    "css": [
+      "_nuxt/entry.8db3fabf.css"
+    ],
+    "assets": [
+      "_nuxt/fa-brands-400.e4299464.eot",
+      "_nuxt/fa-brands-400.8ea87917.woff2",
+      "_nuxt/fa-brands-400.f9217f66.woff",
+      "_nuxt/fa-brands-400.cda59d6e.ttf",
+      "_nuxt/fa-brands-400.9b3a8965.svg",
+      "_nuxt/fa-regular-400.79d08806.eot",
+      "_nuxt/fa-regular-400.e42a8844.woff2",
+      "_nuxt/fa-regular-400.cb9e9e69.woff",
+      "_nuxt/fa-regular-400.e8711bbb.ttf",
+      "_nuxt/fa-regular-400.62f1f2b9.svg",
+      "_nuxt/fa-solid-900.373c04fd.eot",
+      "_nuxt/fa-solid-900.9834b82a.woff2",
+      "_nuxt/fa-solid-900.3f6d3488.woff",
+      "_nuxt/fa-solid-900.af639750.ttf",
+      "_nuxt/fa-solid-900.25630646.svg"
+    ]
+  },
+  "pages/netForEssay.vue": {
+    "file": "_nuxt/netForEssay.553bebb1.js",
+    "src": "pages/netForEssay.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "_Footer.c5032859.js",
+      "_state.4da28978.js",
+      "_index.943c822d.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "_axios.28bc18a3.js",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_HeaderTop.fc351d8a.js"
+    ],
+    "css": [
+      "_nuxt/netForEssay.0c2cc63b.css",
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css",
+      "_nuxt/base.0750e8f8.css",
+      "_nuxt/el-card.7155ea48.css",
+      "_nuxt/Paper.254241b6.css"
+    ]
+  },
+  "pages/scholar-check/[id].vue": {
+    "file": "_nuxt/_id_.9605b101.js",
+    "src": "pages/scholar-check/[id].vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_Header.460fa155.js",
+      "node_modules/nuxt/dist/app/entry.mjs",
+      "__plugin-vue_export-helper.2c3522c3.js",
+      "_ChatBot.85e95aeb.js",
+      "_Footer.c5032859.js",
+      "_OffCanvasMobileMenu.b67ad2ce.js",
+      "_state.4da28978.js",
+      "_HeaderTop.fc351d8a.js",
+      "_axios.28bc18a3.js"
+    ],
+    "css": [
+      "_nuxt/_id_.32a66320.css",
+      "_nuxt/OffCanvasMobileMenu.abc3eaad.css"
+    ]
+  },
+  "pages/Scientist/SciPaper.css": {
+    "file": "_nuxt/SciPaper.e720821d.css",
+    "src": "pages/Person/MyCollection-[id].css"
+  },
+  "pages/Person/MyArticle.css": {
+    "file": "_nuxt/SciPaper.e720821d.css",
+    "src": "pages/Person/MyCollection-[id].css"
+  }
+}
