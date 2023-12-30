@@ -77,6 +77,9 @@ import { getLocale } from '@antv/g2plot/lib/core/locale';
 
         mounted(){
             getLoacl()
+            window.onbeforeunload = () => {
+                setLocal();
+            }
             window.addEventListener('scroll', () => {
                 let scrollPos = window.scrollY
                 if(scrollPos >= 200){

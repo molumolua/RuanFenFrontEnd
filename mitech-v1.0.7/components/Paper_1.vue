@@ -29,7 +29,7 @@
 <script>
 export default {
     name: "Paper",
-    props: ["paper"],
+    props: ["paper"]
 }
 </script>
 

@@ -29,6 +29,9 @@
         mounted(){
             getLoacl()
             console.log(useWorkName().value)
+            // window.onbeforeunload = () => {
+            //     setLocal() 
+            // }
         },
         data(){
             return{

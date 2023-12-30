@@ -25,6 +25,11 @@
                 <span>Message</span>
             </nuxt-link>
         </li>
+        <li>
+            <nuxt-link to="/manager" @click="setLocal()">
+                <span>Others</span>
+            </nuxt-link>
+        </li>
 
     </ul>
 </template>

@@ -25,7 +25,11 @@ export default {
         }
     },
     mounted(){
+        getLoacl()
         this.userName=useUserName().value.toUpperCase()
+        window.onbeforeunload = () => {
+            setLocal() 
+        }
     },
     methods:{
         clearUser(){
